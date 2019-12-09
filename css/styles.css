@@ -164,7 +164,7 @@ footer{
 }
 .social a{
     display:block;
-    color:grey;
+    color:lightgray;
     padding:10px
 }
 .social a:hover{
@@ -447,7 +447,7 @@ footer{
 .project{
     position:relative;
     max-width:900px;
-    margin:0 auto 30px auto;
+    margin:0 auto 40px auto;
     overflow:hidden;
     background:#fff;
     border-radius:4px
