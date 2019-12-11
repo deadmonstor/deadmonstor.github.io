@@ -1,4 +1,4 @@
-# Portfolio for Joshua MObley
+# Portfolio for Joshua Mobley
 
  ## URL's
   https://www.linkedin.com/in/joshua-mobley/
