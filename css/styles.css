@@ -1,6 +1,7 @@
 body{
     font-family:'Lato', sans-serif;
-    font-size:16px
+    font-size:16px;
+    background-color: #4c4c4c;
 }
 body.active{
     overflow:hidden;
@@ -10,12 +11,11 @@ body.active{
     background:#fff;
     padding:10px;
     margin-bottom:10px;
-    border:1px solid #dcd9d9
 }
 .no-js #experience-timeline>div h3{
     font-size:1.5em;
     font-weight:300;
-    color:#374054;
+    color:#ffffff;
     display:inline-block;
     margin:0
 }
@@ -55,7 +55,7 @@ header{
 }
 header ul{
     display:inline-block;
-    background: rgba(255, 255, 255, 0.95);
+    background:rgb(47 47 47);
     text-align:center;
     padding:10px;
     margin:0;
@@ -69,7 +69,7 @@ header li{
 
 header a{
     display:block;
-    color:#3498db;
+    color:#ffffff;
     padding:10px
 }
 header a:hover{
@@ -79,7 +79,7 @@ header a:hover{
     border-radius:4px
 }
 header a:focus{
-    color:#3498db;
+    color:#6c34db;
     text-decoration:none
 }
 header.active{
@@ -98,7 +98,7 @@ header.sticky{
     position:fixed;
     right:15px;
     top:10px;
-    color:#3498db;
+    color:#6c34db;
     font-size:1.5em;
     z-index:20;
     padding:0 7px;
@@ -114,7 +114,7 @@ header.sticky{
     padding-right:15px;
     padding-top:10px;
     cursor:pointer;
-    color:#3498db
+    color:#6c34db
 }
 #mobile-menu-close span{
     font-size:0.5em;
@@ -131,7 +131,7 @@ footer{
 }
 .copyright p{
     margin:0;
-    color:#74808a
+    color:#ffffff
 }
 .top{
     text-align:center
@@ -179,7 +179,7 @@ footer{
     transition:.5s ease all
 }
 .btn-rounded-white:hover{
-    color:#3498db;
+    color:#6c34db;
     background:#fff;
     text-decoration:none
 }
@@ -205,10 +205,10 @@ footer{
     left:0;
     right:0;
     margin:0 auto;
-    background:#3498db
+    background:#6c34db
 }
 .background-alt{
-    background:#f2f2f5
+    background:#2f2f2f
 }
 #lead{
     position:relative;
@@ -253,7 +253,8 @@ footer{
     right:0;
     bottom:0;
     left:0;
-    background:rgba(33,125,187,0.8);
+    /*background:rgba(33,125,187,0.8);*/
+    background: radial-gradient(circle, rgb(117 0 158 / 50%) 0%, rgb(15 0 19 / 70%) 100%);
     z-index:1
 }
 #lead-down{
@@ -294,22 +295,20 @@ footer{
 }
 #about{
     padding:75px 15px;
-    border-bottom:1px solid #dcd9d9
 }
 #about h2{
-    color:#374054
+    color:#ffffff
 }
 #about p{
-    color:#74808a;
+    color:#ffffff;
     margin:0
 }
 #experience{
     padding:50px 15px;
     text-align:center;
-    border-bottom:1px solid #dcd9d9
 }
 #experience h2{
-    color:#374054
+    color:#ffffff
 }
 #experience-timeline{
     margin:30px auto 0 auto;
@@ -325,7 +324,7 @@ footer{
     right:auto;
     height:100%;
     width:3px;
-    background:#3498db;
+    background:#6c34db;
     z-index:0
 }
 #experience-timeline:after{
@@ -333,14 +332,13 @@ footer{
     content:'';
     width:3px;
     height:40px;
-    background:#3498db;
-    background:linear-gradient(to bottom, #3498db, rgba(52,152,219,0));
+    background:#6c34db;
+    background:linear-gradient(to bottom, #6c34db, rgba(52,152,219,0));
     top:100%;
     left:303px
 }
 .vtimeline-content{
     margin-left:350px;
-    background:#fff;
     border:1px solid #e6e6e6;
     padding:15px;
     border-radius:3px;
@@ -349,7 +347,7 @@ footer{
 .vtimeline-content h3{
     font-size:1.5em;
     font-weight:300;
-    color:#374054;
+    color:#ffffff;
     display:inline-block;
     margin:0
 }
@@ -360,7 +358,7 @@ footer{
     margin:0 0 15px 0
 }
 .vtimeline-content p{
-    color:#74808a;
+    color:#ffffff;
     font-size:0.9em;
     margin:0
 }
@@ -375,7 +373,7 @@ footer{
     color:#fff;
     width:50px;
     height:50px;
-    background:#3498db;
+    background:#6c34db;
     border-radius:50%;
     float:left;
     z-index:99;
@@ -393,29 +391,27 @@ footer{
     left:0;
     top:10px;
     font-weight:300;
-    color:#374054
+    color:#ffffff
 }
 #education{
     padding:50px 15px 20px 15px;
-    border-bottom:1px solid #dcd9d9;
     text-align:center
 }
 #education h2{
-    color:#374054;
+    color:#ffffff;
     margin-bottom:50px
 }
 .education-block{
     max-width:700px;
     margin:0 auto 30px auto;
     padding:15px;
-    border:1px solid #dcd9d9;
     text-align:left
 }
 .education-block h3{
     font-weight:500;
     float:left;
     margin:0;
-    color:#374054
+    color:#ffffff
 }
 .education-block span{
     color:#74808a;
@@ -437,11 +433,10 @@ footer{
 }
 #projects{
     padding:50px 15px;
-    border-bottom:1px solid #dcd9d9;
     text-align:center
 }
 #projects h2{
-    color:#374054;
+    color:#ffffff;
     margin-bottom:50px
 }
 .project{
@@ -449,7 +444,7 @@ footer{
     max-width:900px;
     margin:0 auto 40px auto;
     overflow:hidden;
-    background:#fff;
+    border: 1px solid #e6e6e6;
     border-radius:4px
 }
 .project-image{
@@ -465,11 +460,11 @@ footer{
 .project-info h3{
     font-size:1.5em;
     font-weight:300;
-    color:#374054;
+    color:#ffffff;
     margin:0 0 15px 0
 }
 .project-info p{
-    color:#74808a;
+    color:#ffffff;
     margin:0 0 15px 0;
     font-size:0.9em
 }
@@ -487,7 +482,7 @@ footer{
     text-align:center
 }
 #skills h2{
-    color:#374054;
+    color:#ffffff;
     margin-bottom:50px
 }
 #skills ul{
@@ -500,15 +495,14 @@ footer{
     display:inline-block;
     margin:7px;
     padding:5px 10px;
-    color:#374054;
-    background:#e4e4ea;
+    color:#ffffff;    
+    border:1px solid #dcd9d9;
     list-style:none;
     cursor:default;
     font-size:1.2em
 }
 #contact{
     padding:50px 15px;
-    background:#3498db;
     text-align:center
 }
 #contact h2{
@@ -527,27 +521,27 @@ footer{
     border-radius:4px;
     border:none;
     margin-bottom:10px;
-    background:#1d6fa5;
-    color:#fff;
+    background:#cccccc;
+    color:#000;
     transition:.5s ease all
 }
 #contact-form input::-webkit-input-placeholder,#contact-form textarea::-webkit-input-placeholder{
-    color:#fff
+    color:#000
 }
 #contact-form input:-moz-placeholder,#contact-form textarea:-moz-placeholder{
-    color:#fff;
+    color:#000;
     opacity:1
 }
 #contact-form input::-moz-placeholder,#contact-form textarea::-moz-placeholder{
-    color:#fff;
+    color:#000;
     opacity:1
 }
 #contact-form input:-ms-input-placeholder,#contact-form textarea:-ms-input-placeholder{
-    color:#fff
+    color:#000
 }
 #contact-form input:focus,#contact-form textarea:focus{
     outline:none;
-    background:#16527a
+    background:#aaaaaa
 }
 #contact-form textarea{
     height:150px;
@@ -560,7 +554,7 @@ footer{
     border-radius:4px;
     padding:5px 10px;
     border:none;
-    color:#3498db;
+    color:#000000;
     font-weight:700;
     box-shadow:0 1px 3px rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.24);
     transition:.5s ease all
@@ -571,23 +565,21 @@ footer{
 .optional-section{
     padding:50px 15px;
     text-align:center;
-    border-top:1px solid #dcd9d9
 }
 .optional-section h2{
-    color:#374054
+    color:#ffffff
 }
 .optional-section-block{
     max-width:700px;
     margin:0 auto 30px auto;
     padding:15px;
-    border:1px solid #dcd9d9;
     background:#fff;
     text-align:left
 }
 .optional-section-block h3{
     font-weight:500;
     margin:0 0 15px 0;
-    color:#374054
+    color:#ffffff
 }
 .optional-section-block h4{
     color:#74808a;
