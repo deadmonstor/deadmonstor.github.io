@@ -1,360 +1,518 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Portfolio</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+	<!-- meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Joshua Mobley - Personal Portfolio</title>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPWGYQJDTC"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-QPWGYQJDTC');
+	</script>
+
+	<!-- tab img -->
+	<link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+
+	<!-- css plugin -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="assets/css/flexslider.css">
+	<link rel="stylesheet" href="assets/css/aos.css">
+
+	<!-- main css -->
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/style-responsives.css">
+
+	<!-- google fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Hind:600|Lato:300,400" rel="stylesheet">
+
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>
-    <div id="mobile-menu-open" class="shadow-large">
-        <i class="fa fa-bars" aria-hidden="true"></i>
-    </div>
+	<!-- // PRELOADER BEGIN -->
+	<div id="preloader">
+		<div id="status">
+			<div class="loader-revolve center">
+				<span></span>
+			</div>
+		</div>
+	</div>
+	<!-- // PRELOADER END -->
 
-    <header>
-        <div id="mobile-menu-close">
-            <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
-        </div>
-        <ul id="menu" class="shadow">
-            <li>
-                <a href="#about">About</a>
-            </li>
-            <li>
-                <a href="#experience">Experiences</a>
-            </li>
-            <li>
-                <a href="#projects">Projects</a>
-            </li>
-            <li>
-                <a href="#slideshow">Slide show</a>
-            </li>
-            <li>
-                <a href="#skills">Skills</a>
-            </li>
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
-        </ul>
-    </header>
-    <!-- End header -->
+	<!-- // NAVIGATION BEGIN -->
+	<div id="navigation">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="logo">
+						<a href="index.html">Joshua Mobley.</a>
+					</div>
+				</div>
 
-    <div id="lead">
-        <div id="lead-content">
-            <h1>Joshua Mobley</h1>
-            <h2>Games Programmer</h2>
-            <h2>
-                <div class="col-sm-5 social" style="display: contents;">
-                    <ul>
-                        <li>
-                            <a href="https://www.linkedin.com/in/joshua-mobley/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/deadmonstor" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/deadmonstors" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        </li>
-			 <li>
-                            <a href="https://steamcommunity.com/id/deadmonstor" target="_blank"><i class="fa fa-steam" aria-hidden="true"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </h2>
+				<div class="col-sm-9">
+					<div class="navigation-menu">
+						<div class="navbar">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div>
 
-        </div>
-        <!-- End #lead-content -->
+							<div class="navbar-collapse collapse">
+								<ul class="nav navbar-nav navbar-right">
+									<li><a class="active smoth-scroll" href="#home">Home</a></li>
+									<li><a class="smoth-scroll" href="#about">About</a></li>
+									<li><a class="smoth-scroll" href="#experiences">Experiences</a></li>
+									<li><a class="smoth-scroll" href="#portfolio">Portfolio</a></li>
+									<li><a class="smoth-scroll" href="#blog">Blog</a></li>
+									<li><a class="smoth-scroll" href="#contact">Contact</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- // NAVIGATION END -->
 
-        <div id="lead-overlay"></div>
+	<!-- // HOME BEGIN -->
+	<div id="home" class="home-bg" style="background-image: url('assets/img/background.jpeg')" data-stellar-background-ratio="0.6">
+		<div class="overlay">
+			<div class="container">
+				<div class="row">
+					<div class="home-text">
+						<div class="profile-pic" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300" data-aos-offset="0">
+							<img src="assets/img/me.jpg"/>
+						</div>
 
-        <div id="lead-down">
-            <span>
-                <i class="fa fa-chevron-down" aria-hidden="true"></i>
-            </span>
-        </div>
-        <!-- End #lead-down -->
-    </div>
-    <!-- End #lead -->
+						<div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300" data-aos-offset="0">
+							<h1>Hi, I'm Joshua Mobley</h1>
+							<h3 id="text-rotator">
+								<div>Games Developer</div>
+								<div>C++ Programmer</div>
+								<div>C# Programmer</div>
+							</h3>
+						</div>
+					</div>
+					<a class="smoth-scroll" href="#about"><i class="fa fa-angle-down arrow"></i></a>
+				</div>
+			</div>
+		</div>
 
-    <div id="about" class="background-alt">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h2 class="heading">About Me</h2>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                            My name is Joshua Mobley, I am an aspiring game programming that has a proactive mind to learn more about the industry.<br><br>
-                            In my spare time, I work on games and game jams to further my knowledge of games and designing games.<br><br>
-                            100's of hours coding in unreal and furthering my knowledge as well as over 10,000 hours on Garry's Mod where I code addons and make content for the modding scene.<br><br>
-                            Whenever I have free time I try to above and beyond my education to try and get more knowledge on areas which I want to learn creating a hard worker.<br><br>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End #about -->
+	</div>
+	<!-- // HOME END -->
 
-    <div id="experience">
-        <h2 class="heading">Experiences</h2>
-        <div id="experience-timeline">
+	<!-- // ABOUT BEGIN -->
+	<section id="about">
+		<div class="container">
+			<div class="row">
 
-	<div data-date="September 2016 – September 2019">
-                <h3>Banbury and Bicester College</h3>
-                <p>
-                    Here I learnt a lot of the fundamentals of making a game and what makes them good.
-                    <br>
-                    <br>
-                    With the skills I learnt I ended up doing a lot of sideprojects
-                    <br>
-                    <br>
-                    Some of the things below are what I did during college, these were game jams that I entered
-                </p>
-            </div>
-		
-            <div data-date="September 2019 – Present">
-                <h3>Staffordshire University</h3>
-                <p>
-                    I am currently here learning C++ and working on other side projects in my own time.
-                    <br><br>
-                    You can follow me on twitter to get more updates on this however at the moment I have just started and don't have much content to show off.
-                    <br><br>
-                    This will change significantly in the second semester where I am going to be using the techniques that I have been learning throughout the first year.
-                </p>
-            </div>
-
-          
-
-        </div>
-    </div>
-    <!-- End #experience -->
-
-    <div id="projects" class="background-alt">
-        <h2 class="heading">Projects</h2>
-        <div class="container">
-            <div class="row">
-                <div class="project shadow-large">
-
-                    <div class="project-image">
-                        <img src="https://i.imgur.com/beTKNLX.png" style="width: 310px;" />
-                    </div>
-                    <!-- End .project-image -->
-                    <div class="project-info">
-                        <h3>University project: Mario</h3>
-                        <p>
-                            This was a university assignment that where we made our own engine using the library SDL2. With this we had to create something that looked like Mario.
-                        </p>
-                        <a href="https://youtu.be/6ndRuoH8Zi4">Video</a> <br>
-                        <a href="https://github.com/deadmonstor/Games-Engine-Creation">Source code</a>
-                    </div>
-                    <!-- End .project-info -->
-                </div>
-                <!-- End .project -->
-
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <img src="https://i.imgur.com/oHgwkCQ.png" style="width: 310px;" />
-                    </div>
-                    <!-- End .project-image -->
-                    <div class="project-info">
-                        <h3>University project: Open GL fps shooter</h3>
-                        <p>
-                            This was a university assignment that where we made our own engine using the library freeglut.
-                            We had to use the library to make import objects. I made it so you could shoot blocks and gain score
-                        </p>
-                        <a href="https://youtu.be/jx5YzZiTThA">Video</a> <br>
-                        <a href="https://github.com/deadmonstor/FOGGS-OpenGL">Source code</a>
-                    </div>
-                    <!-- End .project-info -->
-                </div>
-                <!-- End .project -->
-                
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <img src="images/iNggsUE.png" style="width: 310px; height 310px;" />
-                    </div>
-                    <!-- End .project-image -->
-                    <div class="project-info">
-                        <h3>Simple 2D Platformer</h3>
-                        <p>
-                            This project demonstrated my ability to code in C++, this was one of the first projects that I did. I used the Staffordshire uni game SDK and built it off the ground there. There is a level editor, high scores and coins that you have to go around and collected in the game.
-                        </p>
-                        <a href="https://github.com/deadmonstor/2DTemplateGame">View Project</a>
-                    </div>
-                    <!-- End .project-info -->
-                </div>
-
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <img src="https://i.ytimg.com/vi/J70qlUjNDmw/maxresdefault.jpg" style="width: 310px; height 310px;" />
-                    </div>
-                    <!-- End .project-image -->
-                    <div class="project-info">
-                        <h3>Game Jam game: Light Game</h3>
-                        <p>
-                            This is a game jam that was done in two days with the theme phobias, we picked the theme light and dark where the enemies are in the dark and you have to use the light to kill them.
-                        </p>
-                        <a href="https://www.youtube.com/watch?v=J70qlUjNDmw&feature=youtu.be">View on Youtube</a>
-                    </div>
-                    <!-- End .project-info -->
-                </div>
-                <!-- End .project -->
-
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <img src="https://i.imgur.com/LeXBlzX.jpg" style="width: 310px; height 310px;" />
-                    </div>
-                    <!-- End .project-image -->
-                    <div class="project-info">
-                        <h3>GameJam game: GreyScale</h3>
-                        <p>
-                           This was another game jam game that was done in 4 days, I ended up doing it so that you had to battle each other.
-                        </p>
-                        <a href="https://i.imgur.com/9J2sxJc.gif">Video of main menu</a>
-                    </div>
-                    <!-- End .project-info -->
-                </div>
-                <!-- End .project -->
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End #projects -->
+				<div class="description col-md-6 col-sm-4 col-xs-12 text-center center">
+					<h2>Hello, I am Josh</h2>
+					<h4>Games Developer from the UK</h4>
+					<p>My name is Joshua Mobley, I am an aspiring game programming that has a proactive mind to
+						learn more about the industry.<br><br>
 
 
-    <!-- Slideshow container -->
-    <div id = "slideshow" class="slideshow-container">
-        <br><br>
-        <!-- Full-width images with number and caption text -->
-        <div class="mySlides fade">
-            <center><img style="max-width: 80%" src="images/iNggsUE.png"></center>
-        </div>
-
-        <div class="mySlides fade">
-            <center><img style="max-width: 80%" src="https://i.ytimg.com/vi/J70qlUjNDmw/maxresdefault.jpg"></center>
-        </div>
-
-        <div class="mySlides fade">
-            <center><img style="max-width: 80%" src="https://i.imgur.com/LeXBlzX.jpg"></center>
-        </div>
-
-        <div class="mySlides fade">
-            <center><img style="max-width: 80%" src="https://i.imgur.com/9Vvm4xG.png"></center>
-        </div>
-
-        <div class="mySlides fade">
-            <center><img style="max-width: 80%" src="https://i.imgur.com/beTKNLX.png"></center>
-        </div>
-
-        <div class="mySlides fade">
-            <center><img style="max-width: 80%" src="https://i.imgur.com/oHgwkCQ.png"></center>
-        </div>
-
-    </div>
-    <br>
-
-    <!-- The dots/circles -->
-    <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-        <span class="dot" onclick="currentSlide(4)"></span>
-        <span class="dot" onclick="currentSlide(5)"></span>
-        <span class="dot" onclick="currentSlide(6)"></span>
-    </div>
-
-    <div id="skills">
-        <h2 class="heading">Skills</h2>
-        <ul>
-            <li>JavaScript</li>
-            <li>PHP</li>
-            <li>Lua</li>
-            <li>GLua</li>
-            <li>C++</li>
-            <li>HTML</li>
-            <li>CSS</li>
-        </ul>
-    </div>
-    <!-- End #skills -->
-
-    <div id="contact" class="background-alt">
-        <h2>Get in Touch</h2>
-        <div id="contact-form">
-            <form method="POST" action="https://formspree.io/joshuamobley14@gmail.com">
-                <input type="hidden" name="_subject" value="Contact request from personal website" />
-                <input type="email" name="_replyto" placeholder="Your email" required>
-                <textarea name="message" placeholder="Your message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </div>
-        <!-- End #contact-form -->
-    </div>
-    <!-- End #contact -->
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-5 copyright">
-                    <p>
-                        Copyright &copy; 2018-2020 Joshua Mobley
-                    </p>
-                </div>
-                <div class="col-sm-2 top">
-                    <span id="to-top">
-                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- End footer -->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/scripts.js"></script>
-
-    <script>
-
-        var slideIndex = 1;
-
-        var audio = null;
-        // Next/previous controls
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        // Thumbnail image controls
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("dot");
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex-1].style.display = "block";
-            dots[slideIndex-1].className += " active";
-        }
-
-        showSlides(slideIndex);
+						In my spare time, I work on games and game jams to further my knowledge of games and
+						designing games.<br><br>
 
 
-    </script>
+						100's of hours coding in unreal and furthering my knowledge as well as over 13,000 hours on
+						Garry's Mod where I code addons and make content for the modding scene.<br><br>
+
+
+						Whenever I have free time I try to above and beyond my education to try and get more knowledge
+						on areas which I want to learn creating a hard worker.<br><br>
+					</p>
+					<p>
+						<a href="#" class="btn btn-dark with-arrow smoth-scroll">My Resume
+							<i class="fa fa-download"></i>
+						</a>
+					</p>
+				</div>
+
+				<div class="description col-md-6 col-sm-4 col-xs-12 text-center center">
+					<ul class="social-icons" style="font-size:35px; display:grid;">
+						<br><br>
+						<li><a href="https://www.linkedin.com/in/joshua-mobley/"><i class="fa fa-linkedin"></i></a> - LinkedIn</li><br><br>
+						<li><a href="https://twitter.com/deadmonstors"><i class="fa fa-twitter"></i></a> - Twitter</li><br><br>
+						<li><a href="https://github.com/deadmonstor"><i class="fa fa-github"></i></a> - Github</li><br><br>
+						<li><a href="https://steamcommunity.com/id/deadmonstor"><i class="fa fa-steam"></i></a> - Steam</li>
+					</ul>
+
+
+				</div>
+
+			</div>
+		</div>
+
+	</section>
+	<!-- // ABOUT END -->
+
+	<!-- // SKILLS BEGIN -->
+	<section id="skills">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h2>My Skill Confidence</h2>
+				</div>
+
+				<div class="col-md-5 col-sm-6 col-xs-12">
+					<div class="progress-box">
+						<p>C#
+							<span class="color-heading pull-right">78%</span>
+						</p>
+						<div class="progress">
+							<div class="progress-bar bg-color-base" role="progressbar" data-width="78"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-5 col-sm-6 col-xs-12 skills-right">
+					<div class="progress-box">
+						<p>C++
+							<span class="color-heading pull-right">64%</span>
+						</p>
+						<div class="progress">
+							<div class="progress-bar bg-color-base" role="progressbar" data-width="64"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-5 col-sm-6 col-xs-12">
+					<div class="progress-box">
+						<p>Lua
+							<span class="color-heading pull-right">92%</span>
+						</p>
+						<div class="progress">
+							<div class="progress-bar bg-color-base" role="progressbar" data-width="92"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-5 col-sm-6 col-xs-12 skills-right">
+					<div class="progress-box">
+						<p>Python
+							<span class="color-heading pull-right">42%</span>
+						</p>
+						<div class="progress">
+							<div class="progress-bar bg-color-base" role="progressbar" data-width="42"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- // SKILLS END -->
+
+	<!-- // Experiences BEGIN -->
+	<section id="experience">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h2>My Experiences</h2>
+				</div><br><br>
+
+				<div id="experience-timeline">
+
+
+					<div class="vtimeline-point"><div class="vtimeline-icon"><i class="fa fa-map-marker"></i></div><div class="vtimeline-block"><span class="vtimeline-date">September 2019 – Present</span><div data-date="September 2019 – Present" class="vtimeline-content">
+						<h3>Staffordshire University</h3>
+						<p>
+							I am currently in year 2 of my studies here. Learning C++ and working on other side projects in my own time.
+							<br>
+							You can follow me on twitter to get more updates on my most recent projects however most of my work is below.
+						</p>
+					</div></div></div>
+					<br><br>
+
+					<div class="vtimeline-point"><div class="vtimeline-icon"><i class="fa fa-map-marker"></i></div><div class="vtimeline-block"><span class="vtimeline-date">September 2016 – September 2019</span><div data-date="September 2016 – September 2019" class="vtimeline-content">
+						<h3>Banbury and Bicester College</h3>
+						<p>
+							Here I learnt a lot of the fundamentals of making a game and what makes them good.
+							<br>
+							With the skills I learnt I ended up doing a lot of sideprojects
+							<br>
+							Some of the things below are what I did during college, these were game jams that I entered
+						</p>
+					</div></div></div>
+					<br><br>
+
+					<div class="vtimeline-point"><div class="vtimeline-icon"><i class="fa fa-map-marker"></i></div><div class="vtimeline-block"><span class="vtimeline-date">September 2013 – September 2016</span><div data-date="September 2016 – September 2019" class="vtimeline-content">
+						<h3>Personal projects - Garry's Mod</h3>
+						<p>
+							This was my kickstart into the games industry.
+							<br>
+							Creating custom content for servers with the main language being
+							<a target="_blank" href="https://en.wikipedia.org/wiki/Lua_(programming_language)">Lua</a>
+							it taught me a lot about the fundamentals of coding and optimisation.
+							<br>
+							Some of the content even being viewed by thousands of people really solidified that I wanted to join the games industry as a career
+							<br>
+
+						</p>
+					</div></div></div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- // Experiences END -->
+
+	<!-- // PORTFOLIO BEGIN -->
+	<section id="portfolio">
+		<div class="container">
+			<div class="row">
+				<div data-aos="fade-up">
+					<div class="col-md-12 text-center">
+						<h2>Selected Project</h2>
+					</div>
+
+					<div class="col-md-12 col-sm-12">
+						<div class="filter-btn col-md-12 text-center">
+							<div class="filter active" data-filter="all">All</div>
+							<div class="filter" data-filter=".gamejams">Game Jams</div>
+							<div class="filter" data-filter=".universityprojects">University Projects</div>
+							<div class="filter" data-filter=".collegeprojects">College Projects</div>
+							<div class="filter lst-cld" data-filter=".personalprojects">Personal Projects</div>
+						</div>
+
+						<div id="port-image" class="container">
+							<div class="row">
+
+								<div class="universityprojects grid mix col-md-4 col-sm-6 col-xs-12">
+									<a href="assets/img/portfolio/portfolio-0.jpg" class="image-popup" title="Click here for more information about this" blogURL="blog_01.html">
+										<figure class="port-desc">
+											<img src="assets/img/portfolio/portfolio-0.jpg" class="img-responsive" alt="Work 1">
+											<figcaption>
+												<h4>Military Tower Defence</h4>
+												<h5>University Project</h5>
+												<h5>Coded in C#</h5>
+											</figcaption>
+										</figure>
+									</a>
+								</div>
+
+								<div class="universityprojects grid mix col-md-4 col-sm-6 col-xs-12">
+									<a href="assets/img/portfolio/portfolio-1.jpg" class="image-popup" title="" blogURL="BLOG URL HERE">
+										<figure class="port-desc">
+											<img src="assets/img/portfolio/portfolio-1.jpg" class="img-responsive" alt="Work 1">
+											<figcaption>
+												<h4>Mario Recreation</h4>
+												<h5>University Project</h5>
+												<h5>Coded in C++</h5>
+											</figcaption>
+										</figure>
+									</a>
+								</div>
+
+								<div class="universityprojects grid mix col-md-4 col-sm-6 col-xs-12">
+									<a href="assets/img/portfolio/portfolio-2.jpg" class="image-popup" title="" blogURL="BLOG URL HERE">
+										<figure class="port-desc">
+											<img src="assets/img/portfolio/portfolio-2.jpg" class="img-responsive" alt="Work 2">
+											<figcaption>
+												<h4>Open GL fps shooter</h4>
+												<h5>University Project</h5>
+												<h5>Coded in C++</h5>
+											</figcaption>
+										</figure>
+									</a>
+								</div>
+
+								<div class="universityprojects grid mix col-md-4 col-sm-6 col-xs-12">
+									<a href="assets/img/portfolio/portfolio-3.jpg" class="image-popup" title="" blogURL="BLOG URL HERE">
+										<figure class="port-desc">
+											<img src="assets/img/portfolio/portfolio-3.jpg" class="img-responsive" alt="Work 3">
+											<figcaption>
+												<h4>Simple 2D Platformer</h4>
+												<h5>University Project</h5>
+												<h5>Coded in C++</h5>
+											</figcaption>
+										</figure>
+									</a>
+								</div>
+
+								<div class="collegeprojects gamejams grid mix col-md-4 col-sm-6 col-xs-12">
+									<a href="assets/img/portfolio/portfolio-4.jpg" class="image-popup" title=""  blogURL="BLOG URL HERE">
+										<figure class="port-desc">
+											<img src="assets/img/portfolio/portfolio-4.jpg" class="img-responsive" alt="Work 3">
+											<figcaption>
+												<h4>Light Game</h4>
+												<h5>College Game Jam</h5>
+												<h5>Coded in Blueprints</h5>
+											</figcaption>
+										</figure>
+									</a>
+								</div>
+
+								<div class="collegeprojects gamejams grid mix col-md-4 col-sm-6 col-xs-12">
+									<a href="assets/img/portfolio/portfolio-5.jpg" class="image-popup" title=""  blogURL="BLOG URL HERE">
+										<figure class="port-desc">
+											<img src="assets/img/portfolio/portfolio-5.jpg" class="img-responsive" alt="Work 3">
+											<figcaption>
+												<h4>GreyScale</h4>
+												<h5>College Game Jam</h5>
+												<h5>Coded in C#</h5>
+											</figcaption>
+										</figure>
+									</a>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- // PORTFOLIO END -->
+
+	<!-- // HIRE BEGIN -->
+	<section id="testimonial" style="background-image: url('assets/img/background.jpeg');" data-stellar-background-ratio="1.25">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9 col-sm-6 col-xs-12">
+					<h2 style="color: white; text-shadow: 2px 2px black;" >Future work</h2>
+					<p style="color: white; text-shadow: 1.5px 1.5px black;" >
+						If you like the above work be sure to contact me on the forum below or on any of the social
+						media links listed.
+					</p>
+				</div>
+
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<p>
+						<a href="#contact" class="btn btn-dark btn-lg smoth-scroll">Get in Touch</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- // HIRE END -->
+
+	<!-- // BLOG BEGIN -->
+	<section id="blog">
+		<div class="container text-center">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h2>Blog Posts</h2>
+				</div>
+
+				<div class="col-md-4 col-sm-6">
+					<div class="blog-item">
+						<a href="single.html" class="blog-img">
+							<img src="assets/img/portfolio/portfolio-0.jpg">
+						</a>
+						<div class="blog-desc">
+							<h4>
+								<a href="blog_01.html">Object Pooling</a>
+							</h4>
+							<p>The issues with using Object Pooling a fully multiplayer game.</p>
+							<a href="blog_01.html" class="btn btn-dark">Read more</a>
+						</div>
+					</div>
+				</div>
+
+				<!--<div class="col-md-4 col-sm-6">
+					<div class="blog-item">
+						<a href="single.html" class="blog-img">
+							<img src="assets/img/portfolio/portfolio-0.jpg">
+						</a>
+						<div class="blog-desc">
+							<h4>
+								<a href="single.html">Multiplayer in Unity</a>
+							</h4>
+							<p>How I made my tower defence game into a multiplayer coop game</p>
+							<a href="single.html" class="btn btn-dark">Read more</a>
+						</div>
+					</div>
+				</div>-->
+
+
+			</div>
+		</div>
+	</section>
+	<!-- // BLOG END -->
+
+	<!-- // CONTACT BEGIN -->
+	<section id="contact">
+		<div class="container text-center">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h2>Contact Me</h2>
+				</div>
+			</div>
+
+			<ul class="social-icons-footer">
+				<li><a target="_blank" href="https://www.linkedin.com/in/joshua-mobley/"><i class="fa fa-linkedin"></i></a></li>
+				<li><a target="_blank" href="https://twitter.com/deadmonstors"><i class="fa fa-twitter"></i></a></li>
+				<li><a target="_blank" href="https://github.com/deadmonstor"><i class="fa fa-github"></i></a></li>
+				<li><a target="_blank" href="https://steamcommunity.com/id/deadmonstor"><i class="fa fa-steam"></i></a></li>
+				<br><br>
+				<li>Email: joshuamobley14@gmail.com</li>
+			</ul>
+
+		</div>
+	</section>
+	<!-- // CONTACT END-->
+
+	<!-- // FOOTER BEGIN -->
+	<footer id="footer">
+		<div class="container">
+			<div class="col-md-12 text-center">
+				<ul class="social-icons-footer">
+					<li><a target="_blank" href="https://www.linkedin.com/in/joshua-mobley/"><i class="fa fa-linkedin"></i></a></li>
+					<li><a target="_blank" href="https://twitter.com/deadmonstors"><i class="fa fa-twitter"></i></a></li>
+					<li><a target="_blank" href="https://github.com/deadmonstor"><i class="fa fa-github"></i></a></li>
+					<li><a target="_blank" href="https://steamcommunity.com/id/deadmonstor"><i class="fa fa-steam"></i></a></li>
+				</ul>
+
+				<p>© 2020 Joshua Mobley</p>
+			</div>
+		</div>
+	</footer>
+	<!-- // FOOTER END -->
+
+
+
+
+	<!-- js plugin -->
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.stellar.min.js"></script>
+	<script src="assets/js/text-rotate.js"></script>
+	<script src="assets/js/numscroller.js"></script>
+	<script src="assets/js/jquery.appear.js"></script>
+	<script src="assets/js/progress-bar.min.js"></script>
+	<script src="assets/js/jquery.mixitup.js"></script>
+	<script src="assets/js/jquery.magnific-popup.min.js"></script>
+	<script src="assets/js/magnific-popup-options.js"></script>
+	<script src="assets/js/jquery.flexslider-min.js"></script>
+	<script src="assets/js/aos.js"></script>
+	<script src="assets/js/app.js"></script>
+
+	<!-- main js -->
+	<script src="assets/js/main.js"></script>
 </body>
 
 </html>

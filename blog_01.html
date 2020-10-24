@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Joshua Mobley - Personal Portfolio</title>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPWGYQJDTC"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-QPWGYQJDTC');
+	</script>
+
+	<!-- tab img -->
+	<link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+
+	<!-- css plugin -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="assets/css/flexslider.css">
+	<link rel="stylesheet" href="assets/css/aos.css">
+
+	<!-- main css -->
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/style-responsives.css">
+
+	<!-- google fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Hind:600|Lato:300,400" rel="stylesheet">
+
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+	<!-- // PRELOADER BEGIN -->
+	<div id="preloader">
+		<div id="status">
+			<div class="loader-revolve center">
+				<span></span>
+			</div>
+		</div>
+	</div>
+	<!-- // PRELOADER END -->
+
+	<!-- // NAVIGATION BEGIN -->
+	<div id="navigation">
+		<div class="container">
+			<div class="col-sm-3">
+				<div class="logo">
+					<a href="index.html">Joshua Mobley.</a>
+				</div>
+			</div>
+
+			<div class="col-sm-9">
+				<div class="navigation-menu">
+					<div class="navbar">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+
+						<div class="navbar-collapse collapse">
+							<ul class="nav navbar-nav navbar-right">
+								<li class="active"><a class="smoth-scroll" href="index.html#blog">Back</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- // NAVIGATION END -->
+
+	<!-- // HEADER BEGIN -->
+	<div id="header" class="home-bg" style="background-image: url('assets/img/portfolio/portfolio-0.jpg')">
+		<div class="overlay-blog">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+						<div class="post-heading text-center">
+							<h1 class="f-white">Object Pooling</h1>
+							<span class="meta">Posted by
+								<a target="_blank" href="https://twitter.com/deadmonstors">Josh Mobley</a> on October 24 2020
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- // HEADER END -->
+
+	<!-- // POST BEGIN -->
+	<section id="post">
+		<div class="container">
+			<div class="row">
+				<div class="post-container">
+					<p>University Tower Defence Game</p>
+					<br>
+
+					<h2 class="post-title">Object Pooling</h2>
+
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/-Bgl3AXwzYg?showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<br><br>
+					<p>The video above shows my object pooling script that I made a script that allowed me to easily
+						pool and unpool objects by an id at a "reasonable" rate.
+
+						This is an example code that is needed for generating: </p>
+					<pre><code>
+GameObject isPooled = objectPooler.curObjectPooler.getObject(ID);
+GameObject curBullet = isPooled;
+
+if (!isObjectPooled)
+	curBullet = Instantiate(PREFAB);
+					</code></pre><br>
+
+					<h2>Data Structure</h2>
+					<p>This is all stored in a data structure below. This makes it so that I can see if it is already in
+					the array however allows the string key to be the same on multiple objects so that there can be more
+						than one "bullets" id.</p>
+					<pre><code spellcheck="false">public List&lt;KeyValuePair&lt;string, GameObject&gt;&gt; objectPool;</code></pre><br>
+
+					<h2>Issues</h2>
+					<p>While this solution worked there was a few problems, including the objects not resetting to
+					default numbers meaning that enemies would spawn dead, and the wrong class. Which resulted in some
+					interesting side effects. For Example:</p>
+
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/kwmzc38T6Ek?showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+					<br><br>
+					<h2>Pros</h2>
+					<p>This system however enabled me to be able to spawn mass amounts of enemies with little to no
+					loss in fps a lot better than creating a new enemy everytime I needed it and was a great skill to
+					learn. All bullets and enemies in the video below is using the object pooler system.
+					</p>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/POXiNS1v1dQ?showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- // POST END -->
+
+	<!-- // FOOTER BEGIN -->
+	<footer id="footer-post">
+		<div class="container">
+			<div class="col-md-8 col-md-offset-2 text-center">
+				<ul class="social-icons-footer">
+					<li><a target="_blank" href="https://www.linkedin.com/in/joshua-mobley/"><i class="fa fa-linkedin"></i></a></li>
+					<li><a target="_blank" href="https://twitter.com/deadmonstors"><i class="fa fa-twitter"></i></a></li>
+					<li><a target="_blank" href="https://github.com/deadmonstor"><i class="fa fa-github"></i></a></li>
+					<li><a target="_blank" href="https://steamcommunity.com/id/deadmonstor"><i class="fa fa-steam"></i></a></li>
+				</ul>
+
+				<p>© 2020 Joshua Mobley</p>
+			</div>
+		</div>
+	</footer>
+	<!-- // FOOTER END -->
+
+
+
+
+	<!-- js plugin -->
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.stellar.min.js"></script>
+	<script src="assets/js/text-rotate.js"></script>
+	<script src="assets/js/numscroller.js"></script>
+	<script src="assets/js/jquery.appear.js"></script>
+	<script src="assets/js/progress-bar.min.js"></script>
+	<script src="assets/js/jquery.mixitup.js"></script>
+	<script src="assets/js/jquery.magnific-popup.min.js"></script>
+	<script src="assets/js/magnific-popup-options.js"></script>
+	<script src="assets/js/jquery.flexslider-min.js"></script>
+	<script src="assets/js/aos.js"></script>
+	<script src="assets/js/app.js"></script>
+
+	<!-- main js -->
+	<script src="assets/js/main.js"></script>
+</body>
+
+</html>
