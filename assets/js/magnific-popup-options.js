@@ -35,7 +35,9 @@ $(document).ready(function() {
             '</div>',
 
         titleSrc: function(item) {
-          return '<a href="' + item.el.attr('blogURL') + '"> ' + item.el.attr('title') + ' <project class=""></project></a>';
+          return `<a target="_blank" href="` + item.el.attr('blogURL') + `"> ` + item.el.attr('title') + ` <project class=""></project></a>
+                  <a target="_blank" href="` + item.el.attr('codeURL') + `"> ` + item.el.attr('code') + ` <project class=""></project></a>`;
+
         }
       }
     });
