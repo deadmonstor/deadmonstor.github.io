@@ -779,17 +779,19 @@ body {
 
 .port-desc:before {
 	position: absolute;
-	background-color: #fff;
-	top: 10px;
-	bottom: 10px;
-	left: 10px;
-	right: 10px;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+
 	content: '';
 	opacity: 0;
-	-webkit-transform: scale(0.1);
-	transform: scale(0.1);
+	-webkit-transform: scale(0);
+	transform: scale(0);
 	-webkit-transition: all 0.35s ease;
 	transition: all 0.35s ease;
+
+	background-color:#ffffffff;
 }
 
 .port-desc img {
@@ -812,9 +814,7 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	opacity: 0;
-	padding: 0 30px;
-
-	border: 1rem solid;
+	padding: 0 0px;
 }
 
 .port-desc h3 {
@@ -913,6 +913,19 @@ body {
 	width: 100%;
 	height: 100%;
 	background-attachment: fixed;
+}
+
+@media only screen and (max-width: 600px) {
+	#testimonial {
+		padding: 120px 0 120px;
+		position: relative;
+		background-size: cover;
+		width: 100%;
+		height: 100%;
+		background-attachment: fixed;
+
+		text-align:center;
+	}
 }
 
 #testimonial .overlay {
@@ -1350,7 +1363,7 @@ fieldset {
 	content:'';
 	top:0;
 	bottom:0;
-	left:303px;
+	left:233px;
 	right:auto;
 	height:100%;
 	width:3px;
@@ -1364,10 +1377,10 @@ fieldset {
 	height:40px;
 	background:linear-gradient(to bottom, #6c34db, rgba(52,152,219,0));
 	top:100%;
-	left:303px
+	left:233px
 }
 .vtimeline-content{
-	margin-left:350px;
+	margin-left:270px;
 	border:1px solid #e6e6e6;
 	padding:15px;
 	border-radius:3px;
@@ -1407,21 +1420,79 @@ fieldset {
 	border-radius:50%;
 	float:left;
 	z-index:99;
-	margin-left:280px
+	margin-left:210px
 }
 .vtimeline-icon i{
 	display:block;
 	font-size:2em;
 	margin-top:10px
 }
+
 .vtimeline-date{
-	width:260px;
+	width:180px;
 	text-align:right;
 	position:absolute;
 	left:0;
 	top:10px;
 	font-weight:300;
 	color:black;
+}
+
+@media only screen and (max-width: 600px) {
+
+	.vtimeline-date{
+		width:110px;
+		text-align:left;
+		position:absolute;
+		left:0;
+		top:10px;
+		font-weight:300;
+		color:black;
+	}
+
+	.vtimeline-icon{
+		position:relative;
+		color:#fff;
+		width:50px;
+		height:50px;
+		background:#6c34db;
+		border-radius:50%;
+		float:left;
+		z-index:99;
+		margin-left:110px
+	}
+
+	#experience-timeline:before{
+		position:absolute;
+		content:'';
+		top:0;
+		bottom:0;
+		left:133px;
+		right:auto;
+		height:100%;
+		width:3px;
+		background:#6c34db;
+		z-index:0
+	}
+	#experience-timeline:after{
+		position:absolute;
+		content:'';
+		width:3px;
+		height:40px;
+		background:linear-gradient(to bottom, #6c34db, rgba(52,152,219,0));
+		top:100%;
+		left:133px
+	}
+
+	.vtimeline-content{
+		margin-left:170px;
+		border:1px solid #e6e6e6;
+		padding:15px;
+		border-radius:3px;
+		text-align:left
+	}
+
+
 }
 
 pre {
