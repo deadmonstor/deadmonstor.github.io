@@ -694,6 +694,7 @@ body {
 
 #port-image .mix {
 	display: none;
+	padding-left: 10px;
 }
 
 .filter {
