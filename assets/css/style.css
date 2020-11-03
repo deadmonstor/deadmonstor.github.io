@@ -575,6 +575,10 @@ body {
 
 .social-icons {
 	padding-left: 0px;
+	float:right;
+	font-size:35px;
+	display:grid;
+	text-align: left;
 }
 
 .social-icons li {
@@ -583,6 +587,7 @@ body {
 	list-style: none;
 	margin: 0;
 	padding: 0;
+	margin-bottom:5px;
 }
 
 .social-icons li a {
@@ -635,16 +640,18 @@ body {
 =================================================*/
 
 #skills {
-	padding: 95px 0 50px;
+	padding: 45px 0 10px;
 	background: #f2f2f2;
 }
 
-#skills h2 {
-	margin-bottom: 50px;
+.curSkills  {
+	font-size: 25px;
+	padding-bottom: 50px;
 }
 
-.skills-right {
-	float: right;
+.mySkills
+{
+	padding-bottom: 20px;
 }
 
 .progress-box {
@@ -1368,7 +1375,7 @@ fieldset {
 	right:auto;
 	height:100%;
 	width:3px;
-	background:#6c34db;
+	background:linear-gradient(-50deg, #6B84F4, #6B84F4, #db6c34, #db6c34, #6B84F4);
 	z-index:0
 }
 #experience-timeline:after{
@@ -1376,7 +1383,7 @@ fieldset {
 	content:'';
 	width:3px;
 	height:40px;
-	background:linear-gradient(to bottom, #6c34db, rgba(52,152,219,0));
+	background:linear-gradient(to bottom, #6B84F4, #6B84F400);
 	top:100%;
 	left:233px
 }
@@ -1412,17 +1419,37 @@ fieldset {
 	vertical-align:top;
 	margin-bottom:30px
 }
+
 .vtimeline-icon{
 	position:relative;
 	color:#fff;
 	width:50px;
 	height:50px;
-	background:#6c34db;
+	background:#6B84F4;
 	border-radius:50%;
 	float:left;
 	z-index:99;
-	margin-left:210px
+	margin-left:209px
 }
+
+.vtimeline-iconGameJam{
+	position:relative;
+	color:#fff;
+	width:50px;
+	height:50px;
+	background:#db6c34;
+	border-radius:50%;
+	float:left;
+	z-index:99;
+	margin-left:209px
+}
+
+.vtimeline-iconGameJam i{
+	display:block;
+	font-size:2em;
+	margin-top:10px
+}
+
 .vtimeline-icon i{
 	display:block;
 	font-size:2em;
@@ -1456,11 +1483,23 @@ fieldset {
 		color:#fff;
 		width:50px;
 		height:50px;
-		background:#6c34db;
+		background:#6B84F4;
 		border-radius:50%;
 		float:left;
 		z-index:99;
-		margin-left:110px
+		margin-left:109.3px;
+	}
+
+	.vtimeline-iconGameJam{
+		position:relative;
+		color:#fff;
+		width:50px;
+		height:50px;
+		background:#db6c34;
+		border-radius:50%;
+		float:left;
+		z-index:99;
+		margin-left:109.3px;
 	}
 
 	#experience-timeline:before{
@@ -1472,7 +1511,7 @@ fieldset {
 		right:auto;
 		height:100%;
 		width:3px;
-		background:#6c34db;
+		background:linear-gradient(-50deg, #6c34db, #6c34db, #ff8100, #ff8100, #6c34db);
 		z-index:0
 	}
 	#experience-timeline:after{
