@@ -105,7 +105,8 @@
   display: none; }
 
 button.mfp-close,
-button.mfp-arrow {
+button.mfp-arrow
+{
   overflow: visible;
   cursor: pointer;
   background: transparent;
@@ -116,7 +117,9 @@ button.mfp-arrow {
   padding: 0;
   z-index: 1046;
   box-shadow: none;
-  touch-action: manipulation; }
+  touch-action: manipulation;
+  padding-right: 17px !important;
+}
 
 button::-moz-focus-inner {
   padding: 0;
@@ -136,12 +139,17 @@ button::-moz-focus-inner {
   color: #FFF;
   font-style: normal;
   font-size: 28px;
-  font-family: Arial, Baskerville, monospace; }
-  .mfp-close:hover,
-  .mfp-close:focus {
-    opacity: 1; }
-  .mfp-close:active {
-    top: 1px; }
+  font-family: Arial, Baskerville, monospace;
+}
+
+.mfp-close:hover,
+.mfp-close:focus {
+  opacity: 1;
+}
+
+.mfp-close:active {
+  top: 1px;
+}
 
 .mfp-close-btn-in .mfp-close {
   color: #333; }
@@ -249,33 +257,45 @@ img.mfp-img {
   display: block;
   line-height: 0;
   box-sizing: border-box;
-  padding: 40px 0 40px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 35px;
+}
 
 /* The shadow behind the image */
 .mfp-figure {
   background-color: #444444;
-  line-height: 0; }
-  .mfp-figure:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 40px;
-    bottom: 40px;
-    display: block;
-    right: 0;
-    width: auto;
-    height: auto;
-    z-index: -1;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-    background: #444; }
-  .mfp-figure small {
-    color: #BDBDBD;
-    display: block;
-    font-size: 12px;
-    line-height: 14px; }
-  .mfp-figure figure {
-    margin: 0; }
+  line-height: 0;
+  border: 2px solid dimgrey;
+}
+
+.mfp-figure:after
+{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 40px;
+  bottom: 40px;
+  display: block;
+  right: 0;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  background: #444;
+}
+
+.mfp-figure small
+{
+  color: #BDBDBD;
+  display: block;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.mfp-figure figure
+{
+  margin: 0;
+}
 
 .mfp-bottom-bar {
   margin-top: -36px;
@@ -290,8 +310,8 @@ img.mfp-img {
   line-height: 18px;
   color: white;
   word-wrap: break-word;
-  padding-right: 36px;
   background-color: #444444;
+  padding: 0px 35px 35px 35px;
 }
 
 .mfp-title a
