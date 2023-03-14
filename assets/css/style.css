@@ -783,6 +783,16 @@ body {
 	text-align: center;
 }
 
+.title
+{
+	text-align: center;
+	max-width: 358px;
+	min-width: 358px;
+	font-weight: 600;
+	margin-bottom:10px;
+	color: #252525;
+}
+
 .port-desc *,
 .port-desc *:before,
 .port-desc *:after {
