@@ -767,9 +767,9 @@ body {
 	float: left;
 	overflow: hidden;
 	margin: 2px 0;
-	min-width: 358px;
-	max-width: 358px;
-	max-height: 290px;
+	min-width: 355px;
+	max-width: 355px;
+	max-height: 285px;
 	width: 48%;
 	text-align: center;
 	cursor: pointer;
