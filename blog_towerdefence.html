@@ -6,7 +6,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Joshua Mobley - Personal Portfolio</title>
+	<title>Tower Defence Project | Joshua Mobley</title>
+	<meta name="description" content="An overview of my online co-op tower defence game built with Unity, discussing implementation challenges and solutions.">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPWGYQJDTC"></script>
@@ -35,6 +36,106 @@
 	<!-- google fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Hind:600|Lato:300,400" rel="stylesheet">
 
+	<!-- Custom blog styles -->
+	<style>
+		.post-container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+		.post-title {
+			margin-bottom: 30px;
+			color: #4a8cdb;
+		}
+		.post-meta {
+			margin-bottom: 30px;
+			font-style: italic;
+			color: #777;
+		}
+		.post-content {
+			line-height: 1.8;
+			margin-bottom: 40px;
+		}
+		.post-content h2 {
+			margin-top: 40px;
+			margin-bottom: 20px;
+			color: #4a8cdb;
+		}
+		.post-content h3 {
+			margin-top: 30px;
+			margin-bottom: 15px;
+			color: #4a8cdb;
+		}
+		.post-content p {
+			margin-bottom: 20px;
+		}
+		.post-content img {
+			max-width: 100%;
+			height: auto;
+			margin: 20px 0;
+			border-radius: 5px;
+			box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+		}
+		.post-content ul, .post-content ol {
+			margin-bottom: 20px;
+			padding-left: 20px;
+		}
+		.video-wrapper {
+			position: relative;
+			padding-bottom: 56.25%; 
+			height: 0;
+			margin: 30px 0;
+		}
+		.video-wrapper iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
+		.related-posts {
+			margin-top: 60px;
+			padding-top: 40px;
+			border-top: 1px solid #333;
+		}
+		.related-posts h3 {
+			margin-bottom: 30px;
+			text-align: center;
+		}
+		.back-to-top {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			background: #333;
+			color: #fff;
+			width: 40px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			border-radius: 50%;
+			z-index: 100;
+			cursor: pointer;
+			display: none;
+		}
+		.back-to-top:hover {
+			background: #4a8cdb;
+		}
+		.code-block {
+			background: #2a2a2a;
+			padding: 15px;
+			margin: 20px 0;
+			border-radius: 5px;
+			overflow-x: auto;
+			color: #e0e0e0;
+			font-family: monospace;
+			border-left: 4px solid #4a8cdb;
+			white-space: pre; 
+			line-height: 1.5; 
+			tab-size: 4; 
+		}
+	</style>
+
 	<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -55,28 +156,31 @@
 	<!-- // NAVIGATION BEGIN -->
 	<div id="navigation">
 		<div class="container">
-			<div class="col-sm-3">
-				<div class="logo">
-					<a href="index.html">Joshua Mobley.</a>
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="logo">
+						<a href="index.html">Joshua Mobley</a>
+					</div>
 				</div>
-			</div>
 
-			<div class="col-sm-9">
-				<div class="navigation-menu">
-					<div class="navbar">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-						</div>
+				<div class="col-sm-9">
+					<div class="navigation-menu">
+						<div class="navbar">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div>
 
-						<div class="navbar-collapse collapse">
-							<ul class="nav navbar-nav navbar-right">
-								<li class="active"><a class="smoth-scroll" href="index.html#blog">Back</a></li>
-							</ul>
+							<div class="navbar-collapse collapse">
+								<ul class="nav navbar-nav navbar-right">
+									<li><a href="index.html">Home</a></li>
+									<li class="active"><a href="index.html#blog">Blog</a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -86,15 +190,15 @@
 	<!-- // NAVIGATION END -->
 
 	<!-- // HEADER BEGIN -->
-	<div id="header" class="home-bg" style="background-image: url('assets/img/portfolio/portfolio-0.jpg')">
+	<div id="header" style="background-image: url('assets/img/portfolio/portfolio-0.jpg')">
 		<div class="overlay-blog">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 						<div class="post-heading text-center">
-							<h1 class="f-white">Conclusion on Tower Defence Project</h1>
+							<h1 class="f-white">Tower Defence Project</h1>
 							<span class="meta">Posted by
-								<a target="_blank" href="https://twitter.com/deadmonstors">Josh Mobley</a> on November 09 2020
+								<a target="_blank" href="https://twitter.com/deadmonstors">Josh Mobley</a> on September 15, 2020
 							</span>
 						</div>
 					</div>
@@ -102,85 +206,91 @@
 			</div>
 		</div>
 	</div>
-	<!-- // HEADER END -->5
+	<!-- // HEADER END -->
 
 	<!-- // POST BEGIN -->
 	<section id="post">
 		<div class="container">
 			<div class="row">
 				<div class="post-container">
-					<h2 class="post-title">Introduction on Tower Defence Project:</h2>
-					This is my first university project within second year. It had to be a tower defence game that we wanted to create. <br>
-					I chose to make a Online CO-OP Tower Defence game where you could help each other to defend against the military that is trying to attack you.<br>
-					The theme is military I picked a simplistic style as that is what I was most tower defenses go and it looked good.<br><br>
+					<article class="post-content">
+						<h2>Introduction to Tower Defence Project</h2>
+						<p>This project marked my first university assignment in my second year of studies. I was tasked with creating a tower defence game, and I decided to elevate the challenge by implementing an online co-op feature where players could collaborate to defend against attacking military forces.</p>
+						
+						<p>I chose a military theme with a simplistic art style, which aligns with the aesthetic commonly used in tower defence games and provided a clean, cohesive look.</p>
+						
+						<h3>Latest Development Video</h3>
+						<div class="video-wrapper">
+							<iframe src="https://www.youtube-nocookie.com/embed/YPYEVccUKag?controls=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+						
+						<h3>Multiplayer Showcase</h3>
+						<div class="video-wrapper">
+							<iframe src="https://www.youtube.com/embed/R_sFwsqeBqQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+						
+						<h2>Key Learnings from this Project</h2>
+						
+						<h3>Networking Implementation</h3>
+						<p>One of the most significant challenges was implementing the networking components using Mirror, a networking library for Unity. I had to carefully structure the game architecture to manage authority over different game objects correctly.</p>
+						
+						<p>The hierarchy needed to be organized in a specific way to ensure each player had authority over their objects. Here's how I structured it:</p>
+						
+						<img src="https://i.imgur.com/vHbfAka.png" alt="Unity Hierarchy showing player object structure for Mirror Networking authority">
+						
+						<p>This structure allowed each player's objects to have the proper authority, which was crucial for synchronized gameplay across the network.</p>
+						
+						<h3>Performance Optimization</h3>
+						<p>With multiple players and numerous enemies and projectiles on screen, performance optimization became a priority. I implemented various techniques including:</p>
+						<ul>
+							<li>Object pooling for frequently instantiated objects like bullets and enemies</li>
+							<li>Efficient network message handling to reduce bandwidth usage</li>
+						</ul>
+						
+						<h3>User Interface Design</h3>
+						<p>Designing a UI that was both informative and unobtrusive was another challenge. Players needed access to important information about their resources, tower options, and game state without cluttering the screen.</p>
+						
+						<h3>Balancing Game Mechanics</h3>
+						<p>Creating a balanced game experience that was challenging but not frustrating required extensive testing and iteration. I had to fine-tune:</p>
+						<ul>
+							<li>Enemy health and movement speed</li>
+							<li>Tower damage, range, and cost</li>
+							<li>Resource generation rates</li>
+							<li>Wave progression difficulty</li>
+						</ul>
+						
+						<h2>Technical Achievements</h2>
+						<p>Some of the technical elements I'm most proud of in this project include:</p>
+						<ul>
+							<li>A functional network synchronization system that maintained consistency across clients</li>
+							<li>Dynamic enemy pathing that could adapt to player-placed towers</li>
+							<li>A resource management system that balanced tower building with defense needs</li>
+							<li>A wave generation system that scaled with player count and game progression</li>
+						</ul>
+						
+						<h2>Conclusion</h2>
+						<p>This tower defence project was an invaluable learning experience that challenged me to apply both game design principles and technical skills in a practical context. The multiplayer component added significant complexity but also made the final product much more engaging.</p>
+						
+						<p>The lessons learned here—particularly regarding networking, optimization, and balance—have informed my approach to game development ever since, providing a foundation for more advanced projects.</p>
+					</article>
 
-					Latest video:
-					<br><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/YPYEVccUKag?controls=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-					<br><br>Multiplayer show off:
-					<br><iframe width="560" height="315" src="https://www.youtube.com/embed/R_sFwsqeBqQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					<br><br><br><br><h2>Things I learnt within this project:</h2>
-
-					<h3>Networking:</h3>
-
-					For networking I was using <a target="_blank" href="https://mirror-networking.com/">Mirror Networking</a>
-					which is an Networking API that goes over the top of Unity's UNet system to make it better/easier for
-					developers to implement it.
-
-					<br><br>
-
-					This is the code for syncing an variable between all clients.
-<pre><code>[SyncVar]
-int test = 0;
-</code></pre>
-
-					This code allow you to fire a callback whenever this updates on *any* clients
-<pre><code>[SyncVar=(hook = nameof(setTest))]
-int test = 0;
-
-void setTest(int oldTest, int newTest)
-{
-	// Do stuff here.
-}
-</code></pre>
-
-					This made it very easy for me to be able to network variables however you have to make sure that
-					you account for that value not being synced if you join the game after it is called.
-
-					<br><br>
-					Networking between Client -> Server needed a Command think of this like a message telling the server what to do.
-					Some of these messages needed authority to work on certain objects so that people cannot control the wrong person
-
-<pre><code>[Command]
-public void CmdSetDoorState(DoorState newDoorState, NetworkConnectionToClient sender = null)
-{
-	if (sender.identity.GetComponent&lt;Player&gt;().hasDoorKey)
-		doorState = newDoorState;
-}
-</code></pre>
-
-					<br>This code will allow only the owner of the door to open the door. Something like this has to have a specific hierarchy or a function called on it so that you can "give" it auth.
-					Another way is to tell the command to ignore who the owner is.
-
-<pre><code>[Command(ignoreAuthority = true)]
-</code></pre>
-
-					<br>This required me to do the hierarchy like this so that everyone objects under the player gets the auth to control itself.
-					<img src="https://i.imgur.com/vHbfAka.png">
-
-					<br><br><br>
-					<h4>Other blogs about this project:</h4>
-					<div class="col-md-4 col-sm-6 text-center">
-						<div class="blog-item">
-							<a href="blog_01.html" class="blog-img">
-								<img src="assets/img/portfolio/portfolio-0.jpg">
-							</a>
-							<div class="blog-desc">
-								<h4>
-									<a href="blog_01.html">Object Pooling</a>
-								</h4>
-								<p>The issues with using Object Pooling in a fully multiplayer game.</p>
-								<a href="blog_01.html" class="btn btn-dark">Read more</a>
+					<!-- Related Posts Section -->
+					<div class="related-posts">
+						<h3>Other Blog Posts About This Project</h3>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="blog-item">
+									<a href="blog_01.html" target="_blank">
+										<img src="assets/img/portfolio/portfolio-0.jpg" class="img-responsive" alt="Object Pooling">
+									</a>
+									<div class="blog-desc">
+										<h4>
+											<a href="blog_01.html">Object Pooling</a>
+										</h4>
+										<p>The issues with using Object Pooling in a fully multiplayer game.</p>
+										<a href="blog_01.html" target="_blank" class="btn btn-dark">Read More</a>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -189,6 +299,11 @@ public void CmdSetDoorState(DoorState newDoorState, NetworkConnectionToClient se
 		</div>
 	</section>
 	<!-- // POST END -->
+
+	<!-- Back to Top Button -->
+	<a href="#" id="back-to-top" class="back-to-top">
+		<i class="fa fa-arrow-up"></i>
+	</a>
 
 	<!-- // FOOTER BEGIN -->
 	<footer id="footer-post">
@@ -201,7 +316,7 @@ public void CmdSetDoorState(DoorState newDoorState, NetworkConnectionToClient se
 					<li><a target="_blank" href="https://steamcommunity.com/id/deadmonstor"><i class="fa fa-steam"></i></a></li>
 				</ul>
 
-				<p>© 2023 Joshua Mobley</p>
+				<p>© <script>document.write(new Date().getFullYear());</script> Joshua Mobley</p>
 			</div>
 		</div>
 	</footer>
@@ -227,6 +342,28 @@ public void CmdSetDoorState(DoorState newDoorState, NetworkConnectionToClient se
 
 	<!-- main js -->
 	<script src="assets/js/main.js"></script>
+
+	<!-- Back to top script -->
+	<script>
+		// Show/hide Back-to-Top button
+		window.addEventListener('scroll', function() {
+			const backToTop = document.getElementById('back-to-top');
+			if (window.scrollY > 300) {
+				backToTop.style.display = 'block';
+			} else {
+				backToTop.style.display = 'none';
+			}
+		});
+
+		// Smooth scroll to top
+		document.getElementById('back-to-top').addEventListener('click', function(event) {
+			event.preventDefault();
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			});
+		});
+	</script>
 </body>
 
 </html>

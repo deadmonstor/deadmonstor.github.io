@@ -6,7 +6,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Joshua Mobley - Personal Portfolio</title>
+	<title>Object Pooling in Multiplayer Games | Joshua Mobley</title>
+	<meta name="description" content="A deep dive into object pooling implementation in a Unity multiplayer game, discussing the challenges and performance improvements.">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPWGYQJDTC"></script>
@@ -35,6 +36,98 @@
 	<!-- google fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Hind:600|Lato:300,400" rel="stylesheet">
 
+	<!-- Custom blog styles -->
+	<style>
+		.post-container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+		.post-title {
+			margin-bottom: 30px;
+			color: #4a8cdb;
+		}
+		.post-meta {
+			margin-bottom: 30px;
+			font-style: italic;
+			color: #777;
+		}
+		.post-content {
+			line-height: 1.8;
+			margin-bottom: 40px;
+		}
+		.post-content h2 {
+			margin-top: 40px;
+			margin-bottom: 20px;
+			color: #4a8cdb;
+		}
+		.post-content p {
+			margin-bottom: 20px;
+		}
+		.post-content pre {
+			margin: 20px 0;
+			padding: 15px;
+			background-color: #2a2a2a;
+			border-left: 4px solid #4a8cdb;
+			color: #e0e0e0;
+			overflow-x: auto;
+		}
+		.video-wrapper {
+			position: relative;
+			padding-bottom: 56.25%; 
+			height: 0;
+			margin: 30px 0;
+		}
+		.video-wrapper iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
+		.related-posts {
+			margin-top: 60px;
+			padding-top: 40px;
+			border-top: 1px solid #333;
+		}
+		.related-posts h3 {
+			margin-bottom: 30px;
+			text-align: center;
+		}
+		.back-to-top {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			background: #333;
+			color: #fff;
+			width: 40px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			border-radius: 50%;
+			z-index: 100;
+			cursor: pointer;
+			display: none;
+		}
+		.back-to-top:hover {
+			background: #4a8cdb;
+		}
+		.code-block {
+			background: #2a2a2a;
+			padding: 15px;
+			margin: 20px 0;
+			border-radius: 5px;
+			overflow-x: auto;
+			color: #e0e0e0;
+			font-family: monospace;
+			border-left: 4px solid #4a8cdb;
+			white-space: pre; 
+			line-height: 1.5; 
+			tab-size: 4; 
+		}
+	</style>
+
 	<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -55,28 +148,31 @@
 	<!-- // NAVIGATION BEGIN -->
 	<div id="navigation">
 		<div class="container">
-			<div class="col-sm-3">
-				<div class="logo">
-					<a href="index.html">Joshua Mobley.</a>
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="logo">
+						<a href="index.html">Joshua Mobley</a>
+					</div>
 				</div>
-			</div>
 
-			<div class="col-sm-9">
-				<div class="navigation-menu">
-					<div class="navbar">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-						</div>
+				<div class="col-sm-9">
+					<div class="navigation-menu">
+						<div class="navbar">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div>
 
-						<div class="navbar-collapse collapse">
-							<ul class="nav navbar-nav navbar-right">
-								<li class="active"><a class="smoth-scroll" href="index.html#blog">Back</a></li>
-							</ul>
+							<div class="navbar-collapse collapse">
+								<ul class="nav navbar-nav navbar-right">
+									<li><a href="index.html">Home</a></li>
+									<li class="active"><a href="index.html#blog">Blog</a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -86,15 +182,15 @@
 	<!-- // NAVIGATION END -->
 
 	<!-- // HEADER BEGIN -->
-	<div id="header" class="home-bg" style="background-image: url('assets/img/portfolio/portfolio-0.jpg')">
+	<div id="header" style="background-image: url('assets/img/portfolio/portfolio-0.jpg')">
 		<div class="overlay-blog">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 						<div class="post-heading text-center">
-							<h1 class="f-white">Object Pooling</h1>
+							<h1 class="f-white">Object Pooling in Multiplayer Games</h1>
 							<span class="meta">Posted by
-								<a target="_blank" href="https://twitter.com/deadmonstors">Josh Mobley</a> on October 24 2020
+								<a target="_blank" href="https://twitter.com/deadmonstors">Josh Mobley</a> on October 24, 2020
 							</span>
 						</div>
 					</div>
@@ -109,51 +205,82 @@
 		<div class="container">
 			<div class="row">
 				<div class="post-container">
-					<p>University Tower Defence Game</p>
-					<br>
+					<article class="post-content">
+						<h2>The Challenge</h2>
+						<p>In my university Tower Defence game project, I faced the challenge of efficiently spawning large numbers of enemies and projectiles without causing performance drops. The solution was to implement an object pooling system that would reuse game objects instead of constantly creating and destroying them.</p>
+						
+						<div class="video-wrapper">
+							<iframe src="https://www.youtube.com/embed/-Bgl3AXwzYg?showinfo=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+						
+						<p>The video above demonstrates my object pooling script in action. It allows me to easily pool and unpool objects by an ID, significantly improving performance for frequently spawned objects like bullets and enemies.</p>
 
-					<h2 class="post-title">Object Pooling</h2>
-
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/-Bgl3AXwzYg?showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					<br><br>
-					<p>The video above shows my object pooling script that I made a script that allowed me to easily
-						pool and unpool objects by an id at a "reasonable" rate.
-
-						This is an example code that is needed for generating: </p>
-					<pre><code>
-GameObject isPooled = objectPooler.curObjectPooler.getObject(ID);
+						<h2>Implementation</h2>
+						<p>Here's an example of the code needed to retrieve an object from the pool:</p>
+						<div class="code-block">GameObject isPooled = objectPooler.curObjectPooler.getObject(ID);
 GameObject curBullet = isPooled;
 
 if (!isObjectPooled)
-	curBullet = Instantiate(PREFAB);
-					</code></pre><br>
+    curBullet = Instantiate(PREFAB);</div>
 
-					<h2>Data Structure</h2>
-					<p>This is all stored in a data structure below. This makes it so that I can see if it is already in
-					the array however allows the string key to be the same on multiple objects so that there can be more
-						than one "bullets" id.</p>
-					<pre><code spellcheck="false">public List&lt;KeyValuePair&lt;string, GameObject&gt;&gt; objectPool;</code></pre><br>
+						<h2>Data Structure</h2>
+						<p>The object pool is stored in a data structure that allows for multiple objects with the same ID, making it possible to have multiple "bullets" with the same identifier but as different instances:</p>
+						<div class="code-block">public List&lt;KeyValuePair&lt;string, GameObject&gt;&gt; objectPool;</div>
 
-					<h2>Issues</h2>
-					<p>While this solution worked there was a few problems, including the objects not resetting to
-					default numbers meaning that enemies would spawn dead, and the wrong class. Which resulted in some
-					interesting side effects. For Example:</p>
+						<h2>Challenges Encountered</h2>
+						<p>While the solution greatly improved performance, it wasn't without issues. One significant problem was that objects weren't properly resetting to their default state when returned to the pool, resulting in enemies sometimes spawning with incorrect health values or the wrong class properties. This led to some interesting and unexpected behaviors:</p>
+						
+						<div class="video-wrapper">
+							<iframe src="https://www.youtube.com/embed/kwmzc38T6Ek?showinfo=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
 
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/kwmzc38T6Ek?showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<h2>Benefits</h2>
+						<p>Despite these challenges, the object pooling system significantly improved performance, allowing me to spawn large numbers of enemies and projectiles with minimal impact on frame rate. This was a crucial optimization for maintaining smooth gameplay, especially in multiplayer scenarios where networking adds additional overhead.</p>
+						
+						<div class="video-wrapper">
+							<iframe src="https://www.youtube.com/embed/POXiNS1v1dQ?showinfo=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+						
+						<h2>Key Lessons</h2>
+						<p>Through implementing this system, I learned valuable lessons about:</p>
+						<ul>
+							<li>Memory management in game development</li>
+							<li>The importance of proper object state management</li>
+							<li>Performance optimization for real-time multiplayer games</li>
+							<li>Debugging complex object behavior in networked environments</li>
+						</ul>
+					</article>
 
-					<br><br>
-					<h2>Pros</h2>
-					<p>This system however enabled me to be able to spawn mass amounts of enemies with little to no
-					loss in fps a lot better than creating a new enemy everytime I needed it and was a great skill to
-					learn. All bullets and enemies in the video below is using the object pooler system.
-					</p>
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/POXiNS1v1dQ?showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+					<!-- Related Posts Section -->
+					<div class="related-posts">
+						<h3>Related Posts</h3>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="blog-item">
+									<a href="blog_towerdefence.html" target="_blank">
+										<img src="assets/img/portfolio/portfolio-0.jpg" class="img-responsive" alt="Tower Defence Project">
+									</a>
+									<div class="blog-desc">
+										<h4>
+											<a href="blog_towerdefence.html">Tower Defence Project</a>
+										</h4>
+										<p>Overview and learnings from my multiplayer Tower Defence game.</p>
+										<a href="blog_towerdefence.html" target="_blank" class="btn btn-dark">Read More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- // POST END -->
+
+	<!-- Back to Top Button -->
+	<a href="#" id="back-to-top" class="back-to-top">
+		<i class="fa fa-arrow-up"></i>
+	</a>
 
 	<!-- // FOOTER BEGIN -->
 	<footer id="footer-post">
@@ -166,14 +293,11 @@ if (!isObjectPooled)
 					<li><a target="_blank" href="https://steamcommunity.com/id/deadmonstor"><i class="fa fa-steam"></i></a></li>
 				</ul>
 
-				<p>© 2023 Joshua Mobley</p>
+				<p>© <script>document.write(new Date().getFullYear());</script> Joshua Mobley</p>
 			</div>
 		</div>
 	</footer>
 	<!-- // FOOTER END -->
-
-
-
 
 	<!-- js plugin -->
 	<script src="assets/js/jquery.js"></script>
@@ -192,6 +316,28 @@ if (!isObjectPooled)
 
 	<!-- main js -->
 	<script src="assets/js/main.js"></script>
+
+	<!-- Back to top script -->
+	<script>
+		// Show/hide Back-to-Top button
+		window.addEventListener('scroll', function() {
+			const backToTop = document.getElementById('back-to-top');
+			if (window.scrollY > 300) {
+				backToTop.style.display = 'block';
+			} else {
+				backToTop.style.display = 'none';
+			}
+		});
+
+		// Smooth scroll to top
+		document.getElementById('back-to-top').addEventListener('click', function(event) {
+			event.preventDefault();
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			});
+		});
+	</script>
 </body>
 
 </html>

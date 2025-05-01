@@ -1,4 +1,3 @@
-
 /* INDEX OF CONTENTS JAVASCRIPT
 ==================================================
   XX. PRELOADER
@@ -107,7 +106,11 @@
 
 		/* 07. PORTFOLIO FILTER IMAGE
 		==================================================*/
-		$('#port-image').mixItUp();
+		$('#port-image').mixItUp({
+			animation: {
+				duration: 200
+			}
+		});
 
 
 		/* 08. TESTIMONIAL SLIDER
@@ -125,11 +128,63 @@
 		AOS.init({
 			duration: 1200,
 			once: true,
-			disable: 'mobile'
-		});
-
-
-
+			});
 	});
+
+    // === CLEAN ROTATING BACKGROUND ===
+    const portfolioImages = [
+        'assets/img/portfolio/portfolio-0.jpg',
+        'assets/img/portfolio/fable.jpg',
+        'assets/img/portfolio/forza.jpg',
+        'assets/img/portfolio/seaofthieves.jpg',
+    ];
+
+    function startBackgroundRotation() {
+        let current = 0;
+        let next = 1;
+        let $bg1 = $('.bg-1');
+        let $bg2 = $('.bg-2');
+        $bg1.css({
+            'background-image': `url('${portfolioImages[current]}')`,
+            'opacity': 1,
+            'z-index': 1
+        });
+        $bg2.css({
+            'background-image': `url('${portfolioImages[next]}')`,
+            'opacity': 0,
+            'z-index': 0
+        });
+
+        setInterval(() => {
+            let $visible = ($bg1.css('opacity') == 1) ? $bg1 : $bg2;
+            let $hidden = ($bg1.css('opacity') == 0) ? $bg1 : $bg2;
+
+            current = (current + 1) % portfolioImages.length;
+            next = (current + 1) % portfolioImages.length;
+
+            $hidden.css({
+                'background-image': `url('${portfolioImages[next]}')`
+            });
+
+            $hidden.css({
+                'z-index': 1,
+                'opacity': 1
+            });
+            $visible.css({
+                'z-index': 0
+            });
+
+            setTimeout(() => {
+                $visible.css({
+                    'opacity': 0
+                });
+            }, 1500);
+
+        }, 5000);
+    }
+
+    $(window).on('load', function() {
+        startBackgroundRotation();
+    });
 
 })(jQuery);

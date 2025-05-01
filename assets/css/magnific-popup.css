@@ -1,4 +1,4 @@
-/* Magnific Popup CSS */
+
 .mfp-bg {
   top: 0;
   left: 0;
@@ -249,7 +249,7 @@ button::-moz-focus-inner {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
     background: #000; }
 
-/* Main image in popup */
+
 img.mfp-img {
   width: auto;
   max-width: 70%;
@@ -261,7 +261,7 @@ img.mfp-img {
   padding: 35px;
 }
 
-/* The shadow behind the image */
+
 .mfp-figure {
   background-color: #444444;
   line-height: 0;
