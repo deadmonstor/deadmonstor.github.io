@@ -6,8 +6,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Object Pooling in Multiplayer Games | Joshua Mobley</title>
-	<meta name="description" content="A deep dive into object pooling implementation in a Unity multiplayer game, discussing the challenges and performance improvements.">
+	<title>Final Year Project MMO | Joshua Mobley</title>
+	<meta name="description" content="BLOG_DESCRIPTION_HERE">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPWGYQJDTC"></script>
@@ -62,9 +62,6 @@
 			margin-top: 40px;
 			margin-bottom: 20px;
 			color: #4a8cdb;
-		}
-		.post-content p {
-			margin-bottom: 20px;
 		}
 		.post-content pre {
 			margin: 20px 0;
@@ -121,24 +118,6 @@
 			text-align: right;
 		}
 		
-		.back-to-top {
-			position: fixed;
-			bottom: 20px;
-			right: 20px;
-			background: #333;
-			color: #fff;
-			width: 40px;
-			height: 40px;
-			text-align: center;
-			line-height: 40px;
-			border-radius: 50%;
-			z-index: 100;
-			cursor: pointer;
-			display: none;
-		}
-		.back-to-top:hover {
-			background: #4a8cdb;
-		}
 		.code-block {
 			background: #1a2638; /* Darker blue background */
 			padding: 15px;
@@ -224,15 +203,15 @@
 	<!-- // NAVIGATION END -->
 
 	<!-- // HEADER BEGIN -->
-	<div id="header" style="background-image: url('assets/img/portfolio/portfolio-0.jpg')">
+	<div id="header" style="background-image: url('assets/img/portfolio/portfolio-9.jpg');">
 		<div class="overlay-blog">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 						<div class="post-heading text-center">
-							<h1 class="f-white">Object Pooling in Multiplayer Games</h1>
+							<h1 class="f-white">Final Year Project MMO</h1>
 							<span class="meta">Posted by
-								<a target="_blank" href="https://twitter.com/deadmonstors">Josh Mobley</a> on October 24, 2020
+								<a target="_blank" href="https://twitter.com/deadmonstors">Josh Mobley</a> on May 1st, 2025
 							</span>
 						</div>
 					</div>
@@ -248,71 +227,109 @@
 			<div class="row">
 				<div class="post-container">
 					<article class="post-content">
-						<h2>The Challenge</h2>
-						<p>In my university Tower Defence game project, I faced the challenge of efficiently spawning large numbers of enemies and projectiles without causing performance drops. The solution was to implement an object pooling system that would reuse game objects instead of constantly creating and destroying them.</p>
+						<!-- BLOG CONTENT STARTS HERE -->
+						<h2>Introduction</h2>
+						<p>This project aims to create a massively multiplayer online game (MMO) framework that would allow me to develop a game that can be played by many players simultaneously. The framework is designed to be flexible and scalable, allowing for easy integration of new features and content.</p>
+						<p>I explored industry standards and best practices in game development, focusing on network architecture, server-client communication, and database management. The project also includes a prototype "game" that demonstrates the capabilities of the framework.</p>
 						
-						<div class="video-wrapper">
-							<iframe src="https://www.youtube.com/embed/-Bgl3AXwzYg?showinfo=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
-						
-						<p>The video above demonstrates my object pooling script in action. It allows me to easily pool and unpool objects by an ID, significantly improving performance for frequently spawned objects like bullets and enemies.</p>
-
-						<h2>Implementation</h2>
-						<p>Here's an example of the code needed to retrieve an object from the pool:</p>
-						<pre><code class="language-csharp line-numbers">GameObject isPooled = objectPooler.curObjectPooler.getObject(ID);
-GameObject curBullet = isPooled;
-
-if (!isObjectPooled)
-    curBullet = Instantiate(PREFAB);</code></pre>
-
-						<h2>Data Structure</h2>
-						<p>The object pool is stored in a data structure that allows for multiple objects with the same ID, making it possible to have multiple "bullets" with the same identifier but as different instances:</p>
-						<pre><code class="language-csharp line-numbers">public List&lt;KeyValuePair&lt;string, GameObject&gt;&gt; objectPool;</code></pre>
-
-						<h2>Challenges Encountered</h2>
-						<p>While the solution greatly improved performance, it wasn't without issues. One significant problem was that objects weren't properly resetting to their default state when returned to the pool, resulting in enemies sometimes spawning with incorrect health values or the wrong class properties. This led to some interesting and unexpected behaviors:</p>
-						
-						<div class="video-wrapper">
-							<iframe src="https://www.youtube.com/embed/kwmzc38T6Ek?showinfo=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
-
-						<h2>Benefits</h2>
-						<p>Despite these challenges, the object pooling system significantly improved performance, allowing me to spawn large numbers of enemies and projectiles with minimal impact on frame rate. This was a crucial optimization for maintaining smooth gameplay, especially in multiplayer scenarios where networking adds additional overhead.</p>
-						
-						<div class="video-wrapper">
-							<iframe src="https://www.youtube.com/embed/POXiNS1v1dQ?showinfo=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
-						
-						<h2>Key Lessons</h2>
-						<p>Through implementing this system, I learned valuable lessons about:</p>
+						<h2>Project Overview</h2>
+						<p>The project is built using a combination of C# and Unity for the game client. The framework supports real-time multiplayer interactions, player authentication, and data persistence.</p>
+						<p>Key features of the framework include:</p>
 						<ul>
-							<li>Memory management in game development</li>
-							<li>The importance of proper object state management</li>
-							<li>Performance optimization for real-time multiplayer games</li>
-							<li>Debugging complex object behavior in networked environments</li>
+							<li>Player authentication and account management</li>
+							<li>Data persistence using a relational database</li>
+							<li>Modular architecture for easy feature integration</li>
+							<li>Protobufs for efficient data serialization</li>
 						</ul>
+
+						<h2>Protobufs</h2>
+						
+						<p>Protobufs (Protocol Buffers) are used for efficient serialization of data. They allow for compact and fast data exchange between the server and client. The framework uses Protobufs to define the structure of messages exchanged during gameplay and even between services themselves</p>
+						<p>There were 3 worlds created, each with their own set of services that could be turned on at will and off. The worlds were:</p>
+						<ul>
+							<li>World 1: DungeonTemplate</li>
+							<li>World 2: MainWorldTemplate</li>
+							<li>World 3: TownTemplate</li>
+						</ul>
+
+						<h2>Worlds</h2>
+
+						<p>Worlds were like "servers" in the sense that they could be created and destroyed at will. Each world had its own set of services that could be turned on and off at will. The worlds were:</p>
+						<ul>
+							<li>Service 1: Login Service</li>
+							<li>Service 2: Game Service</li>
+							<li>Service 3: Chat System</li>
+						</ul>
+						
+						<p>Each service was its own process, meaning that they could be run on different machines or even in different data centers. This allows for scalability and flexibility in the architecture</p>
+						<p>MainWorldTemplate was used as a login world and so it only had use for the login service. The TownTemplate was used as a game world and so it had use for the game service and chat system. The DungeonTemplate was used as a dungeon world and so it had use for the game service and chat system.</p>
+
+						<br>
+						<p>Here is an example of the MainWorldTemplate class:</p>
+						<pre><code class="language-csharp line-numbers">public class MainWorldTemplate : WorldData
+{
+	public override bool IsJoinable => false;
+	protected override bool IsUserIdsValid => false;
+
+	public override void Start()
+	{
+		SceneId = SceneID.LoginScreen;
+		WorldType = WorldType.Main;
+		Services.Add(ServiceManager.LoadAndCreateService(new ServiceInfo(LoginService.Definition.Create(), WorldId, WorldType)));
+		
+		base.Start();
+	}
+
+	public override WorldData CreateNew()
+	{
+		return new MainWorldTemplate();
+	}
+}</code></pre>
+
+						<p>Services could speak to one and another meaning that the login service could speak to the game service and the chat system. This was done using Protobufs so that services could query each other for the state of the user</p>
+						<p>Here is an example of the Chat Service talking to the Game Service:</p>
+						<pre><code class="language-csharp line-numbers">private static void AdminFlight(ServiceSocketClient socket, string[] args, int userId)
+{
+	var packet = InternalMessageTemplate.CreateInstance(
+		MessageID.AdminFlight,
+		new Recipients(RecipientType.SpecificServiceInWorld, null, ServiceType.Game), new PacketBase());
+	
+	socket.Send(packet);
+}</code></pre>
+
+						<p>In this example, the chat service is sending a message to the game service. This allowed the user to fly however the chat service did not know what to do with that command so it sent it over to the game service which could handle permissions and so on.</p>
+						
+						<h2>Conclusion</h2>
+						<p>The project successfully demonstrates the capabilities of the MMO framework, showcasing its modular architecture and efficient data handling using Protobufs and allowing for services to talk to each other shows scalability while I am sure there would be bottlenecks it was great to get this working.</p>
+						
+						<div class="video-wrapper">
+							<iframe src="https://www.youtube-nocookie.com/embed/i4QLsQG_lhE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+
+						<!-- <p>For more details, check out the project repository on <a href="https://github.com/deadmonstor/FInal-Year-Project/tree/main/" target="_blank">GitHub</a>.</p>-->
+						<!-- BLOG CONTENT ENDS HERE -->
 					</article>
 
 					<!-- Related Posts Section -->
-					<div class="related-posts">
+					<!-- <div class="related-posts">
 						<h3>Related Posts</h3>
 						<div class="row">
 							<div class="col-md-4">
 								<div class="blog-item">
-									<a href="blog_towerdefence.html" target="_blank">
-										<img src="assets/img/portfolio/portfolio-0.jpg" class="img-responsive" alt="Tower Defence Project">
+									<a href="RELATED_POST_URL_1" target="_blank">
+										<img src="RELATED_POST_IMAGE_1" class="img-responsive" alt="Related Post 1">
 									</a>
 									<div class="blog-desc">
 										<h4>
-											<a href="blog_towerdefence.html">Tower Defence Project</a>
+											<a href="RELATED_POST_URL_1">Related Post Title 1</a>
 										</h4>
-										<p>Overview and learnings from my multiplayer Tower Defence game.</p>
-										<a href="blog_towerdefence.html" target="_blank" class="btn btn-dark">Read More</a>
+										<p>Brief description of the related post.</p>
+										<a href="RELATED_POST_URL_1" target="_blank" class="btn btn-dark">Read More</a>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

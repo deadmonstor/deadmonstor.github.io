@@ -1153,59 +1153,69 @@ services-item p {
 	background: #1e1e1e; 
 }
 
+.blog-removeunderline {
+	text-decoration: none;
+}
+
 .blog-item {
 	width: 100%;
 	float: left;
+	margin-bottom: 20px;
+	background: #2a2a2a;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	height: 400px; /* Fixed height for all blog items */
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.blog-item:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .blog-item .blog-img {
 	width: 100%;
-	max-height: 200px;
-	float: left;
+	height: 200px; /* Fixed height for all blog images */
 	overflow: hidden;
 	position: relative;
-	z-index: 1;
-	margin-top: 40px;
-	margin-bottom: 20px;
+	display: block;
+	flex-shrink: 0;
 }
 
 .blog-item .blog-img img {
-	position: relative;
-	max-width: 100%;
-	-webkit-transform: scale(1);
-	-moz-transform: scale(1);
-	-ms-transform: scale(1);
-	-o-transform: scale(1);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 	transform: scale(1);
-	-webkit-transition: 0.9s;
-	-o-transition: 0.9s;
-	transition: 0.9s;
+	transition: transform 0.9s ease;
+}
+
+.blog-item .blog-desc {
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	justify-content: space-between;
 }
 
 .blog-item .blog-desc h4 {
 	letter-spacing: 1px;
 	margin-bottom: 10px;
-}
-
-.blog-item .blog-desc h4 a {
-	color: #cccccc; 
-	text-decoration: none;
-}
-
-.blog-item .blog-desc h4 a:hover {
-	color: #ffffff; 
+	height: 40px; /* Fixed height for title */
+	overflow: hidden;
 }
 
 .blog-item .blog-desc p {
 	margin-bottom: 15px;
-	color: #cccccc; 
+	color: #cccccc;
+	height: 52px; /* Height for 2 lines of text */
+	overflow: hidden;
 }
 
 .blog-item:hover .blog-img img {
-	-webkit-transform: scale(1.2);
-	-moz-transform: scale(1.2);
-	-ms-transform: scale(1.2);
-	-o-transform: scale(1.2);
 	transform: scale(1.2);
 }
 
@@ -1740,3 +1750,9 @@ code {
 	font-size: 90%;
 	line-height: 1.2em;
 }
+
+.social-icons-footer li a:hover {
+	color: #48b14d;
+	transform: scale(1.1);
+	transition: transform 0.3s ease;
+  }

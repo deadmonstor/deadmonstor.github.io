@@ -6,8 +6,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Object Pooling in Multiplayer Games | Joshua Mobley</title>
-	<meta name="description" content="A deep dive into object pooling implementation in a Unity multiplayer game, discussing the challenges and performance improvements.">
+	<title>BLOG_TITLE_HERE | Joshua Mobley</title>
+	<meta name="description" content="BLOG_DESCRIPTION_HERE">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPWGYQJDTC"></script>
@@ -121,6 +121,31 @@
 			text-align: right;
 		}
 		
+		.video-wrapper {
+			position: relative;
+			width: 100%;
+			max-width: 800px;
+			margin: 30px auto;
+		}
+		
+		.video-wrapper iframe {
+			display: block;
+			width: 100%;
+			height: 450px;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+		}
+		
+		.related-posts {
+			margin-top: 60px;
+			padding-top: 40px;
+			border-top: 1px solid #333;
+		}
+		.related-posts h3 {
+			margin-bottom: 30px;
+			text-align: center;
+		}
 		.back-to-top {
 			position: fixed;
 			bottom: 20px;
@@ -151,22 +176,6 @@
 			white-space: pre; 
 			line-height: 1.5; 
 			tab-size: 4; 
-		}
-		
-		.video-wrapper {
-			position: relative;
-			width: 100%;
-			max-width: 800px;
-			margin: 30px auto;
-		}
-		
-		.video-wrapper iframe {
-			display: block;
-			width: 100%;
-			height: 450px;
-			border: none;
-			border-radius: 5px;
-			box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 		}
 	</style>
 
@@ -224,15 +233,15 @@
 	<!-- // NAVIGATION END -->
 
 	<!-- // HEADER BEGIN -->
-	<div id="header" style="background-image: url('assets/img/portfolio/portfolio-0.jpg')">
+	<div id="header" style="background-image: url('HEADER_IMAGE_URL_HERE')">
 		<div class="overlay-blog">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 						<div class="post-heading text-center">
-							<h1 class="f-white">Object Pooling in Multiplayer Games</h1>
+							<h1 class="f-white">BLOG_TITLE_HERE</h1>
 							<span class="meta">Posted by
-								<a target="_blank" href="https://twitter.com/deadmonstors">Josh Mobley</a> on October 24, 2020
+								<a target="_blank" href="https://twitter.com/deadmonstors">Josh Mobley</a> on MONTH DAY, YEAR
 							</span>
 						</div>
 					</div>
@@ -248,66 +257,86 @@
 			<div class="row">
 				<div class="post-container">
 					<article class="post-content">
-						<h2>The Challenge</h2>
-						<p>In my university Tower Defence game project, I faced the challenge of efficiently spawning large numbers of enemies and projectiles without causing performance drops. The solution was to implement an object pooling system that would reuse game objects instead of constantly creating and destroying them.</p>
+						<!-- BLOG CONTENT STARTS HERE -->
+						<h2>Section Title</h2>
+						<p>Your content goes here. This is a paragraph of text that should explain concepts, share experiences, or provide valuable information to your readers.</p>
 						
+						<!-- Example of embedding a video -->
 						<div class="video-wrapper">
-							<iframe src="https://www.youtube.com/embed/-Bgl3AXwzYg?showinfo=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe src="VIDEO_URL_HERE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
 						
-						<p>The video above demonstrates my object pooling script in action. It allows me to easily pool and unpool objects by an ID, significantly improving performance for frequently spawned objects like bullets and enemies.</p>
+						<p>More text content after the video.</p>
 
-						<h2>Implementation</h2>
-						<p>Here's an example of the code needed to retrieve an object from the pool:</p>
-						<pre><code class="language-csharp line-numbers">GameObject isPooled = objectPooler.curObjectPooler.getObject(ID);
-GameObject curBullet = isPooled;
-
-if (!isObjectPooled)
-    curBullet = Instantiate(PREFAB);</code></pre>
-
-						<h2>Data Structure</h2>
-						<p>The object pool is stored in a data structure that allows for multiple objects with the same ID, making it possible to have multiple "bullets" with the same identifier but as different instances:</p>
-						<pre><code class="language-csharp line-numbers">public List&lt;KeyValuePair&lt;string, GameObject&gt;&gt; objectPool;</code></pre>
-
-						<h2>Challenges Encountered</h2>
-						<p>While the solution greatly improved performance, it wasn't without issues. One significant problem was that objects weren't properly resetting to their default state when returned to the pool, resulting in enemies sometimes spawning with incorrect health values or the wrong class properties. This led to some interesting and unexpected behaviors:</p>
+						<h2>Another Section</h2>
+						<p>Continue with more content organized into sections.</p>
 						
-						<div class="video-wrapper">
-							<iframe src="https://www.youtube.com/embed/kwmzc38T6Ek?showinfo=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
+						<!-- Example of adding code -->
+						<pre data-language="javascript"><code class="language-javascript line-numbers">// Your code example goes here
+function exampleFunction() {
+    return "This is sample code";
+}</code></pre>
 
-						<h2>Benefits</h2>
-						<p>Despite these challenges, the object pooling system significantly improved performance, allowing me to spawn large numbers of enemies and projectiles with minimal impact on frame rate. This was a crucial optimization for maintaining smooth gameplay, especially in multiplayer scenarios where networking adds additional overhead.</p>
-						
-						<div class="video-wrapper">
-							<iframe src="https://www.youtube.com/embed/POXiNS1v1dQ?showinfo=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
-						
-						<h2>Key Lessons</h2>
-						<p>Through implementing this system, I learned valuable lessons about:</p>
+						<!-- Example of a list -->
+						<h2>Key Points</h2>
 						<ul>
-							<li>Memory management in game development</li>
-							<li>The importance of proper object state management</li>
-							<li>Performance optimization for real-time multiplayer games</li>
-							<li>Debugging complex object behavior in networked environments</li>
+							<li>First point about the topic</li>
+							<li>Second important consideration</li>
+							<li>Third item to remember</li>
+							<li>Final key takeaway</li>
 						</ul>
+						
+						<!-- BLOG CONTENT ENDS HERE -->
 					</article>
 
 					<!-- Related Posts Section -->
 					<div class="related-posts">
 						<h3>Related Posts</h3>
 						<div class="row">
+							<!-- RELATED POST 1 -->
 							<div class="col-md-4">
 								<div class="blog-item">
-									<a href="blog_towerdefence.html" target="_blank">
-										<img src="assets/img/portfolio/portfolio-0.jpg" class="img-responsive" alt="Tower Defence Project">
+									<a href="RELATED_POST_URL_1" target="_blank">
+										<img src="RELATED_POST_IMAGE_1" class="img-responsive" alt="Related Post 1">
 									</a>
 									<div class="blog-desc">
 										<h4>
-											<a href="blog_towerdefence.html">Tower Defence Project</a>
+											<a href="RELATED_POST_URL_1">Related Post Title 1</a>
 										</h4>
-										<p>Overview and learnings from my multiplayer Tower Defence game.</p>
-										<a href="blog_towerdefence.html" target="_blank" class="btn btn-dark">Read More</a>
+										<p>Brief description of the related post.</p>
+										<a href="RELATED_POST_URL_1" target="_blank" class="btn btn-dark">Read More</a>
+									</div>
+								</div>
+							</div>
+							
+							<!-- RELATED POST 2 (Optional) -->
+							<div class="col-md-4">
+								<div class="blog-item">
+									<a href="RELATED_POST_URL_2" target="_blank">
+										<img src="RELATED_POST_IMAGE_2" class="img-responsive" alt="Related Post 2">
+									</a>
+									<div class="blog-desc">
+										<h4>
+											<a href="RELATED_POST_URL_2">Related Post Title 2</a>
+										</h4>
+										<p>Brief description of the related post.</p>
+										<a href="RELATED_POST_URL_2" target="_blank" class="btn btn-dark">Read More</a>
+									</div>
+								</div>
+							</div>
+							
+							<!-- RELATED POST 3 (Optional) -->
+							<div class="col-md-4">
+								<div class="blog-item">
+									<a href="RELATED_POST_URL_3" target="_blank">
+										<img src="RELATED_POST_IMAGE_3" class="img-responsive" alt="Related Post 3">
+									</a>
+									<div class="blog-desc">
+										<h4>
+											<a href="RELATED_POST_URL_3">Related Post Title 3</a>
+										</h4>
+										<p>Brief description of the related post.</p>
+										<a href="RELATED_POST_URL_3" target="_blank" class="btn btn-dark">Read More</a>
 									</div>
 								</div>
 							</div>
@@ -378,6 +407,22 @@ if (!isObjectPooled)
 			window.scrollTo({
 				top: 0,
 				behavior: 'smooth'
+			});
+			});
+		
+		// Add language indicator to code blocks
+		document.addEventListener('DOMContentLoaded', function() {
+			document.querySelectorAll('pre[class*="language-"]').forEach(function(pre) {
+				const codeElement = pre.querySelector('code');
+				if (codeElement) {
+					const languageClass = Array.from(codeElement.classList)
+						.find(cls => cls.startsWith('language-'));
+					
+					if (languageClass) {
+						const language = languageClass.replace('language-', '');
+						pre.setAttribute('data-language', language);
+					}
+				}
 			});
 		});
 	</script>

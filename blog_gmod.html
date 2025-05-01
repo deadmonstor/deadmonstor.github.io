@@ -29,6 +29,8 @@
 	<link rel="stylesheet" href="assets/css/flexslider.css">
 	<link rel="stylesheet" href="assets/css/aos.css">
 
+	<link href="assets/css/prism.css" rel="stylesheet" />
+
 	<!-- main css -->
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/style-responsives.css">
@@ -69,60 +71,63 @@
 		.post-content p {
 			margin-bottom: 20px;
 		}
-		.post-content img {
-			max-width: 100%;
-			height: auto;
+		.post-content pre {
 			margin: 20px 0;
+			padding: 0;
+			background-color: #1a2638; /* Darker blue background */
+			border-left: 4px solid #4a8cdb;
+			color: #e0e0e0;
+			overflow-x: auto;
 			border-radius: 5px;
-			box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 		}
-		.post-content ul, .post-content ol {
-			margin-bottom: 20px;
-			padding-left: 20px;
+		
+		/* Fixes for line numbers alignment */
+		.post-content pre code {
+			display: block;
+			padding: 15px;
+			font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+			line-height: 1.5;
 		}
-		.video-wrapper {
+		
+		/* Line numbers styling */
+		pre.line-numbers {
 			position: relative;
-			padding-bottom: 56.25%; 
-			height: 0;
-			margin: 30px 0;
+			padding-left: 3.8em;
+			counter-reset: linenumber;
 		}
-		.video-wrapper iframe {
+		
+		pre.line-numbers > code {
+			position: relative;
+			white-space: inherit;
+		}
+		
+		.line-numbers .line-numbers-rows {
 			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			border: none;
+			pointer-events: none;
+			top: 15px; /* Match the padding of code block */
+			font-size: 100%;
+			left: -3.8em;
+			width: 3em; /* Works for line-numbers below 1000 lines */
+			letter-spacing: -1px;
+			border-right: 1px solid #3a4a63; /* Slightly lighter blue for the border */
+			user-select: none;
 		}
-		.related-posts {
-			margin-top: 60px;
-			padding-top: 40px;
-			border-top: 1px solid #333;
+		
+		.line-numbers-rows > span {
+			display: block;
+			counter-increment: linenumber;
 		}
-		.related-posts h3 {
-			margin-bottom: 30px;
-			text-align: center;
+		
+		.line-numbers-rows > span:before {
+			content: counter(linenumber);
+			color: #768aa8; /* Lighter blue for the line numbers */
+			display: block;
+			padding-right: 0.8em;
+			text-align: right;
 		}
-		.back-to-top {
-			position: fixed;
-			bottom: 20px;
-			right: 20px;
-			background: #333;
-			color: #fff;
-			width: 40px;
-			height: 40px;
-			text-align: center;
-			line-height: 40px;
-			border-radius: 50%;
-			z-index: 100;
-			cursor: pointer;
-			display: none;
-		}
-		.back-to-top:hover {
-			background: #4a8cdb;
-		}
+		
 		.code-block {
-			background: #2a2a2a;
+			background: #1a2638; /* Darker blue background */
 			padding: 15px;
 			margin: 20px 0;
 			border-radius: 5px;
@@ -190,6 +195,22 @@
 			content: "";
 			display: table;
 			clear: both;
+		}
+		
+		.video-wrapper {
+			position: relative;
+			width: 100%;
+			max-width: 800px;
+			margin: 30px auto;
+		}
+		
+		.video-wrapper iframe {
+			display: block;
+			width: 100%;
+			height: 450px;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 		}
 	</style>
 
@@ -277,8 +298,7 @@
 						<h2>Learning Through Creating</h2>
 						<p>Garry's Mod uses Lua as its scripting language, which became my first programming language. Despite having no formal programming education at the time, I taught myself through online resources, community forums, and a lot of trial and error. The immediate visual feedback loop of GMod made it an ideal learning environment—I could see my code's effects in real-time within the game world.</p>
 						
-						<div class="code-block">
--- Example of a simple Garry's Mod entity spawn function
+						<pre><code class="language-lua line-numbers">-- Example of a simple Garry's Mod entity spawn function
 function SpawnProp(ply, model)
 	if (!ply:IsAdmin()) then return end
 	
@@ -291,8 +311,7 @@ function SpawnProp(ply, model)
 end
 concommand.Add("spawn_prop", function(ply, cmd, args)
 	SpawnProp(ply, args[1] or "models/props_c17/oildrum001.mdl")
-end)
-						</div>
+end)</code></pre>
 						
 						<h3>My First Projects</h3>
 						<p>I began by creating simple modifications like custom weapons, tools, and entities. These early projects taught me the basics of:</p>
@@ -439,6 +458,7 @@ end)
 	<script src="assets/js/jquery.flexslider-min.js"></script>
 	<script src="assets/js/aos.js"></script>
 	<script src="assets/js/app.js"></script>
+	<script src="assets/js/prism.js"></script>
 
 	<!-- main js -->
 	<script src="assets/js/main.js"></script>
