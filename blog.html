@@ -6,8 +6,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Object Pooling in Multiplayer Games | Joshua Mobley</title>
-	<meta name="description" content="A deep dive into object pooling implementation in a Unity multiplayer game, discussing the challenges and performance improvements.">
+	<title>BLOG_TITLE_HERE | Joshua Mobley</title>
+	<meta name="description" content="BLOG_DESCRIPTION_HERE">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPWGYQJDTC"></script>
@@ -121,6 +121,31 @@
 			text-align: right;
 		}
 		
+		.video-wrapper {
+			position: relative;
+			width: 100%;
+			max-width: 800px;
+			margin: 30px auto;
+		}
+		
+		.video-wrapper iframe {
+			display: block;
+			width: 100%;
+			height: 450px;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+		}
+		
+		.related-posts {
+			margin-top: 60px;
+			padding-top: 40px;
+			border-top: 1px solid #333;
+		}
+		.related-posts h3 {
+			margin-bottom: 30px;
+			text-align: center;
+		}
 		.back-to-top {
 			position: fixed;
 			bottom: 20px;
@@ -151,16 +176,9 @@
 			white-space: pre; 
 			line-height: 1.5; 
 			tab-size: 4; 
-			/* Ensure active blog nav link is always green and underlined */
 		}
 
-		.navbar-nav > li > a.active {
-			color: #48b14d !important; /* Green color */
-			background-color: transparent !important; /* Ensure no background overrides */
-			text-decoration: underline !important; /* Add underline */
-		}
-
-		.video-wrapper {
+        .video-wrapper {
 			position: relative;
 			width: 100%;
 			max-width: 800px;
@@ -174,6 +192,13 @@
 			border: none;
 			border-radius: 5px;
 			box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+		}
+
+		/* Ensure active blog nav link is always green and underlined */
+		.navbar-nav > li > a.active {
+			color: #48b14d !important; /* Green color */
+			background-color: transparent !important; /* Ensure no background overrides */
+			text-decoration: underline !important; /* Add underline */
 		}
 	</style>
 
@@ -194,21 +219,19 @@
 	</div>
 	<!-- // PRELOADER END -->
 
-	<!-- // NAVIGATION BEGIN -->
-	<div id="navigation"></div>
-	<!-- // NAVIGATION END -->
+    <!-- // NAVIGATION BEGIN -->
+    <div id="navigation"></div>
+    <!-- // NAVIGATION END -->
 
 	<!-- // HEADER BEGIN -->
-	<div id="header" style="background-image: url('assets/img/portfolio/portfolio-0.jpg')">
+	<div id="header" style="background-image: url('')">
 		<div class="overlay-blog">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 						<div class="post-heading text-center">
-							<h1 class="f-white">Object Pooling in Multiplayer Games</h1>
-							<span class="meta">Posted by
-								<a target="_blank" href="https://twitter.com/deadmonstors">Josh Mobley</a> on October 24, 2020
-							</span>
+							<h1 class="f-white" id="blog-title">Loading...</h1>
+							<span class="meta" id="blog-meta">Loading...</span>
 						</div>
 					</div>
 				</div>
@@ -222,57 +245,15 @@
 		<div class="container">
 			<div class="row">
 				<div class="post-container">
-					<article class="post-content">
-						<h2>The Challenge</h2>
-						<p>In my university Tower Defence game project, I faced the challenge of efficiently spawning large numbers of enemies and projectiles without causing performance drops. The solution was to implement an object pooling system that would reuse game objects instead of constantly creating and destroying them.</p>
-						
-						<div class="video-wrapper">
-							<iframe src="https://www.youtube.com/embed/-Bgl3AXwzYg?showinfo=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
-						
-						<p>The video above demonstrates my object pooling script in action. It allows me to easily pool and unpool objects by an ID, significantly improving performance for frequently spawned objects like bullets and enemies.</p>
-
-						<h2>Implementation</h2>
-						<p>Here's an example of the code needed to retrieve an object from the pool:</p>
-						<pre><code class="language-csharp line-numbers">GameObject isPooled = objectPooler.curObjectPooler.getObject(ID);
-GameObject curBullet = isPooled;
-
-if (!isObjectPooled)
-    curBullet = Instantiate(PREFAB);</code></pre>
-
-						<h2>Data Structure</h2>
-						<p>The object pool is stored in a data structure that allows for multiple objects with the same ID, making it possible to have multiple "bullets" with the same identifier but as different instances:</p>
-						<pre><code class="language-csharp line-numbers">public List&lt;KeyValuePair&lt;string, GameObject&gt;&gt; objectPool;</code></pre>
-
-						<h2>Challenges Encountered</h2>
-						<p>While the solution greatly improved performance, it wasn't without issues. One significant problem was that objects weren't properly resetting to their default state when returned to the pool, resulting in enemies sometimes spawning with incorrect health values or the wrong class properties. This led to some interesting and unexpected behaviors:</p>
-						
-						<div class="video-wrapper">
-							<iframe src="https://www.youtube.com/embed/kwmzc38T6Ek?showinfo=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
-
-						<h2>Benefits</h2>
-						<p>Despite these challenges, the object pooling system significantly improved performance, allowing me to spawn large numbers of enemies and projectiles with minimal impact on frame rate. This was a crucial optimization for maintaining smooth gameplay, especially in multiplayer scenarios where networking adds additional overhead.</p>
-						
-						<div class="video-wrapper">
-							<iframe src="https://www.youtube.com/embed/POXiNS1v1dQ?showinfo=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
-						
-						<h2>Key Lessons</h2>
-						<p>Through implementing this system, I learned valuable lessons about:</p>
-						<ul>
-							<li>Memory management in game development</li>
-							<li>The importance of proper object state management</li>
-							<li>Performance optimization for real-time multiplayer games</li>
-							<li>Debugging complex object behavior in networked environments</li>
-						</ul>
+					<article class="post-content" id="blog-content">
+						<!-- Blog content will be injected here -->
 					</article>
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- // POST END -->
-
+	 
 	<!-- // BLOG BEGIN -->
 	<section id="blog">
 		<div class="container text-center">
@@ -324,6 +305,8 @@ if (!isObjectPooled)
 	<script src="assets/js/aos.js"></script>
 	<script src="assets/js/app.js"></script>
 	<script src="assets/js/prism.js"></script>
+	<script src="assets/js/blog-posts.js"></script>
+	<script src="assets/js/blog-loader.js"></script>
 
 	<!-- main js -->
 	<script src="assets/js/main.js"></script>
@@ -346,6 +329,22 @@ if (!isObjectPooled)
 			window.scrollTo({
 				top: 0,
 				behavior: 'smooth'
+			});
+		});
+		
+		// Add language indicator to code blocks
+		document.addEventListener('DOMContentLoaded', function() {
+			document.querySelectorAll('pre[class*="language-"]').forEach(function(pre) {
+				const codeElement = pre.querySelector('code');
+				if (codeElement) {
+					const languageClass = Array.from(codeElement.classList)
+						.find(cls => cls.startsWith('language-'));
+					
+					if (languageClass) {
+						const language = languageClass.replace('language-', '');
+						pre.setAttribute('data-language', language);
+					}
+				}
 			});
 		});
 	</script>

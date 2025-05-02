@@ -474,44 +474,19 @@
       })(window.toggleMemeMode);
     })();
 
-    const blogPosts = [
-      {
-        title: "The tools we used within Acorn2D",
-        description: "The architecture of my Custom 2D multiplayer engine",
-        image: "assets/img/portfolio/portfolio-12.png",
-        url: "blog_acorn2d.html"
-      },
-      {
-        title: "Conclusion on MMO Services/Sharded Backend",
-        description: "Things I learnt from my MMO Services/Sharded Backend project",
-        image: "assets/img/portfolio/portfolio-9.jpg",
-        url: "blog_mmo.html"
-      },
-      {
-        title: "Conclusion on Tower Defence Project",
-        description: "Things I learnt from my Tower Defence project",
-        image: "assets/img/portfolio/portfolio-0.jpg",
-        url: "blog_towerdefence.html"
-      },
-      {
-        title: "Conclusion on Mario Recreation Project",
-        description: "Things I learnt from my Mario Recreation project",
-        image: "assets/img/portfolio/portfolio-1.jpg",
-        url: "blog_mario.html"
-      },
-      {
-        title: "Object Pooling",
-        description: "The issues with using Object Pooling in a fully multiplayer game.",
-        image: "assets/img/portfolio/portfolio-11.png",
-        url: "blog_01.html"
-      },
-      {
-        title: "How Garry's Mod kick-started my love for Game Development/Programming",
-        description: "My history with Garry's Mod",
-        image: "assets/img/gmod.jpg",
-        url: "blog_gmod.html"
-      }
-    ];
+    function getDynamicBlogPosts() {
+      if (!window.BLOG_POSTS) return [];
+      return Object.entries(window.BLOG_POSTS).map(([key, post]) => ({
+        title: post.title,
+        description: post.description,
+        image: post.headerImage,
+        url: `blog.html?post=${key}`
+      })).sort((a, b) => {
+        const dateA = Date.parse(window.BLOG_POSTS[a.url.split('=')[1]].date) || 0;
+        const dateB = Date.parse(window.BLOG_POSTS[b.url.split('=')[1]].date) || 0;
+        return dateB - dateA;
+      });
+    }
 
     function renderBlogPosts(posts) {
       const blogList = document.getElementById('blog-list');
@@ -537,10 +512,6 @@
       html += '</div>';
       blogList.innerHTML = html;
     }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      renderBlogPosts(blogPosts);
-    });
 
     const projectList = [
       {
@@ -733,7 +704,6 @@
     function renderExperiences(experiences) {
       const container = document.getElementById('experience-list');
       if (!container) return;
-      // Sort by end date descending (most recent first)
       const sorted = experiences.slice().sort((a, b) => parseExperienceDate(b.date) - parseExperienceDate(a.date));
       let html = '<div id="experience-timeline">';
       sorted.forEach(exp => {
@@ -822,6 +792,9 @@
           $(this).collapse('hide');
         }
       });
+      if (window.BLOG_POSTS) {
+        renderBlogPosts(getDynamicBlogPosts());
+      }
     });
 
 })(jQuery);
