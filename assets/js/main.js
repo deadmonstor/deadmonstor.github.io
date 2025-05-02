@@ -516,7 +516,7 @@
     const projectList = [
       {
         title: "Sea of Thieves",
-        classes: "professional csharp unreal grid mix col-md-4 col-sm-6 col-xs-12",
+        classes: "professional csharp unreal ",
         image: "assets/img/portfolio/seaofthieves.jpg",
         alt: "Sea of Thieves",
         summary: "Worked as a Software Engineer on the networking and performance aspects of Sea of Thieves using C++ and Unreal Engine.",
@@ -527,7 +527,7 @@
       },
       {
         title: "Fable",
-        classes: "professional csharp custom-engine grid mix col-md-4 col-sm-6 col-xs-12",
+        classes: "professional csharp custom-engine ",
         image: "assets/img/portfolio/fable.jpg",
         alt: "Fable",
         summary: "Worked on creating and maintaining internal toolsets for Playground Games on the Fable project using C# and WPF.",
@@ -538,7 +538,7 @@
       },
       {
         title: "Forza Horizon",
-        classes: "professional csharp custom-engine grid mix col-md-4 col-sm-6 col-xs-12",
+        classes: "professional csharp custom-engine ",
         image: "assets/img/portfolio/forza.jpg",
         alt: "Forza Horizon",
         summary: "Worked on various aspects of Forza Horizon using C# and custom engine tools.",
@@ -549,29 +549,29 @@
       },
       {
         title: "Acorn2D",
-        classes: "professional cplusplus lua custom-engine grid mix col-md-4 col-sm-6 col-xs-12",
+        classes: "professional cplusplus lua custom-engine ",
         image: "assets/img/portfolio/portfolio-12.png",
         alt: "Acorn2D",
         summary: "Developed a custom 2D multiplayer engine using C++",
         date: "2024",
         links: [
-          { url: "blog_acorn2d.html", text: "Read More" }
+          { url: "blog.html?post=acorn2d", text: "Read More" }
         ]
       },
       {
         title: "MMO Services/Sharded Backend",
-        classes: "universityprojects csharp custom-engine unity grid mix col-md-4 col-sm-6 col-xs-12",
+        classes: "universityprojects csharp custom-engine unity ",
         image: "assets/img/portfolio/portfolio-9.jpg",
         alt: "MMO Services/Sharded Backend",
         summary: "Developed a multiple backend system for creating a game with C# backend and Unity frontend.",
         date: "2023",
         links: [
-          { url: "blog_mmo.html", text: "Read More" }
+          { url: "blog.html?post=mmo", text: "Read More" }
         ]
       },
       {
         title: "Into the Crypt",
-        classes: "universityprojects cplusplus custom-engine grid mix col-md-4 col-sm-6 col-xs-12",
+        classes: "universityprojects cplusplus custom-engine ",
         image: "assets/img/portfolio/portfolio-7.jpg",
         alt: "Into the Crypt",
         summary: "Worked on various aspects of the game engine and game development using C++ and OpenGL.",
@@ -580,7 +580,7 @@
       },
       {
         title: "Mario Kart Remake",
-        classes: "universityprojects unity csharp grid mix col-md-4 col-sm-6 col-xs-12",
+        classes: "universityprojects unity csharp ",
         image: "assets/img/portfolio/portfolio-6.jpg",
         alt: "Mario Kart Remake",
         summary: "Remade Mario Kart within Unity using C#.",
@@ -589,24 +589,24 @@
       },
       {
         title: "Online Multiplayer Tower Defence",
-        classes: "universityprojects unity csharp grid mix col-md-4 col-sm-6 col-xs-12",
+        classes: "universityprojects unity csharp ",
         image: "assets/img/portfolio/portfolio-0.jpg",
         alt: "Online Multiplayer Tower Defence",
         summary: "Developed an online multiplayer tower defence game within Unity using C#.",
         date: "2023",
         links: [
-          { url: "blog_towerdefence.html", text: "Read More" }
+          { url: "blog.html?post=towerdefence", text: "Read More" }
         ]
       },
       {
         title: "Garry's mod Content Creation",
-        classes: "personalprojects otherengine lua grid mix col-md-4 col-sm-6 col-xs-12",
+        classes: "personalprojects otherengine lua ",
         image: "assets/img/gmod.jpg",
         alt: "Garry's mod Content Creation",
         summary: "Created custom content for Garry's Mod using Lua.",
         date: "2015",
         links: [
-          { url: "blog_gmod.html", text: "Read More" }
+          { url: "blog.html?post=gmod", text: "Read More" }
         ]
       }
     ];
@@ -617,7 +617,7 @@
       let html = '<div id="port-image" class="container"><div class="row">';
       projects.forEach((proj, i) => {
         html += `
-          <div class="${proj.classes}">
+          <div class="${proj.classes} grid mix col-md-4 col-sm-6 col-xs-12">
             <h3 class="title">${proj.title}</h3>
             <figure class="port-desc">
               <img src="${proj.image}" class="img-responsive" alt="${proj.alt}">
