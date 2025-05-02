@@ -24,7 +24,7 @@
 	}
 	.navigation-menu .navbar-nav li a {
 		padding: 11px 15px;
-		color: #303030;
+		color: #bdbdbd;
 	}
 	.navigation-menu .navbar-nav .active {
 		color: #48b14d;
@@ -265,7 +265,7 @@
 		transition: all 0.3s ease-out;
 	}
 	.nav-bg .navigation-menu .navbar-nav li a {
-		color: #131313;
+		color: #ffffff;
 		padding: 18px 11px;
 		-webkit-transition: .3s;
 		transition: .3s;
