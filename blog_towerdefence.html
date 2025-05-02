@@ -151,6 +151,13 @@
 			tab-size: 4; 
 		}
 		
+		/* Ensure active blog nav link is always green and underlined */
+		.navbar-nav > li > a.active {
+			color: #48b14d !important; /* Green color */
+			background-color: transparent !important; /* Ensure no background overrides */
+			text-decoration: underline !important; /* Add underline */
+		}
+		
 		.video-wrapper {
 			position: relative;
 			width: 100%;
@@ -209,8 +216,12 @@
 
 							<div class="navbar-collapse collapse">
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="index.html">Home</a></li>
-									<li class="active"><a href="index.html#blog">Blog</a></li>
+									<li><a class="smoth-scroll" href="index.html#home">Home</a></li>
+									<li><a class="smoth-scroll" href="index.html#about">About</a></li>
+									<li><a class="smoth-scroll" href="index.html#experience">Experiences</a></li>
+									<li><a class="smoth-scroll" href="index.html#portfolio">Portfolio</a></li>
+									<li><a class="active smoth-scroll" href="index.html#blog">Blog</a></li>
+									<li><a class="smoth-scroll" href="index.html#contact">Contact</a></li>
 								</ul>
 							</div>
 						</div>
@@ -342,7 +353,7 @@
 		<div class="container">
 			<div class="col-md-8 col-md-offset-2 text-center">
 				<ul class="social-icons-footer">
-					<li><a target="_blank" href="https://www.linkedin.com/in/joshua-mobley/"><i class="fa fa-linkedin"></i></a></li>
+					<li><a target="_blank" href="https://www.linkedin.com/in/joshua-mobley/"><i class="fa fa-linkedin"></i></li>
 					<li><a target="_blank" href="https://twitter.com/deadmonstors"><i class="fa fa-twitter"></i></a></li>
 					<li><a target="_blank" href="https://github.com/deadmonstor"><i class="fa fa-github"></i></a></li>
 					<li><a target="_blank" href="https://steamcommunity.com/id/deadmonstor"><i class="fa fa-steam"></i></a></li>

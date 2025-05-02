@@ -139,6 +139,12 @@
 			line-height: 1.5; 
 			tab-size: 4; 
 		}
+		/* Ensure active blog nav link is always green and underlined */
+		.navbar-nav > li > a.active {
+			color: #48b14d !important; /* Green color */
+			background-color: transparent !important; /* Ensure no background overrides */
+			text-decoration: underline !important; /* Add underline */
+		}
 		.timeline {
 			position: relative;
 			max-width: 700px;
@@ -212,6 +218,13 @@
 			border-radius: 5px;
 			box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 		}
+
+		/* Ensure active blog nav link is always green and underlined */
+		.navbar-nav > li > a.active {
+			color: #48b14d !important; /* Green color */
+			background-color: transparent !important; /* Ensure no background overrides */
+			text-decoration: underline !important; /* Add underline */
+		}
 	</style>
 
 	<!--[if lt IE 9]>
@@ -255,8 +268,12 @@
 
 							<div class="navbar-collapse collapse">
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="index.html">Home</a></li>
-									<li class="active"><a href="index.html#blog">Blog</a></li>
+									<li><a class="smoth-scroll" href="index.html#home">Home</a></li>
+									<li><a class="smoth-scroll" href="index.html#about">About</a></li>
+									<li><a class="smoth-scroll" href="index.html#experience">Experiences</a></li>
+									<li><a class="smoth-scroll" href="index.html#portfolio">Portfolio</a></li>
+									<li><a class="active smoth-scroll" href="index.html#blog">Blog</a></li>
+									<li><a class="smoth-scroll" href="index.html#contact">Contact</a></li>
 								</ul>
 							</div>
 						</div>
@@ -266,7 +283,7 @@
 		</div>
 	</div>
 	<!-- // NAVIGATION END -->
-
+	 
 	<!-- // HEADER BEGIN -->
 	<div id="header" style="background-image: url('assets/img/gmod_background.jpg')">
 		<div class="overlay-blog">
