@@ -187,4 +187,146 @@
         startBackgroundRotation();
     });
 
+    // Meme Mode logic (global, works with both button and keyboard trigger)
+    (function() {
+      let memeActive = false;
+      const memeImages = {
+        profile: 'assets/img/funny-0.png',
+        background: 'assets/img/gmod_background.jpg'
+      };
+      let originalProfile = null;
+      let originalBackground = null;
+      function setMemeMode(active) {
+        memeActive = active;
+        document.documentElement.classList.toggle('meme-mode', memeActive);
+        // Swap profile pic
+        const profileImg = document.querySelector('.profile-pic img');
+        if (profileImg) {
+          if (memeActive) {
+            if (!originalProfile) originalProfile = profileImg.src;
+            profileImg.src = memeImages.profile;
+          } else if (originalProfile) {
+            profileImg.src = originalProfile;
+          }
+        }
+        // Swap home background
+        const homeBg = document.querySelector('.home-bg.bg-1');
+        if (homeBg) {
+          if (memeActive) {
+            if (!originalBackground) originalBackground = homeBg.style.backgroundImage;
+            homeBg.style.backgroundImage = `url('${memeImages.background}')`;
+          } else if (originalBackground) {
+            homeBg.style.backgroundImage = originalBackground;
+          }
+        }
+        // Change main heading text
+        const h1 = document.querySelector('.home-text h1');
+        if (h1) {
+          if (memeActive) {
+            h1.dataset.original = h1.textContent;
+            h1.textContent = 'Much Code. Very Portfolio. Wow!';
+          } else if (h1.dataset.original) {
+            h1.textContent = h1.dataset.original;
+          }
+        }
+        // Change all buttons text
+        document.querySelectorAll('.btn').forEach(btn => {
+          if (memeActive) {
+            btn.dataset.original = btn.textContent;
+            btn.textContent = '😂 ' + btn.textContent;
+          } else if (btn.dataset.original) {
+            btn.textContent = btn.dataset.original;
+          }
+        });
+      }
+      // Listen for meme mode toggle (keyboard or input)
+      window.toggleMemeMode = function() {
+        setMemeMode(!memeActive);
+      };
+    })();
+
+    // Meme Mode: Falling Twitch Emojis
+    (function() {
+      const emojiList = ['😂','Kappa','PogChamp','LUL','PepeHands','FeelsBadMan','FeelsGoodMan','OMEGALUL','Kreygasm','BibleThump','4Head','TriHard','PogU','monkaS','NotLikeThis','KappaPride','CoolCat','VoHiYo','BlessRNG','KappaClaus'];
+      // Use unicode or fallback to text for Twitch emotes
+      const emojiUnicode = ['😂','🤣','😎','🔥','💯','😱','😏','😜','😳','😅','😆','😇','😈','👀','🤡','🥳','🤔','😬','😹','🥲'];
+      let intervalId = null;
+      function randomEmoji() {
+        // Use unicode for browser compatibility
+        return emojiUnicode[Math.floor(Math.random() * emojiUnicode.length)];
+      }
+      function createEmoji() {
+        const emoji = document.createElement('div');
+        emoji.className = 'falling-emoji';
+        emoji.textContent = randomEmoji();
+        emoji.style.left = Math.random() * 100 + 'vw';
+        emoji.style.animationDuration = (1.8 + Math.random() * 2.2) + 's';
+        emoji.style.fontSize = (32 + Math.random() * 32) + 'px';
+        document.body.appendChild(emoji);
+        setTimeout(() => emoji.remove(), 4000);
+      }
+      function startEmojis() {
+        if (intervalId) return;
+        intervalId = setInterval(createEmoji, 180);
+      }
+      function stopEmojis() {
+        clearInterval(intervalId);
+        intervalId = null;
+        document.querySelectorAll('.falling-emoji').forEach(e => e.remove());
+      }
+      // Hook into meme mode toggle
+      const memeButton = document.getElementById('meme-mode-toggle');
+      if (memeButton) {
+        memeButton.addEventListener('click', function() {
+          if (document.documentElement.classList.contains('meme-mode')) {
+            startEmojis();
+          } else {
+            stopEmojis();
+          }
+        });
+      }
+    })();
+
+    // Meme Mode: Activate by typing 'Meme' and pressing Enter
+    (function() {
+      const input = document.getElementById('meme-mode-input');
+      const memeButton = document.getElementById('meme-mode-toggle');
+      if (memeButton) memeButton.style.display = 'none'; // Hide the old button
+      if (!input) return;
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          if (input.value.trim().toLowerCase() === 'meme') {
+            window.toggleMemeMode();
+            input.value = '';
+          } else {
+            input.value = '';
+            input.placeholder = "Nope! Type 'Meme'";
+          }
+        }
+      });
+    })();
+
+    // Meme Mode: Activate by typing 'Meme' anywhere and pressing Enter
+    (function() {
+      let buffer = '';
+      let lastKeyTime = Date.now();
+      document.addEventListener('keydown', function(e) {
+        // Ignore if typing in an input, textarea, or contenteditable
+        const tag = document.activeElement.tagName.toLowerCase();
+        if (tag === 'input' || tag === 'textarea' || document.activeElement.isContentEditable) return;
+        const now = Date.now();
+        if (now - lastKeyTime > 1500) buffer = '';
+        lastKeyTime = now;
+        if (e.key.length === 1) {
+          buffer += e.key;
+          if (buffer.length > 4) buffer = buffer.slice(-4);
+        } else if (e.key === 'Enter') {
+          if (buffer.toLowerCase() === 'meme') {
+            window.toggleMemeMode();
+            buffer = '';
+          }
+        }
+      });
+    })();
+
 })(jQuery);

@@ -1787,3 +1787,216 @@ code {
 	transform: scale(1.1);
 	transition: transform 0.3s ease;
 }
+
+.meme-mode body, .meme-mode .home-text, .meme-mode h1, .meme-mode h2, .meme-mode h3, .meme-mode h4, .meme-mode h5, .meme-mode h6 {
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
+}
+.meme-mode .profile-pic img {
+  filter: hue-rotate(120deg) saturate(2);
+  border: 4px dashed #ff69b4;
+  animation: meme-spin 2s linear infinite;
+}
+@keyframes meme-spin {
+  0% { transform: rotate(0deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1.1); }
+}
+.meme-mode .home-bg, .meme-mode .testimonial-bg {
+  filter: grayscale(0.7) brightness(1.2) contrast(1.2);
+  animation: meme-bg-rainbow 3s linear infinite;
+}
+@keyframes meme-bg-rainbow {
+  0% { filter: hue-rotate(0deg) brightness(1.2) contrast(1.2); }
+  100% { filter: hue-rotate(360deg) brightness(1.2) contrast(1.2); }
+}
+.meme-mode .btn, .meme-mode .btn-dark, .meme-mode .btn-light {
+  animation: meme-wiggle 0.4s infinite alternate;
+  box-shadow: 0 0 20px 5px #ff69b4, 0 0 10px 2px #ffea00;
+}
+@keyframes meme-wiggle {
+  0% { transform: rotate(-2deg) scale(1.05); }
+  100% { transform: rotate(2deg) scale(1.1); }
+}
+.meme-mode .home-text h3 {
+  color: #ffea00 !important;
+  text-shadow: 2px 2px 0 #000, 4px 4px 0 #ff69b4;
+  font-size: 2.2em !important;
+  letter-spacing: 2px;
+}
+.meme-mode .home-text h1 {
+  color: #00ffea !important;
+  text-shadow: 2px 2px 0 #000, 4px 4px 0 #ff69b4;
+}
+.meme-mode .home-text h1::after {
+  content: ' 🚀🔥💥';
+  animation: meme-emoji-bounce 1s infinite alternate;
+}
+@keyframes meme-emoji-bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+.meme-mode .blog-item, .meme-mode .port-desc {
+  border: 4px dotted #ffea00;
+  background: repeating-linear-gradient(135deg, #fff700 0 10px, #ff69b4 10px 20px);
+  filter: hue-rotate(60deg) brightness(1.1);
+  animation: meme-shake 0.5s infinite alternate;
+}
+@keyframes meme-shake {
+  0% { transform: translateY(-2px) rotate(-2deg) scale(1.03); }
+  100% { transform: translateY(2px) rotate(2deg) scale(1.06); }
+}
+.meme-mode .blog-item h4, .meme-mode .port-desc .title {
+  color: #ff69b4 !important;
+  text-transform: uppercase;
+  font-size: 1.3em;
+  text-shadow: 1px 1px 0 #fff700;
+}
+.meme-mode .btn, .meme-mode .btn-dark, .meme-mode .btn-light {
+  background: linear-gradient(90deg, #ffea00 0%, #ff69b4 100%) !important;
+  color: #222 !important;
+  border: 2px solid #ff69b4 !important;
+  text-shadow: 1px 1px 0 #fff;
+}
+.meme-mode .social-icons li a, .meme-mode .social-icons-footer li a {
+  color: #ff69b4 !important;
+  background: #fff700 !important;
+  border-radius: 50%;
+  border: 2px solid #ff69b4;
+  box-shadow: 0 0 10px #ffea00;
+}
+.meme-mode .social-icons li a:hover, .meme-mode .social-icons-footer li a:hover {
+  color: #fff700 !important;
+  background: #ff69b4 !important;
+  border-color: #fff700;
+}
+.meme-mode {
+  cursor: url('assets/img/gmod.png'), auto;
+}
+
+.falling-emoji {
+  position: fixed;
+  top: -48px;
+  pointer-events: none;
+  z-index: 9999;
+  animation: falling-emoji-anim linear forwards;
+  will-change: transform, opacity;
+  user-select: none;
+  opacity: 0.95;
+  text-shadow: 2px 2px 4px #000, 0 0 8px #fff700;
+}
+@keyframes falling-emoji-anim {
+  0% {
+    transform: translateY(0) scale(1) rotate(-10deg);
+    opacity: 0.95;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) scale(1.2) rotate(20deg);
+    opacity: 0.2;
+  }
+}
+
+/* 1. Meme Mode: Nyan Cat Rainbow Bar */
+.meme-mode::before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 12px;
+  background: repeating-linear-gradient(90deg, #ff69b4 0 16px, #ffea00 16px 32px, #00ffea 32px 48px, #48b14d 48px 64px, #4a8cdb 64px 80px);
+  z-index: 99999;
+  animation: meme-nyan-bar 1.2s linear infinite;
+}
+@keyframes meme-nyan-bar {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 80px; }
+}
+
+/* 2. Meme Mode: Spinning Nyan Cat */
+.meme-mode .nyan-cat {
+  position: fixed;
+  top: 8px; left: 12px;
+  width: 48px; height: 32px;
+  z-index: 100000;
+  pointer-events: none;
+  animation: meme-spin 2s linear infinite;
+}
+
+/* 3. Meme Mode: Comic Sans for everything */
+.meme-mode * {
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
+}
+
+/* 4. Meme Mode: Dancing Banana */
+.meme-mode .dancing-banana {
+  position: fixed;
+  bottom: 20px; left: 20px;
+  width: 48px; height: 64px;
+  z-index: 100000;
+  pointer-events: none;
+  animation: meme-banana-dance 0.6s steps(2) infinite;
+}
+@keyframes meme-banana-dance {
+  0% { transform: scaleX(1); }
+  50% { transform: scaleX(-1); }
+  100% { transform: scaleX(1); }
+}
+
+/* 5. Meme Mode: Confetti */
+.falling-confetti {
+  position: fixed;
+  top: -32px;
+  z-index: 9999;
+  pointer-events: none;
+  animation: falling-confetti-anim linear forwards;
+  will-change: transform, opacity;
+  opacity: 0.9;
+}
+@keyframes falling-confetti-anim {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
+  80% { opacity: 1; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0.2; }
+}
+
+/* 6. Meme Mode: Marquee Text */
+.meme-mode .meme-marquee {
+  position: fixed;
+  bottom: 0; left: 0; width: 100vw;
+  background: #ffea00;
+  color: #222;
+  font-size: 2em;
+  font-weight: bold;
+  z-index: 100000;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: meme-marquee-move 12s linear infinite;
+}
+@keyframes meme-marquee-move {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-100vw); }
+}
+
+/* 7. Meme Mode: Spinning Social Icons */
+.meme-mode .social-icons li a, .meme-mode .social-icons-footer li a {
+  animation: meme-spin 1.5s linear infinite;
+}
+
+/* 8. Meme Mode: Wobble All Headings */
+.meme-mode h1, .meme-mode h2, .meme-mode h3, .meme-mode h4, .meme-mode h5, .meme-mode h6 {
+  animation: meme-wobble 0.7s infinite alternate;
+}
+@keyframes meme-wobble {
+  0% { transform: rotate(-3deg) scale(1.05); }
+  100% { transform: rotate(3deg) scale(1.1); }
+}
+
+/* 9. Meme Mode: Rainbow Border for Main Sections */
+.meme-mode section, .meme-mode #home, .meme-mode #navigation {
+  border: 4px solid;
+  border-image: linear-gradient(90deg, #ff69b4, #ffea00, #00ffea, #48b14d, #4a8cdb, #ff69b4) 1;
+}
+
+/* 10. Meme Mode: Extra Large Cursor */
+.meme-mode {
+  cursor: url('assets/img/gmod.png'), auto;
+}
