@@ -6,6 +6,11 @@
   }
 
   function setBlogContent(post) {
+    if (!document.getElementById('blog-title') || !document.getElementById('blog-meta') || !document.getElementById('blog-content')) {
+      console.error('Blog elements not found in the document.');
+      return;
+    }
+
     if (!post) {
       document.getElementById('blog-title').textContent = 'Post Not Found';
       document.getElementById('blog-meta').textContent = '';
