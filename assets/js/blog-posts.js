@@ -1,7 +1,6 @@
-// Blog post data for dynamic rendering
 window.BLOG_POSTS = {
   "acorn2d": {
-    title: "Acorn2D: A Custom 2D Game Engine in C++",
+    title: "Building Acorn2D: Tools from a Custom Multiplayer Engine",
     date: "April 2024",
     author: "Josh Mobley",
     headerImage: "assets/img/portfolio/portfolio-12.png",
@@ -174,7 +173,7 @@ message NetMessages
 <p>Honestly I am very happy with how it has gone and will make more blogs on it in the future as there is some awesome stuff in here!</p>`
   },
   "gmod": {
-    title: "Garry's Mod Lua Scripting",
+    title: "How Garry's Mod Kickstarted My Game Dev Journey",
     date: "March 2023",
     author: "Josh Mobley",
     headerImage: "assets/img/gmod_background.jpg",
@@ -255,11 +254,11 @@ end)</code></pre>
 <p>Today, when I work on complex systems at professional studios, I still find myself drawing on lessons I learned creating Lua scripts for GMod all those years ago. It stands as a testament to how powerful game modding can be as an entry point into programming and game development.</p>`
   },
   "mario": {
-    title: "Mario Clone in Unity",
+    title: "Mario: A Platformer Remake in SDL",
     date: "February 2023",
     author: "Josh Mobley",
     headerImage: "assets/img/portfolio/portfolio-1.jpg",
-    description: "Recreating Mario platformer mechanics in Unity.",
+    description: "Recreating Mario platformer mechanics in SDL.",
     content: `<h2>Introduction to the Mario Recreation Project</h2>
 <p>For one of my university assignments, I was tasked with recreating a classic game. I chose to recreate Mario. This project allowed me to gain experience with making 2D games while developing a deeper understanding of what makes platformer mechanics feel responsive and satisfying.</p>
 
@@ -315,7 +314,7 @@ end)</code></pre>
 <p>Recreating Mario provided me with a deeper appreciation for the nuanced design of classic platformers. The project pushed me to pay attention to details that players might not consciously notice but significantly impact how the game feels to play.</p>`
   },
   "mmo": {
-    title: "Final Year Project MMO",
+    title: "Designing a Scalable MMO: My Final Year Project",
     date: "May 2025",
     author: "Josh Mobley",
     headerImage: "assets/img/portfolio/portfolio-9.jpg",
@@ -399,7 +398,7 @@ end)</code></pre>
 </div>`
   },
   "towerdefence": {
-    title: "Tower Defence Project",
+    title: "Online Co-op Tower Defence: Multiplayer & Optimization",
     date: "September 2020",
     author: "Josh Mobley",
     headerImage: "assets/img/portfolio/portfolio-0.jpg",
@@ -464,10 +463,10 @@ end)</code></pre>
 <p>The lessons learned here—particularly regarding networking, optimization, and balance—have informed my approach to game development ever since, providing a foundation for more advanced projects.</p>`
   },
   "01": {
-    title: "Object Pooling in Multiplayer Games",
+    title: "Object Pooling in Multiplayer: Performance & Pitfalls",
     date: "October 2020",
     author: "Josh Mobley",
-    headerImage: "assets/img/portfolio/portfolio-0.jpg",
+    headerImage: "assets/img/portfolio/portfolio-11.png",
     description: "The issues with using Object Pooling in a fully multiplayer game.",
     content: `<h2>The Challenge</h2>
 <p>In my university Tower Defence game project, I faced the challenge of efficiently spawning large numbers of enemies and projectiles without causing performance drops. The solution was to implement an object pooling system that would reuse game objects instead of constantly creating and destroying them.</p>
