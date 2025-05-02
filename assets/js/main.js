@@ -474,4 +474,354 @@
       })(window.toggleMemeMode);
     })();
 
+    const blogPosts = [
+      {
+        title: "The tools we used within Acorn2D",
+        description: "The architecture of my Custom 2D multiplayer engine",
+        image: "assets/img/portfolio/portfolio-12.png",
+        url: "blog_acorn2d.html"
+      },
+      {
+        title: "Conclusion on MMO Services/Sharded Backend",
+        description: "Things I learnt from my MMO Services/Sharded Backend project",
+        image: "assets/img/portfolio/portfolio-9.jpg",
+        url: "blog_mmo.html"
+      },
+      {
+        title: "Conclusion on Tower Defence Project",
+        description: "Things I learnt from my Tower Defence project",
+        image: "assets/img/portfolio/portfolio-0.jpg",
+        url: "blog_towerdefence.html"
+      },
+      {
+        title: "Conclusion on Mario Recreation Project",
+        description: "Things I learnt from my Mario Recreation project",
+        image: "assets/img/portfolio/portfolio-1.jpg",
+        url: "blog_mario.html"
+      },
+      {
+        title: "Object Pooling",
+        description: "The issues with using Object Pooling in a fully multiplayer game.",
+        image: "assets/img/portfolio/portfolio-11.png",
+        url: "blog_01.html"
+      },
+      {
+        title: "How Garry's Mod kick-started my love for Game Development/Programming",
+        description: "My history with Garry's Mod",
+        image: "assets/img/gmod.jpg",
+        url: "blog_gmod.html"
+      }
+    ];
+
+    function renderBlogPosts(posts) {
+      const blogList = document.getElementById('blog-list');
+      if (!blogList) return;
+      let html = '<div class="row">';
+      posts.forEach((post, i) => {
+        if (i > 0 && i % 3 === 0) html += '</div><div class="row" style="margin-top: 30px;">';
+        html += `
+          <div class="col-md-4 col-sm-6">
+            <div class="blog-item">
+              <a href="${post.url}" class="blog-img">
+                <img src="${post.image}"${post.title.includes('Garry') ? ' style="height: 240px"' : ''}>
+              </a>
+              <div class="blog-desc">
+                <h4>${post.title}</h4>
+                <p>${post.description}</p>
+                <a href="${post.url}" class="btn btn-dark blog-removeunderline">View Blog</a>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      html += '</div>';
+      blogList.innerHTML = html;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      renderBlogPosts(blogPosts);
+    });
+
+    const projectList = [
+      {
+        title: "Sea of Thieves",
+        classes: "professional csharp unreal grid mix col-md-4 col-sm-6 col-xs-12",
+        image: "assets/img/portfolio/seaofthieves.jpg",
+        alt: "Sea of Thieves",
+        summary: "Worked as a Software Engineer on the networking and performance aspects of Sea of Thieves using C++ and Unreal Engine.",
+        date: "2024 - Present",
+        links: [
+          { url: "https://www.seaofthieves.com/", text: "Read More" }
+        ]
+      },
+      {
+        title: "Fable",
+        classes: "professional csharp custom-engine grid mix col-md-4 col-sm-6 col-xs-12",
+        image: "assets/img/portfolio/fable.jpg",
+        alt: "Fable",
+        summary: "Worked on creating and maintaining internal toolsets for Playground Games on the Fable project using C# and WPF.",
+        date: "2022",
+        links: [
+          { url: "https://www.xbox.com/en-GB/games/fable", text: "Read More" }
+        ]
+      },
+      {
+        title: "Forza Horizon",
+        classes: "professional csharp custom-engine grid mix col-md-4 col-sm-6 col-xs-12",
+        image: "assets/img/portfolio/forza.jpg",
+        alt: "Forza Horizon",
+        summary: "Worked on various aspects of Forza Horizon using C# and custom engine tools.",
+        date: "2022",
+        links: [
+          { url: "https://forza.net/", text: "Read More" }
+        ]
+      },
+      {
+        title: "Acorn2D",
+        classes: "professional cplusplus lua custom-engine grid mix col-md-4 col-sm-6 col-xs-12",
+        image: "assets/img/portfolio/portfolio-12.png",
+        alt: "Acorn2D",
+        summary: "Developed a custom 2D multiplayer engine using C++",
+        date: "2024",
+        links: [
+          { url: "blog_acorn2d.html", text: "Read More" }
+        ]
+      },
+      {
+        title: "MMO Services/Sharded Backend",
+        classes: "universityprojects csharp custom-engine unity grid mix col-md-4 col-sm-6 col-xs-12",
+        image: "assets/img/portfolio/portfolio-9.jpg",
+        alt: "MMO Services/Sharded Backend",
+        summary: "Developed a multiple backend system for creating a game with C# backend and Unity frontend.",
+        date: "2023",
+        links: [
+          { url: "blog_mmo.html", text: "Read More" }
+        ]
+      },
+      {
+        title: "Into the Crypt",
+        classes: "universityprojects cplusplus custom-engine grid mix col-md-4 col-sm-6 col-xs-12",
+        image: "assets/img/portfolio/portfolio-7.jpg",
+        alt: "Into the Crypt",
+        summary: "Worked on various aspects of the game engine and game development using C++ and OpenGL.",
+        date: "2023",
+        links: []
+      },
+      {
+        title: "Mario Kart Remake",
+        classes: "universityprojects unity csharp grid mix col-md-4 col-sm-6 col-xs-12",
+        image: "assets/img/portfolio/portfolio-6.jpg",
+        alt: "Mario Kart Remake",
+        summary: "Remade Mario Kart within Unity using C#.",
+        date: "2023",
+        links: []
+      },
+      {
+        title: "Online Multiplayer Tower Defence",
+        classes: "universityprojects unity csharp grid mix col-md-4 col-sm-6 col-xs-12",
+        image: "assets/img/portfolio/portfolio-0.jpg",
+        alt: "Online Multiplayer Tower Defence",
+        summary: "Developed an online multiplayer tower defence game within Unity using C#.",
+        date: "2023",
+        links: [
+          { url: "blog_towerdefence.html", text: "Read More" }
+        ]
+      },
+      {
+        title: "Garry's mod Content Creation",
+        classes: "personalprojects otherengine lua grid mix col-md-4 col-sm-6 col-xs-12",
+        image: "assets/img/gmod.jpg",
+        alt: "Garry's mod Content Creation",
+        summary: "Created custom content for Garry's Mod using Lua.",
+        date: "2015",
+        links: [
+          { url: "blog_gmod.html", text: "Read More" }
+        ]
+      }
+    ];
+
+    function renderProjects(projects) {
+      const container = document.getElementById('project-list');
+      if (!container) return;
+      let html = '<div id="port-image" class="container"><div class="row">';
+      projects.forEach((proj, i) => {
+        html += `
+          <div class="${proj.classes}">
+            <h3 class="title">${proj.title}</h3>
+            <figure class="port-desc">
+              <img src="${proj.image}" class="img-responsive" alt="${proj.alt}">
+              <figcaption>
+                <div class="project-summary">${proj.summary}</div>
+                <div class="project-date">Date: ${proj.date}</div>
+                <div class="project-links">
+                  ${proj.links.map(link => `<a href="${link.url}"}>${link.text}</a>`).join('')}
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+        `;
+      });
+      html += '</div></div>';
+      container.innerHTML = html;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      renderProjects(projectList);
+      
+      if (window.$ && $('#port-image').mixItUp) {
+        $('#port-image').mixItUp({
+          animation: { duration: 200 }
+        });
+      }
+    });
+
+    const experienceList = [
+      {
+        date: "June 2024 – Present",
+        company: "Flix Interactive",
+        companyUrl: "https://www.flixinteractive.com/",
+        title: "Software Engineer Level 1",
+        description: "Software Engineer L1 working on Sea of Thieves (C++, Unreal Engine). Focused on networking and performance for major game updates within strict performance budgets."
+      },
+      {
+        date: "Present",
+        company: "Idle Fields",
+        companyUrl: "https://store.steampowered.com/app/1807570/Idle_Fields/",
+        title: "Developer",
+        description: "Co-developing 'Idle Fields' using C# and Unity. Available on Steam: <a target=\"_blank\" href=\"https://store.steampowered.com/app/1807570/Idle_Fields/\">Idle Fields</a>"
+      },
+      {
+        date: "July 2023 – June 2024",
+        company: "Flix Interactive",
+        companyUrl: "https://www.flixinteractive.com/",
+        title: "Junior Engineer",
+        description: "Junior Engineer on Sea of Thieves (C++, Unreal Engine). Contributed to major updates, focusing on networking, performance, and engine modifications."
+      },
+      {
+        date: "2021 – 2022",
+        company: "Playground Games",
+        companyUrl: "https://www.playground-games.com/",
+        title: "Associate Engineer (Placement)",
+        description: "University Placement on the Fable project. Developed and maintained internal tools (C#, WPF), collaborating with content creators to improve workflows and fix bugs."
+      },
+      {
+        date: "September 2019 – April 2023",
+        company: "Staffordshire University",
+        companyUrl: null,
+        title: "BSc Computer Games Development",
+        description: "Developed diverse projects: MMO backend, mobile/console games (C++/C#, Unreal/Unity), networked AI, OpenGL, and engine development."
+      },
+      {
+        date: "2013 – 2018",
+        company: "Personal projects - Garry's Mod",
+        companyUrl: null,
+        title: null,
+        description: "Started game development creating custom Garry's Mod content (Lua). Gained foundational coding/optimisation skills. Content reached thousands, solidifying career path."
+      }
+    ];
+
+    function parseExperienceDate(dateStr) {
+      if (!dateStr) return 0;
+      if (dateStr.toLowerCase().includes('present')) return Date.now();
+      const yearMatch = dateStr.match(/(\d{4})/g);
+      if (yearMatch && yearMatch.length > 0) {
+        return new Date(parseInt(yearMatch[yearMatch.length - 1]), 11, 31).getTime();
+      }
+      return 0;
+    }
+
+    function renderExperiences(experiences) {
+      const container = document.getElementById('experience-list');
+      if (!container) return;
+      // Sort by end date descending (most recent first)
+      const sorted = experiences.slice().sort((a, b) => parseExperienceDate(b.date) - parseExperienceDate(a.date));
+      let html = '<div id="experience-timeline">';
+      sorted.forEach(exp => {
+        html += `
+          <div class="vtimeline-point">
+            <div class="vtimeline-icon"><i class="fa fa-map-marker"></i></div>
+            <div class="vtimeline-block">
+              <span class="vtimeline-date">${exp.date}</span>
+              <div data-date="${exp.date}" class="vtimeline-content">
+                <h3>${exp.companyUrl ? `<a target=\"_blank\" href=\"${exp.companyUrl}\">${exp.company}</a>` : exp.company}</h3>
+                ${exp.title ? `<h4>${exp.title}</h4>` : ''}
+                <p>${exp.description}</p>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      html += '</div>';
+      container.innerHTML = html;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      renderExperiences(experienceList);
+    });
+
+    function getNavbarHtml() {
+      const page = window.location.pathname.split('/').pop() || 'index.html';
+      const isIndex = page === 'index.html' || page === '';
+      const navLinks = [
+        { name: 'Home', href: isIndex ? '#home' : 'index.html#home', id: 'home' },
+        { name: 'About', href: isIndex ? '#about' : 'index.html#about', id: 'about' },
+        { name: 'Experiences', href: isIndex ? '#experience' : 'index.html#experience', id: 'experience' },
+        { name: 'Portfolio', href: isIndex ? '#portfolio' : 'index.html#portfolio', id: 'portfolio' },
+        { name: 'Blog', href: isIndex ? '#blog' : 'index.html#blog', id: 'blog' },
+        { name: 'Contact', href: isIndex ? '#contact' : 'index.html#contact', id: 'contact' },
+      ];
+      let active = window.location.hash.replace('#', '') || (isIndex ? 'home' : 'blog');
+      if (!isIndex) active = 'blog';
+      return `
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="logo">
+                <a href="index.html">Joshua Mobley</a>
+              </div>
+            </div>
+            <div class="col-sm-9">
+              <div class="navigation-menu">
+                <div class="navbar">
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </div>
+                  <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                      ${navLinks.map(link => `<li><a class="smoth-scroll${active === link.id ? ' active' : ''}" href="${link.href}">${link.name}</a></li>`).join('')}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var nav = document.getElementById('navigation');
+      if (nav) nav.innerHTML = getNavbarHtml();
+      $(document).on('click', 'a.smoth-scroll', function (e) {
+        var anchor = $(this);
+        var href = anchor.attr('href');
+        if (href && href.startsWith('#') && $(href).length) {
+          $('html, body').stop().animate({
+            scrollTop: $(href).offset().top - 50
+          }, 1000);
+          e.preventDefault();
+        }
+      });
+      $(document).on('click', '.navbar-collapse.in', function (e) {
+        if ($(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle') {
+          $(this).collapse('hide');
+        }
+      });
+    });
+
 })(jQuery);
