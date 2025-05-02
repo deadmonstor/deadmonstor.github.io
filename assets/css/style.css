@@ -257,7 +257,7 @@ body {
 	}
 	100% {
 		transform: scale(0);
-		opacity: 0;
+		opacity: 0);
 	}
 }
 
@@ -409,7 +409,7 @@ body {
 
 .navigation-menu .navbar-nav .active a, 
 .navigation-menu .navbar-nav li a:hover {
-	color: #ffffff; 
+	color: #ffffff; /* Changed from #121212 */
 	background: none;
 	-webkit-transition: all 0.3s ease-out;
 	transition: all 0.3s ease-out;
@@ -453,7 +453,7 @@ body {
 }
 
 .nav-bg .navigation-menu .navbar-nav li a:hover {
-	color: #ffffff; 
+	color: #ffffff; /* Changed from #121212 */
 }
 
 .nav-bg .navbar-nav>.active>a,
