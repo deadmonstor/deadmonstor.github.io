@@ -41,7 +41,7 @@
 	<!-- Custom blog styles -->
 	<style>
 		.post-container {
-			max-width: 800px;
+			max-width: 1000px;
 			margin: 0 auto;
 			padding: 20px;
 		}
@@ -199,6 +199,76 @@
 			color: #48b14d !important; /* Green color */
 			background-color: transparent !important; /* Ensure no background overrides */
 			text-decoration: underline !important; /* Add underline */
+		}
+
+		/* --- Blog Post Template Enhancements (Neutral, Banner Restored) --- */
+
+		.post-container {
+			background: #1e1e1e;
+			border-radius: 18px;
+			box-shadow: 0 8px 32px 0 rgba(20,20,30,0.18), 0 2px 8px 0 rgba(20,20,30,0.10);
+			padding: 0.5rem 2.2rem 2.5rem 2.2rem;
+			margin-top: 40px;
+			margin-bottom: 40px;
+			animation: fadein-post 0.7s cubic-bezier(.4,0,.2,1);
+		}
+		@keyframes fadein-post {
+			from { opacity: 0; transform: translateY(32px); }
+			to { opacity: 1; transform: none; }
+		}
+
+		#header {
+			border-radius: 0 0 18px 18px;
+			overflow: hidden;
+			position: relative;
+			min-height: 320px;
+			background-size: cover !important;
+			background-position: center center !important;
+			background-repeat: no-repeat !important;
+		}
+		#header .overlay-blog {
+			background: rgba(40,40,40,0.28);
+			border-radius: 0 0 18px 18px;
+			padding-bottom: 1.5rem;
+			min-height: 320px;
+			display: flex;
+			align-items: flex-end;
+		}
+		#header .post-heading {
+			padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+			background: rgba(20,20,20,0.72);
+			border-radius: 18px;
+			box-shadow: 0 2px 12px 0 rgba(20,20,30,0.10);
+		}
+		#header .post-heading h1 {
+			font-size: 2.3em;
+			color: #fff;
+			text-shadow: 0 2px 12px #222a, 0 1px 0 #000a;
+		}
+		#header .post-heading .meta {
+			color: #b0b0b0;
+			font-size: 1.1em;
+			margin-top: 0.7em;
+		}
+
+		pre[data-language]::before {
+			background: #222;
+			color: #b0b0b0;
+		}
+
+		@media (max-width: 700px) {
+			.post-container {
+				padding: 1.2rem 0.7rem;
+				border-radius: 10px;
+				margin-top: 18px;
+				margin-bottom: 18px;
+			}
+			#header, #header .overlay-blog, #header .post-heading {
+				border-radius: 0 0 10px 10px;
+			}
+			#header .post-heading h1 {
+				font-size: 1.3em;
+			}
 		}
 	</style>
 
