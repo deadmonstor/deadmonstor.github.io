@@ -63,11 +63,11 @@ h2 {
 h4 {
 	font-weight: 600;
 	margin-bottom: 15px;
-	color: #cccccc; 
+	color: #dbdbdb; 
 }
 
 p {
-	color: #cccccc; 
+	color: #dbdbdb; 
 	font-size: 16px;
 }
 
@@ -396,7 +396,7 @@ body {
 }
 
 .navigation-menu .navbar-nav li a {
-	color: #cccccc; 
+	color: #dbdbdb; 
 	font-size: 0.9em;
 	font-weight: 600;
 	letter-spacing: 1px;
@@ -446,7 +446,7 @@ body {
 }
 
 .nav-bg .navigation-menu .navbar-nav li a {
-	color: #cccccc; 
+	color: #dbdbdb; 
 	padding: 20px 13px;
 	-webkit-transition: .3s;
 	transition: .3s;
@@ -559,7 +559,7 @@ body {
 }
 
 .home-text h3 {
-	color: #cccccc; 
+	color: #dbdbdb; 
 	letter-spacing: 2px;
 }
 
@@ -634,7 +634,7 @@ body {
 }
 
 .social-icons li a {
-	color: #cccccc; 
+	color: #dbdbdb; 
 	background: rgba(42, 41, 41, 0);
 	display: inline-block;
 	display: -moz-inline-stack;
@@ -681,7 +681,7 @@ body {
 }
 
 .count-name-intro {
-	color: #cccccc; 
+	color: #dbdbdb; 
 	font-size: 1.3em;
 	font-weight: 600;
 	font-family: 'Lato', sans-serif;
@@ -695,7 +695,7 @@ body {
 .curSkills  {
 	font-size: 25px;
 	padding-bottom: 50px;
-	color: #cccccc; 
+	color: #dbdbdb; 
 }
 
 .mySkills
@@ -758,7 +758,7 @@ body {
 .filter {
 	position: relative;
 	display: inline-block;
-	color: #cccccc; 
+	color: #dbdbdb; 
 	font-size: 1em;
 	font-weight: 600;
 	padding: 6px 17px;
@@ -901,7 +901,7 @@ body {
 }
 
 .port-desc figcaption .project-summary {
-	color: #cccccc; 
+	color: #dbdbdb; 
 	font-size: 0.9em;
 	margin: 0 0 12px 0; 
 	line-height: 1.4em;
@@ -969,7 +969,7 @@ services-item i {
 }
 
 services-item h4 {
-	color: #cccccc;
+	color: #dbdbdb;
 }
 
 services-item p {
@@ -984,7 +984,7 @@ services-item p {
 #hire p {
 	width: 30em;
 	max-width: 100%;
-	color: #cccccc; 
+	color: #dbdbdb; 
 }
 
 #hire .btn {
@@ -1079,7 +1079,7 @@ services-item p {
 }
 
 .testimonial-slider p {
-	color: #cccccc; 
+	color: #dbdbdb; 
 	font-weight: 600;
 }
 
@@ -1145,7 +1145,7 @@ services-item p {
 
 .blog-item .blog-desc p {
 	margin-bottom: 15px;
-	color: #cccccc;
+	color: #dbdbdb;
 	height: 52px; 
 	overflow: hidden;
 }
@@ -1274,7 +1274,7 @@ services-item p {
 }
 
 #contact .address-icons p {
-	color: #cccccc; 
+	color: #dbdbdb; 
 	margin-bottom: 30px;
 }
 
@@ -1283,7 +1283,7 @@ services-item p {
 }
 
 #contact i.fa {
-	color: #cccccc; 
+	color: #dbdbdb; 
 	font-size: 2em;
 	line-height: 45px;
 	margin-bottom: 10px;
@@ -1296,7 +1296,7 @@ services-item p {
 
 label {
 	float: left;
-	color: #cccccc; 
+	color: #dbdbdb; 
 }
 
 label.error {
@@ -1444,7 +1444,7 @@ fieldset {
 }
 
 #header .post-heading .meta a {
-	color: #cccccc; 
+	color: #dbdbdb; 
 }
 
 #header .post-heading .meta a:hover {
@@ -1465,7 +1465,7 @@ fieldset {
 #footer {
 	padding: 40px 0 50px;
 	background: #1e1e1e; 
-	color: #cccccc; 
+	color: #dbdbdb; 
 }
 
 #footer h3 {
@@ -1475,7 +1475,7 @@ fieldset {
 
 #footer p {
 	margin-top: 20px;
-	color: #cccccc; 
+	color: #dbdbdb; 
 }
 
 #footer-post {
@@ -1486,7 +1486,7 @@ fieldset {
 }
 
 #footer p {
-	color: #cccccc; 
+	color: #dbdbdb; 
 }
 
 .social-icons-footer {
@@ -1503,7 +1503,7 @@ fieldset {
 }
 
 .social-icons-footer li a {
-	color: #cccccc; 
+	color: #dbdbdb; 
 	background: rgba(42, 41, 41, 0);
 	font-size: 1.3em;
 	display: -moz-inline-stack;
@@ -1524,7 +1524,7 @@ fieldset {
 #footer {
 	padding: 40px 0 50px;
 	background: #1e1e1e; 
-	color: #cccccc; 
+	color: #dbdbdb; 
 }
 
 #footer h3 {
@@ -1534,7 +1534,7 @@ fieldset {
 
 #footer p {
 	margin-top: 20px;
-	color: #cccccc; 
+	color: #dbdbdb; 
 }
 
 #footer-post {
@@ -1545,7 +1545,7 @@ fieldset {
 }
 
 #footer p {
-	color: #cccccc; 
+	color: #dbdbdb; 
 }
 
 .social-icons-footer {
@@ -1562,7 +1562,7 @@ fieldset {
 }
 
 .social-icons-footer li a {
-	color: #cccccc; 
+	color: #dbdbdb; 
 	background: rgba(42, 41, 41, 0);
 	font-size: 1.3em;
 	display: -moz-inline-stack;
@@ -1628,14 +1628,8 @@ fieldset {
 	display:inline-block;
 	margin:0
 }
-.vtimeline-content h4{
-	font-size:1.2em;
-	font-weight:300;
-	color: #cccccc;
-	margin:0 0 15px 0
-}
 .vtimeline-content p{
-	color: #cccccc;
+	color: #dbdbdb;
 	font-size:1em;
 	margin:0;
 	line-height: 30px;
@@ -1654,6 +1648,7 @@ fieldset {
 	background:#6B84F4;
 	border-radius:50%;
 	float:left;
+	top: 50%;
 	z-index:99;
 	margin-left:209px
 }
@@ -1688,8 +1683,16 @@ fieldset {
 	position:absolute;
 	left:0;
 	top:10px;
-	font-weight:300;
-	color: #cccccc;
+	font-weight:500;
+	color: #dbdbdb;
+}
+
+.vtimeline-title
+{
+	font-size:1.1em;
+	font-weight:500;
+	color: #e0e0e0; 
+	margin:0 0 15px 0
 }
 
 @media only screen and (max-width: 600px) {
@@ -1700,8 +1703,8 @@ fieldset {
 		position:absolute;
 		left:0;
 		top:10px;
-		font-weight:300;
-		color:#cccccc;
+		font-weight:500;
+		color:#dbdbdb;
 	}
 
 	.vtimeline-icon{

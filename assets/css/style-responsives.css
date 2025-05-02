@@ -265,7 +265,7 @@
 		transition: all 0.3s ease-out;
 	}
 	.nav-bg .navigation-menu .navbar-nav li a {
-		color: #cccccc; /* Changed from #121212 */
+		color: #dbdbdb; /* Changed from #121212 */
 		padding: 18px 11px;
 		-webkit-transition: .3s;
 		transition: .3s;

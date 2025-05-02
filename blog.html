@@ -332,22 +332,6 @@
 				behavior: 'smooth'
 			});
 		});
-		
-		// Add language indicator to code blocks
-		document.addEventListener('DOMContentLoaded', function() {
-			document.querySelectorAll('pre[class*="language-"]').forEach(function(pre) {
-				const codeElement = pre.querySelector('code');
-				if (codeElement) {
-					const languageClass = Array.from(codeElement.classList)
-						.find(cls => cls.startsWith('language-'));
-					
-					if (languageClass) {
-						const language = languageClass.replace('language-', '');
-						pre.setAttribute('data-language', language);
-					}
-				}
-			});
-		});
 	</script>
 </body>
 

@@ -648,7 +648,7 @@
 
     const experienceList = [
       {
-        date: "June 2024 – Present",
+        date: "2024 – Present",
         company: "Flix Interactive",
         companyUrl: "https://www.flixinteractive.com/",
         title: "Software Engineer Level 1",
@@ -662,7 +662,7 @@
         description: "Co-developing 'Idle Fields' using C# and Unity. Available on Steam: <a target=\"_blank\" href=\"https://store.steampowered.com/app/1807570/Idle_Fields/\">Idle Fields</a>"
       },
       {
-        date: "July 2023 – June 2024",
+        date: "2023 – 2024",
         company: "Flix Interactive",
         companyUrl: "https://www.flixinteractive.com/",
         title: "Junior Engineer",
@@ -676,17 +676,17 @@
         description: "University Placement on the Fable project. Developed and maintained internal tools (C#, WPF), collaborating with content creators to improve workflows and fix bugs."
       },
       {
-        date: "September 2019 – April 2023",
+        date: "2019 – 2023",
         company: "Staffordshire University",
-        companyUrl: null,
+        companyUrl: "https://www.staffs.ac.uk/",
         title: "BSc Computer Games Development",
         description: "Developed diverse projects: MMO backend, mobile/console games (C++/C#, Unreal/Unity), networked AI, OpenGL, and engine development."
       },
       {
         date: "2013 – 2018",
-        company: "Personal projects - Garry's Mod",
-        companyUrl: null,
-        title: null,
+        company: "Garry's Mod",
+        companyUrl: "https://gmod.facepunch.com/",
+        title: "Personal projects",
         description: "Started game development creating custom Garry's Mod content (Lua). Gained foundational coding/optimisation skills. Content reached thousands, solidifying career path."
       }
     ];
@@ -707,14 +707,18 @@
       const sorted = experiences.slice().sort((a, b) => parseExperienceDate(b.date) - parseExperienceDate(a.date));
       let html = '<div id="experience-timeline">';
       sorted.forEach(exp => {
+        let icon = 'fa-briefcase';
+        if (exp.company && exp.company.toLowerCase().includes('university')) icon = 'fa-graduation-cap';
+        if (exp.company && exp.company.toLowerCase().includes('personal')) icon = 'fa-user';
+        if (exp.title && exp.title.toLowerCase().includes('developer')) icon = 'fa-code';
         html += `
           <div class="vtimeline-point">
-            <div class="vtimeline-icon"><i class="fa fa-map-marker"></i></div>
+            <div class="vtimeline-icon"><i class="fa ${icon}"></i></div>
             <div class="vtimeline-block">
               <span class="vtimeline-date">${exp.date}</span>
               <div data-date="${exp.date}" class="vtimeline-content">
                 <h3>${exp.companyUrl ? `<a target=\"_blank\" href=\"${exp.companyUrl}\">${exp.company}</a>` : exp.company}</h3>
-                ${exp.title ? `<h4>${exp.title}</h4>` : ''}
+                ${exp.title ? `<h4 class="vtimeline-title">${exp.title}</h4>` : ''}
                 <p>${exp.description}</p>
               </div>
             </div>

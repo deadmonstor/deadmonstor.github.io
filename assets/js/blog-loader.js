@@ -33,5 +33,7 @@
     var postId = getPostId();
     var post = window.BLOG_POSTS && window.BLOG_POSTS[postId];
     setBlogContent(post);
+
+    Prism.highlightAll();
   });
 })();
