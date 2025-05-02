@@ -329,4 +329,149 @@
       });
     })();
 
+    // Meme Mode: Random Joke Popups
+    (function() {
+      const jokes = [
+        "Why do programmers prefer dark mode? Because light attracts bugs!",
+        "I would tell you a UDP joke, but you might not get it.",
+        "Why do Java developers wear glasses? Because they don't see sharp!",
+        "A SQL query walks into a bar, walks up to two tables and asks: 'Can I join you?'",
+        "To understand what recursion is, you must first understand recursion.",
+        "There are 10 types of people in the world: those who understand binary and those who don't.",
+        "How many programmers does it take to change a light bulb? None, that's a hardware problem!",
+        "Why did the developer go broke? Because he used up all his cache.",
+        "Real programmers count from 0.",
+        "It's not a bug, it's an undocumented feature!",
+        "Why do Python programmers wear glasses? Because they can't C.",
+        "Why did the computer show up at work late? It had a hard drive!",
+        "Why was the JavaScript developer sad? Because he didn't 'null' his feelings.",
+        "Why did the function return early? Because it had a date!",
+        "Why do programmers hate nature? It has too many bugs.",
+        "Why did the programmer quit his job? Because he didn't get arrays.",
+        "Why do C# and Java developers keep breaking their keyboards? Because they use a strongly typed language!",
+        "Why did the developer go broke? Because he lost his domain in a bet.",
+        "Why did the computer get cold? Because it left its Windows open!",
+        "Why did the developer go broke? Because he used up all his cache.",
+        "Why do programmers always mix up Christmas and Halloween? Because Oct 31 == Dec 25.",
+        "Why did the developer go broke? Because he lost his class.",
+        "Why did the developer get stuck in the shower? The instructions on the shampoo bottle said: Lather, Rinse, Repeat.",
+        "Why did the developer cross the road? To get to the other IDE.",
+        "Why did the developer get kicked out of school? Because he kept taking classes!",
+        "Why did the developer get a promotion? Because he was outstanding in his field (of code).",
+        "Why did the developer get a job at the bakery? Because he was good at making cookies.",
+        "Why did the developer get a job at the zoo? Because he was good at handling exceptions.",
+        "Why did the developer get a job at the circus? Because he was good at juggling tasks.",
+      ];
+      let jokeInterval = null;
+      function showJoke() {
+        if (!document.documentElement.classList.contains('meme-mode')) return;
+        const joke = jokes[Math.floor(Math.random() * jokes.length)];
+        const popup = document.createElement('div');
+        popup.className = 'meme-joke-popup';
+        popup.textContent = joke;
+		popup.style.zIndex = 100002;
+        document.body.appendChild(popup);
+        setTimeout(() => popup.classList.add('show'), 10);
+        setTimeout(() => {
+          popup.classList.remove('show');
+          setTimeout(() => popup.remove(), 3000);
+        }, 4000);
+        for (let i = 0; i < 500 + Math.floor(Math.random() * 12); i++) {
+          const conf = document.createElement('div');
+          conf.className = 'falling-confetti';
+          conf.style.left = Math.random() * 100 + 'vw';
+          conf.style.background = `hsl(${Math.floor(Math.random()*360)},90%,60%)`;
+          conf.style.width = (8 + Math.random() * 10) + 'px';
+          conf.style.height = (8 + Math.random() * 18) + 'px';
+          conf.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+          conf.style.opacity = 0.85 + Math.random() * 0.15;
+          conf.style.transform = `rotate(${Math.random()*360}deg)`;
+          conf.style.animationDuration = (1.2 + Math.random() * 1.7) + 's';
+          document.body.appendChild(conf);
+          setTimeout(() => conf.remove(), 2600);
+        }
+      }
+      function startJokes() {
+        if (jokeInterval) return;
+        showJoke();
+        jokeInterval = setInterval(showJoke, 5000);
+      }
+      function stopJokes() {
+        clearInterval(jokeInterval);
+        jokeInterval = null;
+        document.querySelectorAll('.meme-joke-popup').forEach(e => e.remove());
+      }
+      // Hook into meme mode toggle
+      window.toggleMemeMode = (function(orig) {
+        return function() {
+          const wasActive = document.documentElement.classList.contains('meme-mode');
+          orig();
+          const isActive = document.documentElement.classList.contains('meme-mode');
+          if (!wasActive && isActive) startJokes();
+          if (wasActive && !isActive) stopJokes();
+        };
+      })(window.toggleMemeMode);
+    })();
+
+    // Meme Mode: Random Meme Images
+    (function() {
+      const memeImages = [
+		'https://i.imgur.com/rLOmvW4.png',
+		'https://media1.tenor.com/m/6RGcH9ceEksAAAAd/cookie-monster-dance-gif.gif',
+		'https://media1.tenor.com/m/Km11GYbvYY0AAAAd/good-morning.gif',
+		'https://media1.tenor.com/m/rsq2LxLnwrMAAAAC/krind%C5%BE.gif',
+		'https://media1.tenor.com/m/EEqbeL495EkAAAAC/cringe.gif',
+		'https://media.tenor.com/4G25x-MArX0AAAAi/primitive-sponge.gif',
+		'https://media.tenor.com/kR2GIxKDXx4AAAAi/erm-actuay-emoji.gif',
+		'https://media1.tenor.com/m/xqtPquuLUfQAAAAC/actually.gif',
+		'https://media1.tenor.com/m/mn8DAhCjE3oAAAAd/kurt-angle-me-when.gif',
+		'https://media1.tenor.com/m/sidMbBYqr0EAAAAd/meme-made.gif',
+		'https://media1.tenor.com/m/qgup92O0bZYAAAPo/lost-jdkd.mp4',
+		'https://media1.tenor.com/m/_gfqfXAP08IAAAAd/polish-cow-cow.gif',
+		'https://media1.tenor.com/m/c9j30TTvR2cAAAAd/l-ratio-yapper-l-ratio-yap.gif',
+      ];
+      let memeInterval = null;
+      function showMemeImage() {
+        if (!document.documentElement.classList.contains('meme-mode')) return;
+        const count = 2 + Math.floor(Math.random() * 4);
+        for (let i = 0; i < count; i++) {
+          const url = memeImages[Math.floor(Math.random() * memeImages.length)];
+          const img = document.createElement('img');
+          img.src = url;
+          img.className = 'meme-float-img meme-float-rainbow';
+          img.style.position = 'fixed';
+          img.style.left = Math.random() * 80 + 'vw';
+          img.style.top = Math.random() * 60 + 'vh';
+          img.style.width = (80 + Math.random() * 280) + 'px';
+          img.style.zIndex = 100001;
+          img.style.pointerEvents = 'none';
+          img.style.opacity = '0.92';
+          img.style.transform = `rotate(${Math.random()*40-20}deg)`;
+          img.style.transition = 'opacity 0.7s, filter 0.7s';
+          document.body.appendChild(img);
+          setTimeout(() => img.style.opacity = '0', 2500);
+          setTimeout(() => img.remove(), 3200);
+        }
+      }
+      function startMemes() {
+        if (memeInterval) return;
+        memeInterval = setInterval(showMemeImage, 3500);
+      }
+      function stopMemes() {
+        clearInterval(memeInterval);
+        memeInterval = null;
+        document.querySelectorAll('.meme-float-img').forEach(e => e.remove());
+      }
+      // Hook into meme mode toggle
+      window.toggleMemeMode = (function(orig) {
+        return function() {
+          const wasActive = document.documentElement.classList.contains('meme-mode');
+          orig();
+          const isActive = document.documentElement.classList.contains('meme-mode');
+          if (!wasActive && isActive) startMemes();
+          if (wasActive && !isActive) stopMemes();
+        };
+      })(window.toggleMemeMode);
+    })();
+
 })(jQuery);
