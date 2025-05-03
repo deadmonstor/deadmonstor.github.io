@@ -1,13 +1,204 @@
 window.BLOG_POSTS = {
+  "roslyn": {
+    title: "Using Roslyn Source Generators to create a Networking Library",
+    date: "May 2025",
+    author: "Josh Mobley",
+    headerImage: "assets/img/portfolio/portfolio-14.png",
+    description: "Roslyn source generators for a networking library.",
+    content: `
+    <h2>Introduction</h2>
+    <p>So a <a href="https://bennilsson.github.io/" target="_blank">friend</a> and I have been working on a networking library and I thought I would share some information on how I used Roslyn to generate code for it. </p>
+    <p>Here is a quick video of the project</p>
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube-nocookie.com/embed/aeSxeWELe9s" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    
+    
+    <p><a href="https://github.com/dotnet/roslyn">Roslyn</a> is a powerful compiler that allows you to create source generators (You can also create analyzers that will look at your code instead of generating new code) that will create code at compile time. This is amazing to allow people to put attributes on code and make the source generator do the heavy lifting.</p>
+    <p>In this blog post I will be going over how I used source generators to basically generate the gunk that you wouldnt want programmers to deal with.</p>
+    
+    <h2>What is a source generator?</h2>
+    <p>A source generator is a way to generate code at compile time. This means that you can create code that will be generated when you build your project. This is great for creating boilerplate code that you dont want to write yourself.</p>
+    <p>For example, in the context of a Networking Library most of them will allow you to put attributes on top of methods and properties to have them "sync" like this</p>
+    <pre><code class="language-csharp line-numbers">[NetworkSync]
+public int Kills { get; set; }</code></pre>
+
+    <p>This will then generate the code that will allow you to sync the kills property over the network, however how does it know what to do? </p>
+    <p>Well this is where the source generator comes in, it will look at the code and generate the code that will allow you to sync the kills property over the network.</p>
+    <pre><code class="language-csharp line-numbers">public partial class Player
+{
+    /// <remarks>This is a generated function for SyncVars</remarks>
+    public override void SetupSyncVars()
+    {
+        PropertyChanged += (object sender, PropertyChangedEventArgs propertyChangedEventArgs) => 
+        {
+            Pinecone.MessageSendHelper.SendNetworkSyncVar(
+                (MessageReliability)0,  
+                this, 
+                (true), 
+                propertyChangedEventArgs.PropertyName
+            );
+        };
+    }
+    
+    public System.Int32 KillsGenerated
+    {
+        get { return Kills; }
+        set { Kills = value; NotifyPropertyChanged(); }
+    }
+}</code></pre>
+
+    <p>This is the generated code that will allow you to sync the kills property over the network. This is done by creating a new property called KillsGenerated that the developer will have to set instead of the main variable</p>
+    <p>It will then call the NotifyPropertyChanged function that will then call the SetupSyncVars function that will then send the message over the network and even remember the value for next time so that if it changes to the same value then it will not be sent again!</p>
+    
+    <h2>How does Roslyn work?</h2>
+    <p>Roslyn works by giving you a basic api to read over the tokens that make up a C# file. This is how the compiler understands the file and you can even modify this before it gets sent to be compiled. </p>
+    <p>It will then give you a syntax tree that you can then walk over and look for the attributes that you want to generate code for. This is done by using the <b>ISyntaxReceiver</b> interface that will allow you to look at the nodes in the tree and see if they have the attribute that you are looking for.</p>
+    <pre><code class="language-csharp line-numbers"> public class SyntaxReceiver : ISyntaxReceiver
+{
+    public List<FieldDeclarationSyntax> Fields = new List<FieldDeclarationSyntax>();
+    public List<MethodDeclarationSyntax> Methods = new List<MethodDeclarationSyntax>();
+    public List<ClassDeclarationSyntax> Classes = new List<ClassDeclarationSyntax>();
+
+    public void OnVisitSyntaxNode(SyntaxNode syntaxNode)
+    {
+        switch (syntaxNode)
+        {
+            case MethodDeclarationSyntax methodDeclarationSyntax when methodDeclarationSyntax.AttributeLists.Count > 0:
+                Methods.Add(methodDeclarationSyntax);
+                break;
+            case FieldDeclarationSyntax fieldDeclarationSyntax when fieldDeclarationSyntax.AttributeLists.Count > 0:
+                Fields.Add(fieldDeclarationSyntax);
+                break;
+            case ClassDeclarationSyntax classDeclarationSyntax when classDeclarationSyntax.AttributeLists.Count > 0:
+                Classes.Add(classDeclarationSyntax);
+                break;
+        }
+    }
+}</code></pre>
+
+    <p>Here is an example of a syntax tree that you can get from Roslyn, this is a very simple one however it will show you how to get the nodes that you want. </p>
+    <a href="https://learn.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/get-started/syntax-analysis" target="_blank">
+        <img src="https://learn.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/get-started/media/walkthrough-csharp-syntax-figure1.png" class="img-responsive">
+    </a>
+
+    <p>Because we only care about the fields and methods that have the attribute we can just check if the node has any attributes and then add it to the list.</p>
+
+    <p>Now that we have all the nodes that we care about we can then generate the code that we want to generate. This is done by using the <b>ISourceGenerator</b> interface that will allow you generate code</p>
+    <p>We can also generate static code by just injecting it into a "new" file by doing this</p>
+    <pre><code class="language-csharp line-numbers">context.AddSource("GeneratedNetworkHelpers.g.cs", SourceText.From(target.ToString(), Encoding.UTF8));</code></pre>
+    <p>This will then generate a new file called GeneratedNetworkHelpers.g.cs; we do this in this case so that we can inject some helper function like IsClient/IsServer and all attribute information just incase we want to update it on the fly!</p>
+
+    <p>Now we have all the information we need to use .nets reflection system to get the attributes and then generate the code that we want to generate. </p>
+    <pre><code class="language-csharp line-numbers">ProcessNetworkMessageMethod(context, compilation, receiver, "NetworkRPC");
+ProcessNetworkMessageMethod(context, compilation, receiver, "NetworkCommand");
+ProcessNetworkMessageMethod(context, compilation, receiver, "NetworkTargetRPC");
+
+ProcessNetworkMessageField(context, compilation, receiver, "NetworkSync");
+ProcessNetworkSerialize(context, compilation, receiver, "NetworkSerialize");
+
+ProcessStateMessage(context, compilation, receiver, "NetworkServerPlayerConnected");
+ProcessStateMessage(context, compilation, receiver, "NetworkServerPlayerDisconnected");</code></pre>
+
+<h2>Conclusion</h2>
+<p>In conclusion, using Roslyn to generate code is a powerful way to create boilerplate code that you dont want to write yourself. It allows you to create code that is easy to read and understand while also being easy to maintain and became very useful if I ever needed to update the code and didnt want to break all games around it!</p>
+<p>It is a bit of a pain to set up however once you have it set up it is very easy to use.</p>
+
+<h2>Example files</h2>
+<p>Here is an example of the generated code that will be generated for the NetworkRPC attribute</p>
+
+<p>Game code:</p>
+<pre><code class="language-csharp line-numbers">[NetworkRPC(MessageReliability.Unreliable, true)]
+public void RpcSyncAnimToClient(AnimationInfo animationInfo)
+{
+}</code></pre>
+
+<p>Generated code:</p>
+<pre><code class="language-csharp line-numbers">public partial class NetworkAnimatorBasic
+{
+    public partial class Generated 
+    {
+        // <remarks>This is a generated function for NetworkRPCs</remarks>
+        public static void RpcSyncAnimToClient(NetworkBehaviour networkBehaviour , Pinecone.AnimationInfo animationInfo)
+        {
+            if (!NetworkServer.IsActive)
+            {
+                Debug.LogError("Client called Server message RpcSyncAnimToClient");
+                throw new ClientAccessViolationException("Client called Server message RpcSyncAnimToClient");
+            }
+
+            if (!NetworkServer.IsActive && !NetworkClient.IsConnected)
+            {
+                Debug.LogError("Tried to send to call RpcSyncAnimToClient with no Client or Server");
+                throw new NoNetworkConnectionException("Tried to send to call RpcSyncAnimToClient with no Client or Server");
+            }
+            
+            Pinecone.MessageSendHelper.SendNetworkRPC((MessageReliability)1,  networkBehaviour, (true), "RpcSyncAnimToClient" , animationInfo);
+        }
+    }
+}
+</code></pre>
+
+<p>Here is an example of the generated code that will be generated for the NetworkMessage attribute</p>
+
+<p>Game code:</p>
+<pre><code class="language-csharp line-numbers">[NetworkSerialize]
+public class PlayerInfo
+{
+    public Color32 color;
+    public string playerName;
+
+    public PlayerInfo()
+    {
+
+    }
+
+    public PlayerInfo(Color32 color, string playerName)
+    {
+        this.color = color;
+        this.playerName = playerName;
+    }
+}</code></pre>
+<p>Generated code:</p>
+<pre><code class="language-csharp line-numbers">public partial class NetworkMessage
+{
+    public NetworkMessage AddPlayerInfo(PlayerInfo value)
+    {
+        return Add(value);
+    }
+
+    public NetworkMessage Add(PlayerInfo value)
+    {
+        Add(value.color);
+        Add(value.playerName);
+        return this;
+    }
+
+    public PlayerInfo Get(PlayerInfo value)
+    {
+        return GetPlayerInfo();
+    }
+
+    public PlayerInfo GetPlayerInfo()
+    {
+        var value = new PlayerInfo();
+        value.color = GetColor();
+        value.playerName = GetString();
+        return value;
+    }
+}
+</code></pre>
+    `
+  },
   "acorn2d": {
     title: "Building Acorn2D: Tools from a Custom Multiplayer Engine",
-    date: "April 2024",
+    date: "April 2025",
     author: "Josh Mobley",
     headerImage: "assets/img/portfolio/portfolio-12.png",
     description: "Building a 2D game engine from scratch in C++.",
     content: `<h2>Introduction</h2>
-<p>Arcon2D is a 2D Multiplayer Engine that a friend and I have been working on for a while now. It is a custom engine that is built from the ground up.</p>
-<p>It is a 2D engine that is built on top of <a href="https://www.glfw.org/">GLFW</a> and <a href="https://www.glfw.org/">OpenGL</a>.</p>
+<p>Arcon2D is a 2D Multiplayer Engine that a <a href="https://bennilsson.github.io/" target="_blank">friend</a> and I have been working on for a while now. It is a custom engine that is built from the ground up.</p>
+<p>It is a 2D engine that is built on top of <a href="https://www.glfw.org/" target="_blank">GLFW</a> and <a href="https://www.glfw.org/" target="_blank">OpenGL</a>.</p>
 <p>So why did we make this engine? Well, I wanted to learn how to make a game engine. I have always been interested in game engines and how they work. So we thought we would give it a go and see what we can learn.</p>
 
 <h2>The projects</h2>
@@ -46,7 +237,7 @@ window.BLOG_POSTS = {
 <p>So you might be going hold on a minute; why lua? and honestly it was something I just wanted to try out. I had used lua before however never implemented it into a game engine.</p>
 
 
-<p>I used <a href="https://github.com/ThePhD/sol2">sol2</a> which is a C++ to lua api to make it easier than writing raw lua api calls to make functions.</p>
+<p>I used <a href="https://github.com/ThePhD/sol2" target="_blank">sol2</a> which is a C++ to lua api to make it easier than writing raw lua api calls to make functions.</p>
 
 <p>This is some of the example code that I used within the base addon that I had to spawn people and pick them up</p>
 <pre><code class="language-lua line-numbers">local function leftButtonUp()
