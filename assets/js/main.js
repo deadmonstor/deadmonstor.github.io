@@ -797,7 +797,16 @@
         }
       });
       if (window.BLOG_POSTS) {
-        renderBlogPosts(getDynamicBlogPosts());
+        var isBlogPage = window.location.pathname.endsWith('blog.html');
+        var params = new URLSearchParams(window.location.search);
+        var currentPostId = params.get('post');
+        var posts = getDynamicBlogPosts();
+        if (isBlogPage && currentPostId) {
+          posts = posts.filter(function(post) {
+            return post.url !== ('blog.html?post=' + currentPostId);
+          });
+        }
+        renderBlogPosts(posts);
       }
     });
 
