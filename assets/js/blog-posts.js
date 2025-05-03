@@ -10,7 +10,7 @@ window.BLOG_POSTS = {
     <p>So a <a href="https://bennilsson.github.io/" target="_blank">friend</a> and I have been working on a networking library and I thought I would share some information on how I used Roslyn to generate code for it. </p>
     <p>Here is a quick video of the project</p>
     <div class="video-wrapper">
-        <iframe src="https://www.youtube-nocookie.com/embed/aeSxeWELe9s" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube-nocookie.com/embed/aeSxeWELe9s" title="Pinecone Networking Demo Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     
     
@@ -79,7 +79,7 @@ public int Kills { get; set; }</code></pre>
 
     <p>Here is an example of a syntax tree that you can get from Roslyn, this is a very simple one however it will show you how to get the nodes that you want. </p>
     <a href="https://learn.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/get-started/syntax-analysis" target="_blank">
-        <img src="https://learn.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/get-started/media/walkthrough-csharp-syntax-figure1.png" class="img-responsive">
+        <img src="https://learn.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/get-started/media/walkthrough-csharp-syntax-figure1.png" class="img-responsive" alt="Example Roslyn syntax tree diagram">
     </a>
 
     <p>Because we only care about the fields and methods that have the attribute we can just check if the node has any attributes and then add it to the list.</p>
@@ -214,7 +214,7 @@ public class PlayerInfo
 <p><a href="https://tracy.nereid.pl/" target="_blank">Link to tracey here</a></p>
 
 <p>I managed to use it to improve performance up to 2000fps along the way managed to pick up some awesome screnshots
-<img src="assets/img/funny-0.png" class="img-responsive"></p>
+<img src="assets/img/funny-0.png" class="img-responsive" alt="Tracey profiler showing extremely high frame time spikes in a humorous way"></p>
 
 <!-- aixlog -->
 <h2>Aixlog</h2>
@@ -281,7 +281,7 @@ hook.Add("OnSceneChanged", "OnSceneChanged", function()
 end)</code></pre>
 <p>This is a video of what the code does, there is more code however you get the idea. </p>
 <div class="video-wrapper">
-    <iframe src="https://www.youtube-nocookie.com/embed/yAzBE10zwpk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe src="https://www.youtube-nocookie.com/embed/yAzBE10zwpk" title="Acorn2D Lua Scripting Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <h2>Protobufs</h2>
@@ -454,7 +454,7 @@ end)</code></pre>
 <p>For one of my university assignments, I was tasked with recreating a classic game. I chose to recreate Mario. This project allowed me to gain experience with making 2D games while developing a deeper understanding of what makes platformer mechanics feel responsive and satisfying.</p>
 
 <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/6ndRuoH8Zi4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/6ndRuoH8Zi4" title="Mario Remake in SDL Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <h2>Key Implementation Challenges</h2>
@@ -585,7 +585,7 @@ end)</code></pre>
 <p>The project successfully demonstrates the capabilities of the MMO framework, showcasing its modular architecture and efficient data handling using Protobufs and allowing for services to talk to each other shows scalability while I am sure there would be bottlenecks it was great to get this working.</p>
 
 <div class="video-wrapper">
-    <iframe src="https://www.youtube-nocookie.com/embed/i4QLsQG_lhE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe src="https://www.youtube-nocookie.com/embed/i4QLsQG_lhE" title="MMO Framework Final Year Project Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>`
   },
   "towerdefence": {
@@ -601,12 +601,12 @@ end)</code></pre>
 
 <h3>Latest Development Video</h3>
 <div class="video-wrapper">
-    <iframe src="https://www.youtube-nocookie.com/embed/YPYEVccUKag?controls=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe src="https://www.youtube-nocookie.com/embed/YPYEVccUKag?controls=1" title="Tower Defence Development Update Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <h3>Multiplayer Showcase</h3>
 <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/R_sFwsqeBqQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/R_sFwsqeBqQ" title="Tower Defence Multiplayer Gameplay Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <h2>Key Learnings from this Project</h2>
@@ -663,7 +663,7 @@ end)</code></pre>
 <p>In my university Tower Defence game project, I faced the challenge of efficiently spawning large numbers of enemies and projectiles without causing performance drops. The solution was to implement an object pooling system that would reuse game objects instead of constantly creating and destroying them.</p>
 
 <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/-Bgl3AXwzYg?showinfo=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe src="https://www.youtube-nocookie.com/embed/-Bgl3AXwzYg?showinfo=0" title="Object Pooling Script Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <p>The video above demonstrates my object pooling script in action. It allows me to easily pool and unpool objects by an ID, significantly improving performance for frequently spawned objects like bullets and enemies.</p>
@@ -678,20 +678,20 @@ curBullet = Instantiate(PREFAB);</code></pre>
 
 <h2>Data Structure</h2>
 <p>The object pool is stored in a data structure that allows for multiple objects with the same ID, making it possible to have multiple "bullets" with the same identifier but as different instances:</p>
-<pre><code class="language-csharp line-numbers">public List&lt;KeyValuePair&lt;string, GameObject&gt;&gt; objectPool;</code></pre>
+<pre><code class="language-csharp line-numbers">public List<KeyValuePair<string, GameObject>> objectPool;</code></pre>
 
 <h2>Challenges Encountered</h2>
 <p>While the solution greatly improved performance, it wasn't without issues. One significant problem was that objects weren't properly resetting to their default state when returned to the pool, resulting in enemies sometimes spawning with incorrect health values or the wrong class properties. This led to some interesting and unexpected behaviors:</p>
 
 <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/kwmzc38T6Ek?showinfo=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/kwmzc38T6Ek?showinfo=0" title="Object Pooling Bug Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <h2>Benefits</h2>
 <p>Despite these challenges, the object pooling system significantly improved performance, allowing me to spawn large numbers of enemies and projectiles with minimal impact on frame rate. This was a crucial optimization for maintaining smooth gameplay, especially in multiplayer scenarios where networking adds additional overhead.</p>
 
 <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/POXiNS1v1dQ?showinfo=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe src="https://www.youtube-nocookie.com/embed/POXiNS1v1dQ?showinfo=0" title="Object Pooling Performance Benefit Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <h2>Key Lessons</h2>

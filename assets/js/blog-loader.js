@@ -22,6 +22,7 @@
     document.getElementById('blog-meta').textContent = `By ${post.author} | ${post.date}`;
     document.getElementById('blog-content').innerHTML = post.content;
     document.getElementById('header').style.backgroundImage = `url('${post.headerImage}')`;
+    document.getElementById('header').setAttribute('aria-label', `Header background image for ${post.title}`);
     document.title = post.title + ' | Joshua Mobley';
     var metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.setAttribute('content', post.description);
