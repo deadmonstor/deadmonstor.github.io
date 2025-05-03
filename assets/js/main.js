@@ -133,10 +133,11 @@
 
     // === CLEAN ROTATING BACKGROUND ===
     const portfolioImages = [
-        'assets/img/portfolio/portfolio-0.jpg',
-        'assets/img/portfolio/fable.jpg',
-        'assets/img/portfolio/forza.jpg',
-        'assets/img/portfolio/seaofthieves.jpg',
+      'assets/img/portfolio/fable.jpg',
+      'assets/img/portfolio/forza.jpg',
+      'assets/img/portfolio/seaofthieves.jpg',
+      'assets/img/portfolio/portfolio-0.jpg',
+      'assets/img/portfolio/portfolio-14.png',
     ];
 
     function startBackgroundRotation() {
@@ -548,10 +549,10 @@
         ]
       },
       {
-        title: "Acorn2D",
+        title: "Acorn2D Custom Engine",
         classes: "professional cplusplus lua custom-engine ",
         image: "assets/img/portfolio/portfolio-12.png",
-        alt: "Acorn2D",
+        alt: "Acorn2D Custom Engine",
         summary: "Developed a custom 2D multiplayer engine using C++",
         date: "2024",
         links: [
@@ -579,13 +580,15 @@
         links: []
       },
       {
-        title: "Mario Kart Remake",
-        classes: "universityprojects unity csharp ",
-        image: "assets/img/portfolio/portfolio-6.jpg",
-        alt: "Mario Kart Remake",
-        summary: "Remade Mario Kart within Unity using C#.",
-        date: "2023",
-        links: []
+        title: "Pinecone Networking",
+        classes: "personalprojects unity csharp ",
+        image: "assets/img/portfolio/portfolio-14.png",
+        alt: "Pinecone Networking",
+        summary: "Developed a custom networking solution for Unity using C# with a <a href=\"https://bennilsson.github.io/\" target=\"_blank\">friend</a>",
+        date: "2022",
+        links: [
+          { url: "blog.html?post=roslyn", text: "Read More" }
+        ]
       },
       {
         title: "Online Multiplayer Tower Defence",
