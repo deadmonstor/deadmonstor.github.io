@@ -193,15 +193,12 @@
 			box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 		}
 
-		/* Ensure active blog nav link is always green and underlined */
 		.navbar-nav > li > a.active {
-			color: #48b14d !important; /* Green color */
-			background-color: transparent !important; /* Ensure no background overrides */
-			text-decoration: underline !important; /* Add underline */
+			color: #48b14d !important;
+			background-color: transparent !important;
+			text-decoration: underline !important;
 		}
-
-		/* --- Blog Post Template Enhancements (Neutral, Banner Restored) --- */
-
+		
 		.post-container {
 			background: #1e1e1e;
 			border-radius: 18px;
@@ -374,6 +371,7 @@
 	<script src="assets/js/app.js"></script>
 	<script src="assets/js/prism.js"></script>
 	<script src="assets/js/blog-posts.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 	<script src="assets/js/blog-loader.js"></script>
 
 	<!-- main js -->
@@ -381,7 +379,6 @@
 
 	<!-- Back to top script -->
 	<script>
-		// Show/hide Back-to-Top button
 		window.addEventListener('scroll', function() {
 			const backToTop = document.getElementById('back-to-top');
 			if (window.scrollY > 300) {

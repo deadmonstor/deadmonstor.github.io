@@ -20,7 +20,9 @@
     }
     document.getElementById('blog-title').textContent = post.title;
     document.getElementById('blog-meta').textContent = `By ${post.author} | ${post.date}`;
-    document.getElementById('blog-content').innerHTML = post.content;
+    const contentElement = document.getElementById('blog-content');
+    contentElement.innerHTML = marked.parse(post.content);
+    Prism.highlightAll();
     document.getElementById('header').style.backgroundImage = `url('${post.headerImage}')`;
     document.getElementById('header').setAttribute('aria-label', `Header background image for ${post.title}`);
     document.title = post.title + ' | Joshua Mobley';
@@ -32,7 +34,5 @@
     var postId = getPostId();
     var post = window.BLOG_POSTS && window.BLOG_POSTS[postId];
     setBlogContent(post);
-
-    Prism.highlightAll();
   });
 })();
