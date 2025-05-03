@@ -1,4 +1,3 @@
-// Dynamically load blog post content into the template
 (function() {
   function getPostId() {
     const params = new URLSearchParams(window.location.search);
@@ -24,7 +23,6 @@
     document.getElementById('blog-content').innerHTML = post.content;
     document.getElementById('header').style.backgroundImage = `url('${post.headerImage}')`;
     document.title = post.title + ' | Joshua Mobley';
-    // Optionally update meta description
     var metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.setAttribute('content', post.description);
   }
