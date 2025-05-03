@@ -1,38 +1,87 @@
 (function() {
-  function getPostId() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get('post');
-  }
+  function loadBlogPost(postId) {
+    const post = window.BLOG_POSTS[postId];
+    const blogContentElement = document.getElementById('blog-content');
+    const blogTitleElement = document.getElementById('blog-title');
+    const blogMetaElement = document.getElementById('blog-meta');
+    const headerElement = document.getElementById('header');
 
-  function setBlogContent(post) {
-    if (!document.getElementById('blog-title') || !document.getElementById('blog-meta') || !document.getElementById('blog-content')) {
-      console.error('Blog elements not found in the document.');
+    if (post && blogContentElement && blogTitleElement && blogMetaElement && headerElement) {
+        document.title = `${post.title} | Joshua Mobley`;
+        blogTitleElement.textContent = post.title;
+        blogMetaElement.textContent = `Posted on ${post.date}`;
+        headerElement.style.backgroundImage = `url('${post.headerImage}')`;
+
+        blogContentElement.dataset.markdown = post.content;
+        renderMarkdown(blogContentElement, post.content);
+        addEditFunctionality(blogContentElement);
+    } else {
+        if (blogTitleElement) blogTitleElement.textContent = 'Post Not Found';
+        if (blogMetaElement) blogMetaElement.textContent = '';
+        if (blogContentElement) blogContentElement.innerHTML = '<p>The requested blog post could not be found.</p>';
+        document.title = 'Post Not Found | Joshua Mobley';
+    }
+}
+
+function renderMarkdown(element, markdown) {
+    if (window.marked && window.Prism) {
+        const htmlContent = marked.parse(markdown);
+        element.innerHTML = htmlContent;
+        setTimeout(() => Prism.highlightAllUnder(element), 0);
+    } else {
+        console.error("marked.js or Prism.js not loaded");
+        element.innerHTML = "<p>Error rendering content (Markdown library not found).</p>";
+    }
+}
+
+function addEditFunctionality(contentElement) {
+    if (window.location.hostname !== 'localhost' && window.location.protocol !== 'file:') {
       return;
     }
+    contentElement.addEventListener('click', function handleClick(event) {
+        if (contentElement.querySelector('#markdown-editor-textarea')) {
+            return;
+        }
 
-    if (!post) {
-      document.getElementById('blog-title').textContent = 'Post Not Found';
-      document.getElementById('blog-meta').textContent = '';
-      document.getElementById('blog-content').innerHTML = '<p>Sorry, this blog post does not exist.</p>';
-      document.getElementById('header').style.backgroundImage = '';
-      document.title = 'Not Found | Joshua Mobley';
-      return;
+        const currentMarkdown = contentElement.dataset.markdown || '';
+
+        const editorTextarea = document.createElement('textarea');
+        editorTextarea.id = 'markdown-editor-textarea'; 
+        editorTextarea.value = currentMarkdown;
+
+        contentElement.innerHTML = '';
+        contentElement.appendChild(editorTextarea);
+        editorTextarea.focus();
+
+        function autoResizeTextarea() {
+            editorTextarea.style.height = 'auto';
+            editorTextarea.style.height = editorTextarea.scrollHeight + 'px';
+        }
+
+        editorTextarea.addEventListener('input', autoResizeTextarea);
+        autoResizeTextarea();
+
+        editorTextarea.addEventListener('blur', function handleBlur() {
+            const newMarkdown = editorTextarea.value;
+            contentElement.dataset.markdown = newMarkdown;
+            renderMarkdown(contentElement, newMarkdown);
+        }, { once: true });
+
+        editorTextarea.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const postId = urlParams.get('post');
+
+    if (postId) {
+        loadBlogPost(postId);
+    } else {
+        document.getElementById('blog-title').textContent = 'No Post Specified';
     }
-    document.getElementById('blog-title').textContent = post.title;
-    document.getElementById('blog-meta').textContent = `By ${post.author} | ${post.date}`;
-    const contentElement = document.getElementById('blog-content');
-    contentElement.innerHTML = marked.parse(post.content);
-    Prism.highlightAll();
-    document.getElementById('header').style.backgroundImage = `url('${post.headerImage}')`;
-    document.getElementById('header').setAttribute('aria-label', `Header background image for ${post.title}`);
-    document.title = post.title + ' | Joshua Mobley';
-    var metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', post.description);
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var postId = getPostId();
-    var post = window.BLOG_POSTS && window.BLOG_POSTS[postId];
-    setBlogContent(post);
-  });
+});
 })();
