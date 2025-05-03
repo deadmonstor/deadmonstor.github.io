@@ -26,7 +26,7 @@ $(function () {
 				$(formMessages).addClass('success');
 
 				// Set the message text.
-				$(formMessages).text(response);
+				$(formMessages).text('Thank you for your message! I will get back to you soon.');
 
 				// Clear the form.
 				$('#name').val('');
@@ -39,11 +39,7 @@ $(function () {
 				$(formMessages).addClass('error');
 
 				// Set the message text.
-				if (data.responseText !== '') {
-					$(formMessages).text(data.responseText);
-				} else {
-					$(formMessages).text('Oops! An error occured and your message could not be sent.');
-				}
+				$(formMessages).text('Sorry, there was an error sending your message. Please try again later or email me directly.');
 			});
 
 	});

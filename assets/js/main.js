@@ -832,6 +832,14 @@
         }
         renderBlogPosts(posts);
       }
+      
+      if (window.location.hash && $(window.location.hash).length) {
+        setTimeout(function() {
+          $('html, body').stop().animate({
+            scrollTop: $(window.location.hash).offset().top - 50
+          }, 800);
+        }, 200);
+      }
     });
 
 })(jQuery);

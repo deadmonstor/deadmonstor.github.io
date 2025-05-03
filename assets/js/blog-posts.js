@@ -228,7 +228,7 @@ public partial class NetworkMessage
     headerImage: "assets/img/portfolio/portfolio-12.png",
     description: "Building a 2D game engine from scratch in C++.",
     content: `## Introduction
-Arcon2D is a 2D Multiplayer Engine that a [friend](https://bennilsson.github.io/) and I have been working on for a while now. It is a custom engine that is built from the ground up.
+Acorn2D is a 2D Multiplayer Engine that a [friend](https://bennilsson.github.io/) and I have been working on for a while now. It is a custom engine that is built from the ground up.
 
 It is a 2D engine that is built on top of [GLFW](https://www.glfw.org/) and [OpenGL](https://www.glfw.org/).
 

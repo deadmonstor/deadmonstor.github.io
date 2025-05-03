@@ -18,7 +18,7 @@
     } else {
         if (blogTitleElement) blogTitleElement.textContent = 'Post Not Found';
         if (blogMetaElement) blogMetaElement.textContent = '';
-        if (blogContentElement) blogContentElement.innerHTML = '<p>The requested blog post could not be found.</p>';
+        if (blogContentElement) blogContentElement.innerHTML = '<div style="text-align:center;padding:2em;"><h2>Sorry, this blog post could not be found.</h2><p>The link may be broken or the post has been removed. <a href=\'index.html#blog\'>Return to the blog list</a>.</p></div>';
         document.title = 'Post Not Found | Joshua Mobley';
     }
 }
