@@ -24,7 +24,7 @@
 
 		$(window).on('load', function () {
 			$("#status").fadeOut();
-			$("#preloader").delay(500).fadeOut("slow");
+			$("#preloader").delay(250).fadeOut("slow");
 		});
 
 
@@ -523,7 +523,7 @@
         summary: "Worked as a Software Engineer on the networking and performance aspects of Sea of Thieves using C++ and Unreal Engine.",
         date: "2024 - Present",
         links: [
-          { url: "https://www.seaofthieves.com/", text: "Read More" }
+          { url: "https://www.seaofthieves.com/", text: "Sea of Thieves Website" }
         ]
       },
       {
@@ -534,7 +534,7 @@
         summary: "Worked on creating and maintaining internal toolsets for Playground Games on the Fable project using C# and WPF.",
         date: "2022",
         links: [
-          { url: "https://www.xbox.com/en-GB/games/fable", text: "Read More" }
+          { url: "https://www.xbox.com/en-GB/games/fable", text: "Fable Website" },
         ]
       },
       {
@@ -545,12 +545,12 @@
         summary: "Worked on various aspects of Forza Horizon using C# and custom engine tools.",
         date: "2022",
         links: [
-          { url: "https://forza.net/", text: "Read More" }
+          { url: "https://forza.net/", text: "Forza Horizon Website" },
         ]
       },
       {
         title: "Acorn2D Custom Engine",
-        classes: "professional cplusplus lua custom-engine ",
+        classes: "personalprojects cplusplus lua custom-engine ",
         image: "assets/img/portfolio/portfolio-12.png",
         alt: "Acorn2D Custom Engine",
         summary: "Developed a custom 2D multiplayer engine using C++",
@@ -655,42 +655,62 @@
         company: "Flix Interactive",
         companyUrl: "https://www.flixinteractive.com/",
         title: "Software Engineer Level 1",
-        description: "Software Engineer L1 working on Sea of Thieves (C++, Unreal Engine). Focused on networking and performance for major game updates within strict performance budgets."
+        description: "Software Engineer L1 working on Sea of Thieves (C++, Unreal Engine). Focused on networking and performance for major game updates within strict performance budgets.",
+        links: [
+          { url: "https://www.seaofthieves.com/", text: "Sea of Thieves" }
+        ]
       },
       {
         date: "Present",
         company: "Idle Fields",
         companyUrl: "https://store.steampowered.com/app/1807570/Idle_Fields/",
         title: "Developer",
-        description: "Co-developing 'Idle Fields' using C# and Unity. Available on Steam: <a target=\"_blank\" href=\"https://store.steampowered.com/app/1807570/Idle_Fields/\">Idle Fields</a>"
+        description: "Co-developing 'Idle Fields' using C# and Unity.",
+        links: [
+          { url: "https://store.steampowered.com/app/1807570/Idle_Fields/", text: "Idle Fields on Steam!" }
+        ]
       },
       {
         date: "2023 – 2024",
         company: "Flix Interactive",
         companyUrl: "https://www.flixinteractive.com/",
         title: "Junior Engineer",
-        description: "Junior Engineer on Sea of Thieves (C++, Unreal Engine). Contributed to major updates, focusing on networking, performance, and engine modifications."
+        description: "Junior Engineer on Sea of Thieves (C++, Unreal Engine). Contributed to major updates, focusing on networking, performance, and engine modifications.",
+        links: [
+          { url: "https://www.seaofthieves.com/", text: "Sea of Thieves" }
+        ]
       },
       {
         date: "2021 – 2022",
         company: "Playground Games",
         companyUrl: "https://www.playground-games.com/",
         title: "Associate Engineer (Placement)",
-        description: "University Placement on the Fable project. Developed and maintained internal tools (C#, WPF), collaborating with content creators to improve workflows and fix bugs."
+        description: "University Placement on the Fable project. Developed and maintained internal tools that were used cross-project (C#, WPF), collaborating with content creators to improve workflows and fix bugs.",
+        links: [
+          { url: "https://www.playground-games.com/", text: "Playground Games" },
+          { url: "https://www.xbox.com/en-GB/games/fable", text: "Fable" }
+        ]
       },
       {
         date: "2019 – 2023",
         company: "Staffordshire University",
         companyUrl: "https://www.staffs.ac.uk/",
         title: "BSc Computer Games Development",
-        description: "Developed diverse projects: MMO backend, mobile/console games (C++/C#, Unreal/Unity), networked AI, OpenGL, and engine development."
+        description: "Developed diverse projects: MMO backend, mobile/console games (C++/C#, Unreal/Unity), networked AI, OpenGL, and engine development.",
+        links: [
+          { url: "blog.html?post=mmo", text: "MMO Backend" },
+          { url: "blog.html?post=towerdefence", text: "Tower Defence" }
+        ]
       },
       {
         date: "2013 – 2018",
         company: "Garry's Mod",
         companyUrl: "https://gmod.facepunch.com/",
         title: "Personal projects",
-        description: "Started game development creating custom Garry's Mod content (Lua). Gained foundational coding/optimisation skills. Content reached thousands, solidifying career path."
+        description: "Started game development creating custom Garry's Mod content (Lua). Gained foundational coding/optimisation skills. Content reached thousands, solidifying career path.",
+        links: [
+          { url: "blog.html?post=gmod", text: "Garry's Mod Content" }
+        ]
       }
     ];
 
@@ -723,6 +743,7 @@
                 <h3>${exp.companyUrl ? `<a target=\"_blank\" href=\"${exp.companyUrl}\">${exp.company}</a>` : exp.company}</h3>
                 ${exp.title ? `<h4 class="vtimeline-title">${exp.title}</h4>` : ''}
                 <p>${exp.description}</p>
+                ${exp.links && exp.links.length ? `<div class='exp-blog-links'>Related Links: ${exp.links.map(link => `<a href="${link.url}" ${link.url.startsWith("https://") ? "target=_blank" : ""} class="exp-blog-button">${link.text}</a>`).join(' ')}</div>` : ''}
               </div>
             </div>
           </div>
