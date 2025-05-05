@@ -8,7 +8,7 @@ window.BLOG_POSTS = {
     content: `
 ## Introduction
 
-So a [friend](https://bennilsson.github.io/) and I have been working on a networking library and I thought I would share some information on how I used Roslyn to generate code for it.
+So [Ben Nilsson](https://bennilsson.github.io/) and I have been working on a networking library and I thought I would share some information on how I used Roslyn to generate code for it.
 
 Here is a quick video of the project
 <div class="video-wrapper">
@@ -228,7 +228,9 @@ public partial class NetworkMessage
     headerImage: "assets/img/portfolio/portfolio-12.png",
     description: "Building a 2D game engine from scratch in C++.",
     content: `## Introduction
-Acorn2D is a 2D Multiplayer Engine that a [friend](https://bennilsson.github.io/) and I have been working on for a while now. It is a custom engine that is built from the ground up.
+Acorn2D is a 2D Multiplayer Engine that [Ben Nilsson](https://bennilsson.github.io/) and I have been working on for a while now. It is a custom engine that is built from the ground up.
+
+If you would like to see more take a look at Ben Nilsson [post](https://bennilsson.github.io/Blog/blog-acorn2d.html) on this same project.
 
 It is a 2D engine that is built on top of [GLFW](https://www.glfw.org/) and [OpenGL](https://www.glfw.org/).
 
