@@ -516,12 +516,21 @@
 
   const projectList = [
     {
+      title: "Unannounced AAA Project",
+      classes: "professional cplusplus unreal ",
+      image: "assets/img/code.png",
+      alt: "Unannounced AAA Project",
+      summary: "Worked on an unannounced AAA project focused on networking and performance using C++ and Unreal Engine.",
+      date: "2026 - Present",
+      links: []
+    },
+    {
       title: "Powerwash Simulator 2",
       classes: "professional csharp unity",
       image: "assets/img/portfolio/powerwash.png",
       alt: "Powerwash Simulator 2",
       summary: "Worked on releasing Powerwash Simulator 2",
-      date: "2025 - Present",
+      date: "2025 - 2025",
       links: [
         { url: "https://store.steampowered.com/app/2968420/PowerWash_Simulator_2/", text: "Powerwash Simulator 2 Website" }
       ]
@@ -532,7 +541,7 @@
       image: "assets/img/portfolio/seaofthieves.jpg",
       alt: "Sea of Thieves",
       summary: "Worked as a Software Engineer on the networking and performance aspects of Sea of Thieves using C++ and Unreal Engine.",
-      date: "2024 - Present",
+      date: "2024 - 2025",
       links: [
         { url: "https://www.seaofthieves.com/", text: "Sea of Thieves Website" }
       ]
@@ -666,9 +675,11 @@
       company: "Flix Interactive",
       companyUrl: "https://www.flixinteractive.com/",
       title: "Software Engineer Level 1",
-      description: "Software Engineer L1 working on Sea of Thieves (C++, Unreal Engine). Focused on networking and performance for major game updates within strict performance budgets.",
+      description: "Software Engineer L1. Focused on networking and performance for major game updates within strict performance budgets.",
       links: [
-        { url: "https://www.seaofthieves.com/", text: "Sea of Thieves" }
+        { url: "https://www.seaofthieves.com/", text: "Sea of Thieves" },
+        { url: "https://store.steampowered.com/app/2968420/PowerWash_Simulator_2/", text: "Powerwash Simulator 2" },
+        { url: "https://www.flixinteractive.com/", text: "Flix Interactive" }
       ]
     },
     {
