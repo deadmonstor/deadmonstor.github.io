@@ -423,7 +423,6 @@ body {
 .navigation-menu .navbar-nav .active a,
 .navigation-menu .navbar-nav li a:hover {
 	color: #ffffff;
-	/* Changed from #121212 */
 	background: none;
 	-webkit-transition: all 0.3s ease-out;
 	transition: all 0.3s ease-out;
@@ -468,7 +467,6 @@ body {
 
 .nav-bg .navigation-menu .navbar-nav li a:hover {
 	color: #ffffff;
-	/* Changed from #121212 */
 }
 
 .nav-bg .navbar-nav>.active>a,
@@ -1992,7 +1990,6 @@ code {
 	}
 }
 
-/* 1. Meme Mode: Nyan Cat Rainbow Bar */
 .meme-mode::before {
 	content: '';
 	display: block;
@@ -2016,7 +2013,6 @@ code {
 	}
 }
 
-/* 2. Meme Mode: Spinning Nyan Cat */
 .meme-mode .nyan-cat {
 	position: fixed;
 	top: 8px;
@@ -2028,12 +2024,10 @@ code {
 	animation: meme-spin 2s linear infinite;
 }
 
-/* 3. Meme Mode: Comic Sans for everything */
 .meme-mode * {
 	font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
 }
 
-/* 4. Meme Mode: Dancing Banana */
 .meme-mode .dancing-banana {
 	position: fixed;
 	bottom: 20px;
@@ -2059,7 +2053,6 @@ code {
 	}
 }
 
-/* 5. Meme Mode: Confetti */
 .falling-confetti {
 	position: fixed;
 	top: -32px;
@@ -2086,7 +2079,6 @@ code {
 	}
 }
 
-/* 6. Meme Mode: Marquee Text */
 .meme-mode .meme-marquee {
 	position: fixed;
 	bottom: 0;
@@ -2112,13 +2104,11 @@ code {
 	}
 }
 
-/* 7. Meme Mode: Spinning Social Icons */
 .meme-mode .social-icons li a,
 .meme-mode .social-icons-footer li a {
 	animation: meme-spin 1.5s linear infinite;
 }
 
-/* 8. Meme Mode: Wobble All Headings */
 .meme-mode h1,
 .meme-mode h2,
 .meme-mode h3,
@@ -2138,7 +2128,6 @@ code {
 	}
 }
 
-/* 9. Meme Mode: Rainbow Border for Main Sections */
 .meme-mode section,
 .meme-mode #home,
 .meme-mode #navigation {
@@ -2146,12 +2135,10 @@ code {
 	border-image: linear-gradient(90deg, #ff69b4, #ffea00, #00ffea, #48b14d, #4a8cdb, #ff69b4) 1;
 }
 
-/* 10. Meme Mode: Extra Large Cursor */
 .meme-mode {
 	cursor: url('assets/img/gmod.png'), auto;
 }
 
-/* 11. Meme Mode: Joke Popup */
 .meme-joke-popup {
 	border: 4px solid #ff69b4;
 	background: linear-gradient(135deg, #ffea00 0%, #ff69b4 100%);
@@ -2231,7 +2218,6 @@ code {
 	}
 }
 
-/* Meme Joke Popup UI (reset) */
 .meme-joke-popup {
 	position: fixed;
 	left: 50%;
