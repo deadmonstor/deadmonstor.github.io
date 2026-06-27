@@ -100,6 +100,8 @@ The problem is that serializing and deserializing that JSON can sometimes take l
 
 I'm currently testing two possible fixes: scaling the acknowledgement timer per slot based on the user's ping and how loaded the server is, or packing the data tighter so serialization doesn't take long enough to trigger the problem in the first place. Still got nothing concrete to report on either yet.
 
+At the moment I am leaning towards both! You can never get too many optimizations, and the more we can do to reduce the amount of data being sent over the network, the better.
+
 ## Looping problem (Scaling)
 
 Currently every frame we are looping over all network objects to check if they have changed and need to be sent to the client. This is fine for a small number of objects, but as the number of networked objects increases, this becomes a problem. The loop takes longer and longer to complete. 
@@ -132,6 +134,8 @@ public void MyRPC()
     // RPC code here
 }
 \`\`\`
+
+When the ratelimit is dropped your message is dropped, there is an optional convar to allow it to kick people aswell.
 
 ## Conclusion
 
