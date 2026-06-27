@@ -5,7 +5,8 @@ window.BLOG_POSTS["towerdefence"] = {
   author: "Josh Mobley",
   headerImage: "assets/img/portfolio/portfolio-0.jpg",
   description: "Online co-op tower defence game in Unity.",
-  content: `## Introduction to Tower Defence Project
+  content: `
+## Introduction to Tower Defence Project
 This project marked my first university assignment in my second year of studies. I was tasked with creating a tower defence game, and I decided to elevate the challenge by implementing an online co-op feature where players could collaborate to defend against attacking military forces.
 
 I chose a military theme with a simplistic art style, which aligns with the aesthetic commonly used in tower defence games and provided a clean, cohesive look.

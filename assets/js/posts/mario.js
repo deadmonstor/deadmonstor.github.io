@@ -5,7 +5,8 @@ window.BLOG_POSTS["mario"] = {
   author: "Josh Mobley",
   headerImage: "assets/img/portfolio/portfolio-1.jpg",
   description: "Recreating Mario platformer mechanics in SDL.",
-  content: `## Introduction to the Mario Recreation Project
+  content: `
+## Introduction to the Mario Recreation Project
 For one of my university assignments, I was tasked with recreating a classic game. I chose to recreate Mario. This project allowed me to gain experience with making 2D games while developing a deeper understanding of what makes platformer mechanics feel responsive and satisfying.
 
 <div class="video-wrapper">

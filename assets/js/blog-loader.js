@@ -14,6 +14,7 @@
 
         blogContentElement.dataset.markdown = post.content;
         renderMarkdown(blogContentElement, post.content);
+        generateTableOfContents(blogContentElement);
         addEditFunctionality(blogContentElement);
     } else {
         if (blogTitleElement) blogTitleElement.textContent = 'Post Not Found';
@@ -25,13 +26,80 @@
 
 function renderMarkdown(element, markdown) {
     if (window.marked && window.Prism) {
-        const htmlContent = marked.parse(markdown);
+        const htmlContent = marked.parse(markdown, { breaks: true });
         element.innerHTML = htmlContent;
         setTimeout(() => Prism.highlightAllUnder(element), 0);
     } else {
         console.error("marked.js or Prism.js not loaded");
         element.innerHTML = "<p>Error rendering content (Markdown library not found).</p>";
     }
+}
+
+function generateTableOfContents(contentElement) {
+    const tocList = document.getElementById('toc-list');
+    if (!tocList) return;
+
+    tocList.innerHTML = '';
+    const headers = contentElement.querySelectorAll('h1, h2');
+
+    if (headers.length === 0) {
+        const sidebar = document.querySelector('.blog-sidebar');
+        if (sidebar) sidebar.style.display = 'none';
+        return;
+    }
+
+    headers.forEach((header) => {
+        const text = header.textContent;
+        const id = text.toLowerCase().replace(/[^\w]+/g, '-');
+        header.id = id;
+
+        const li = document.createElement('li');
+        li.classList.add(`toc-${header.tagName.toLowerCase()}`);
+        const a = document.createElement('a');
+        a.href = `#${id}`;
+        a.textContent = text;
+        
+        a.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.getElementById(id);
+            if (target) {
+                // Find the absolute top position of the element relative to the document
+                const rect = target.getBoundingClientRect();
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const absoluteTargetTop = rect.top + scrollTop;
+                
+                window.scrollTo({
+                    top: absoluteTargetTop - 110, // Increased offset to clear nav better
+                    behavior: 'smooth'
+                });
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+
+        li.appendChild(a);
+        tocList.appendChild(li);
+    });
+
+    // Add scroll spy for TOC
+    window.addEventListener('scroll', () => {
+        let current = '';
+        headers.forEach(header => {
+            // Check position relative to the viewport
+            const rect = header.getBoundingClientRect();
+            // If the header is near the top of the viewport
+            if (rect.top <= 130) {
+                current = header.id;
+            }
+        });
+
+        const links = tocList.querySelectorAll('a');
+        links.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
 }
 
 function addEditFunctionality(contentElement) {

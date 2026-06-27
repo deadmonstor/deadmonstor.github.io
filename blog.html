@@ -49,17 +49,86 @@
 		}
 
 		.post-content h2 {
-			margin-top: 40px;
-			margin-bottom: 20px;
+			margin-top: 25px;
+			margin-bottom: 12px;
 			color: #4a8cdb;
 		}
 
+		.post-content h2:first-child {
+			margin-top: 15px;
+		}
+
 		.post-content p {
-			margin-bottom: 20px;
+			margin-bottom: 12px;
+		}
+
+		.blog-sidebar {
+			position: sticky;
+			top: 100px;
+			padding: 20px;
+			background: #1e1e1e;
+			border-radius: 12px;
+			margin-top: 40px;
+			box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+			max-height: calc(100vh - 140px);
+			overflow-y: auto;
+			z-index: 10;
+		}
+
+		.blog-sidebar h4 {
+			color: #4a8cdb;
+			margin-bottom: 15px;
+			font-size: 1.1em;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+
+		.toc-list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		.toc-list li {
+			margin-bottom: 10px;
+		}
+
+		.toc-list .toc-h1 {
+			margin-left: 14px;
+		}
+
+		.toc-list a {
+			color: #b0b0b0;
+			text-decoration: none;
+			font-size: 0.9em;
+			transition: color 0.2s;
+			display: block;
+			line-height: 1.4;
+		}
+
+		.toc-list a:hover {
+			color: #4a8cdb;
+		}
+
+		.toc-list .toc-h1 a {
+			font-size: 0.8em;
+			opacity: 0.9;
+		}
+
+		.toc-list a.active {
+			color: #4a8cdb;
+			font-weight: bold;
+		}
+
+		@media (max-width: 991px) {
+			.blog-sidebar {
+				position: static;
+				margin-bottom: 20px;
+			}
 		}
 
 		.post-content pre {
-			margin: 20px 0;
+			margin: 15px 0;
 			padding: 0;
 			background-color: #1a2638;
 			border-left: 4px solid #4a8cdb;
@@ -318,10 +387,18 @@
 	</div>
 	<section id="post">
 		<div class="container">
-			<div class="row">
-				<div class="post-container">
-					<article class="post-content" id="blog-content">
-					</article>
+			<div class="row" style="display: flex; flex-wrap: wrap; align-items: stretch;">
+				<div class="col-md-3">
+					<nav class="blog-sidebar">
+						<h4>On this page</h4>
+						<ul id="toc-list" class="toc-list"></ul>
+					</nav>
+				</div>
+				<div class="col-md-9 col-sm-12">
+					<div class="post-container" style="margin-top: 40px;">
+						<article class="post-content" id="blog-content">
+						</article>
+					</div>
 				</div>
 			</div>
 		</div>

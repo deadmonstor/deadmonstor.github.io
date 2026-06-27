@@ -5,15 +5,14 @@ window.BLOG_POSTS["deltasnapshot"] = {
   author: "Josh Mobley",
   headerImage: "assets/img/sbox.jpg",
   description: "Breaking down how s&box's engine syncs networked object state efficiently.",
-content: `## Introduction
+  content: `
+## Introduction
 
-Over the last couple of weeks I have been taking a look at how s&box syncs networked object state, for those who don't know s&box is a game engine that is being developed by Facepunch Studios, the creators of Garry's Mod.
-
-From a high level it seems easy, you just take a look at what has changed and send that over the network, however it is a lot more complicated than that.
-
-// TODO: Talk about C#
+Over the last couple of weeks I have been taking a look at how s&box syncs networked object state, for those who don't know s&box is a game engine that is being developed by Facepunch Studios, the creators of Garry's Mod. It's within the source 2 engine however it has a public C# "front end" which glues it all together.
 
 ## DeltaSnapshot
+
+From a high level it seems easy, you just take a look at what has changed and send that over the network, however it is a lot more complicated than that.
 
 DeltaSnapshots are a way to efficiently sync networked object state by only sending the changes that have occurred since the last snapshot. This is done by keeping track of the previous state and comparing it to the current state, and only sending the differences, and even that is a simplification!
 
@@ -29,7 +28,7 @@ if ( receivedSnapshotStates.TryGetValue( snapshot.ObjectId, out var state ) )
 
 		if ( entry.LocalState?.Connections?.Contains( connectionId ) ?? false )
 		{
-            // If the entry is already in the local state and has been acknowledged by this connection or in ACK timer, we can skip sending this slot to the client
+            // If the entry is already in the local state and has been acknowledged by this connection or is currently within the ACK window., we can skip sending this slot to the client
 			if ( state.TryGetHash( slot, out _, Time ) )
 				continue;
 		}
@@ -53,8 +52,9 @@ if ( receivedSnapshotStates.TryGetValue( snapshot.ObjectId, out var state ) )
 
 
 ## Exploit protection
-Most of the client code that ends up on the 
-
+Most of the code that ends up being ran on the server that is client controlled is wrapped via a try-catch block, so if an exception does occur then it will just throw a warning and continue on, rather than crashing the server. 
+However there were a few places where this wasn't the case, mostly to do with engine level message handlers that were on top of the try catch meaning they would exception and then drop all the messages that were in the queue. Which means it didn't actually crash the server however nobody could move or do anything, so essentially it was a server crash for everyone else.
+I have put a [PR](https://github.com/Facepunch/sbox-public/pull/11337) up to fix this.
 
 ## Retry storm
 A retry storm happens when a client can't acknowledge a snapshot in time, so the server keeps re-sending the same snapshot over and over, causing a flood of network traffic. This can be triggered by the client lagging, or even by the server itself lagging.
@@ -110,10 +110,39 @@ Currently every frame we are looping over all network objects to check if they h
 
 Image is of the profiler [https://superluminal.eu/](https://superluminal.eu/)
 
+# Dormant Objects
+
+Currently I am testing a change to set them to "dormant" if everyone has all the slots and snapshots acknowledged and nothing has changed. We can do that by putting hooks in all places anything changes and then just re-adding them in the loop when they change. This will reduce the number of objects we have to loop over and should improve performance. This is currently the difference between having 100 clients and 10000 objects on the server at the moment. I am not done with testing however as I am sure I have missed some edge cases where objects can change without the server knowing about it, so I am still testing to make sure this is a safe change.
+
 Before: <img src="assets/img/blog/sbox_before.png" alt="s&box before" />
 After: <img src="assets/img/blog/sbox_after.png" alt="s&box after" />
 
-Links:
+## Some smaller changes I am testing
+
+# Rate Limits
+
+In gmod there was a lot of problems with people spamming the server with net messages, causing people to get overflow buffered (which was basically a disconnection due to the network pipe being too full.), This would usually disconnect everyone on the server.
+To prevent this globally it would be nice to have either an attribute on an RPC that will allow you to set a rate limit, or a global rate limit that will apply to all RPC's. 
+
+Currently I think it would look something like this:
+
+\`\`\`csharp
+[Rpc.Host]
+[RateLimit( 10, 1f )] // 10 calls per second, 1 second window
+public void MyRPC()
+{
+    // RPC code here
+}
+\`\`\`
+
+## Conclusion
+
+Honestly I am having so much fun looking at this engine, I have currently got 5 PRs open and I am looking at more things to improve. 
+The networking has a lot of improvements that could be made and I am looking to make some of them soon! So maybe another blog post.
+
+<br>
+
+# Links:
 
 s&box: [https://sbox.facepunch.com/](https://sbox.facepunch.com/)
 Code: [https://github.com/Facepunch/sbox-public/](https://github.com/Facepunch/sbox-public/)

@@ -5,7 +5,8 @@ window.BLOG_POSTS["acorn2d"] = {
   author: "Josh Mobley",
   headerImage: "assets/img/portfolio/portfolio-12.png",
   description: "Building a 2D game engine from scratch in C++.",
-  content: `## Introduction
+  content: `
+## Introduction
 Acorn2D is a 2D Multiplayer Engine that [Ben Nilsson](https://bennilsson.github.io/) and I have been working on for a while now. It is a custom engine that is built from the ground up.
 
 If you would like to see more take a look at Ben Nilsson [post](https://bennilsson.github.io/Blog/blog-acorn2d.html) on this same project.

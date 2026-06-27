@@ -5,7 +5,8 @@ window.BLOG_POSTS["mmo"] = {
   author: "Josh Mobley",
   headerImage: "assets/img/portfolio/portfolio-9.jpg",
   description: "Building a multiplayer online game for my final year project.",
-  content: `## Introduction
+  content: `
+## Introduction
 This project aims to create a massively multiplayer online game (MMO) framework that would allow me to develop a game that can be played by many players simultaneously. The framework is designed to be flexible and scalable, allowing for easy integration of new features and content.
 
 I explored industry standards and best practices in game development, focusing on network architecture, server-client communication, and database management. The project also includes a prototype "game" that demonstrates the capabilities of the framework.

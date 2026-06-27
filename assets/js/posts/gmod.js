@@ -5,7 +5,8 @@ window.BLOG_POSTS["gmod"] = {
   author: "Josh Mobley",
   headerImage: "assets/img/gmod_background.jpg",
   description: "My experience scripting in Garry's Mod.",
-  content: `## The Beginning of a Journey
+  content: `
+## The Beginning of a Journey
 My programming journey began in 2013 when I discovered Garry's Mod (GMod), a sandbox modification for Valve's Source engine. What started as simple in-game experimentation quickly evolved into a passion for creating custom content and scripts that would enhance the gaming experience for myself and thousands of other players.
 
 ## Learning Through Creating

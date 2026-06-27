@@ -5,7 +5,8 @@ window.BLOG_POSTS["01"] = {
   author: "Josh Mobley",
   headerImage: "assets/img/portfolio/portfolio-11.png",
   description: "The issues with using Object Pooling in a fully multiplayer game.",
-  content: `## The Challenge
+  content: `
+## The Challenge
 In my university Tower Defence game project, I faced the challenge of efficiently spawning large numbers of enemies and projectiles without causing performance drops. The solution was to implement an object pooling system that would reuse game objects instead of constantly creating and destroying them.
 
 <div class="video-wrapper">
