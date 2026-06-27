@@ -28,7 +28,7 @@ if ( receivedSnapshotStates.TryGetValue( snapshot.ObjectId, out var state ) )
 
 		if ( entry.LocalState?.Connections?.Contains( connectionId ) ?? false )
 		{
-            // If the entry is already in the local state and has been acknowledged by this connection or is currently within the ACK window., we can skip sending this slot to the client
+            // If the entry is already in the local state and has been acknowledged by this connection or in ACK timer, we can skip sending this slot to the client
 			if ( state.TryGetHash( slot, out _, Time ) )
 				continue;
 		}
@@ -49,7 +49,6 @@ if ( receivedSnapshotStates.TryGetValue( snapshot.ObjectId, out var state ) )
 	}
 }
 \`\`\`
-
 
 ## Exploit protection
 Most of the code that ends up being ran on the server that is client controlled is wrapped via a try-catch block, so if an exception does occur then it will just throw a warning and continue on, rather than crashing the server. 
@@ -93,14 +92,13 @@ public bool TryGetHash( int slot, out ulong hash, float timeNow )
 }
 \`\`\`
 
-
 # Investigation
 
 Currently I'm investigating an issue with this system, so here's a quick rundown. If you've played Garry's Mod, you'll know you can "duplicate" the state of game objects and paste them down later to recreate builds. Right now this works by serializing the object to JSON on the client, then sending that JSON back to the server when you want to paste it down so it can be recreated there.
 
 The problem is that serializing and deserializing that JSON can sometimes take longer than the 0.25f acknowledgement window on its own, and on top of that, the engine can freeze for a moment while it mounts cloud content. By the time it's finished, the delta system has already decided the prediction expired and re-sends the data, which kicks off the same slow process again, and you end up with a retry storm. This seems to be a bigger problem on linux/wine because of the emulation and it generally taking longer to do things in the engine.
 
-I'm currently testing two possible fixes: scaling the acknowledgement timer per slot based on the user's ping and how loaded the server is, or packing the data tighter so serialization doesn't take long enough to trigger the problem in the first place.
+I'm currently testing two possible fixes: scaling the acknowledgement timer per slot based on the user's ping and how loaded the server is, or packing the data tighter so serialization doesn't take long enough to trigger the problem in the first place. Still got nothing concrete to report on either yet.
 
 ## Looping problem (Scaling)
 
@@ -112,7 +110,7 @@ Image is of the profiler [https://superluminal.eu/](https://superluminal.eu/)
 
 # Dormant Objects
 
-Currently I am testing a change to set them to "dormant" if everyone has all the slots and snapshots acknowledged and nothing has changed. We can do that by putting hooks in all places anything changes and then just re-adding them in the loop when they change. This will reduce the number of objects we have to loop over and should improve performance. This is currently the difference between having 100 clients and 10000 objects on the server at the moment. I am not done with testing however as I am sure I have missed some edge cases where objects can change without the server knowing about it, so I am still testing to make sure this is a safe change.
+Currently I am testing a change to set them to "dormant" if everyone has all the slots and snapshots acknowledged and nothing has changed. We can do that by putting hooks in all places anything changes and then just adding them back into the loop when they change. This will reduce the number of objects we have to loop over and should improve performance. This is currently the difference between the server handling 100 clients and 10000 objects, versus falling over before that. I am not done with testing however as I am sure I have missed some edge cases where objects can change without the server knowing about it, so I am still testing to make sure this is a safe change.
 
 Before: <img src="assets/img/blog/sbox_before.png" alt="s&box before" />
 After: <img src="assets/img/blog/sbox_after.png" alt="s&box after" />
@@ -146,6 +144,5 @@ The networking has a lot of improvements that could be made and I am looking to 
 
 s&box: [https://sbox.facepunch.com/](https://sbox.facepunch.com/)
 Code: [https://github.com/Facepunch/sbox-public/](https://github.com/Facepunch/sbox-public/)
-  
   `
 };
